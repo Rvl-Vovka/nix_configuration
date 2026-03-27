@@ -179,7 +179,6 @@ in
     asusctl
     alacritty
     bluez
-    bluetoothctl
   ];
 
   environment.variables.EDITOR = "micro";
