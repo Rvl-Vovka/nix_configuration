@@ -74,7 +74,7 @@ in
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.consoleUseXkbConfig = true;
+  console.useXkbConfig = true;
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
