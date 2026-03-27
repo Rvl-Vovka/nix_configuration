@@ -11,9 +11,9 @@ in
 
 let
   # Pull the Thorium flake directly
-  thorium = (builtins.getFlake "github:Rishabh5321/thorium_flake");
+  thorium = (builtins.getFlake "github:Rishabh5321/custom-packages-flake");
   # Choose the AVX2 version for Ryzen 7 4800H
-  thorium-pkg = thorium.packages.${pkgs.system}.thorium-avx2;
+  thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
 in
 
 {
