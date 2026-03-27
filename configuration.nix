@@ -108,7 +108,7 @@
     kitty
     micro
     msedit
-    nodejs_25
+    gemini-cli
     zoxide
     obs-studio
     cbonsai
