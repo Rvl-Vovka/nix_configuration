@@ -74,6 +74,7 @@ in
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.consoleUseXkbConfig = true;
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -86,13 +87,13 @@ in
   # Configure keymap in X11
   services.xserver.xkb = {
     # Set multiple layouts separated by commas
-    layout = "us,ru,fr";
+    layout = "us,ru";
     
     # Optional: Match variants with layouts, also comma-separated
-    variant = ",phonetic,"; 
+    variant = ",phonetic"; 
     
     # Set the key combination to switch layouts (e.g., Alt+Shift)
-    options = "grp:alt_shift_toggle";
+    options = "grp:ctrl_shift_toggle";
   };
   
 
