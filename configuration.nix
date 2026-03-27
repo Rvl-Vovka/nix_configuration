@@ -126,6 +126,7 @@
     fortune
     ffmpeg
     haruna
+    xsel
   ];
 
   environment.variables.EDITOR = "micro";
