@@ -98,7 +98,7 @@ in
   
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -115,6 +115,7 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  hardware.bluetooth.settings.General.Enable = "Source,Sink,Media,Socket";   
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -177,6 +178,8 @@ in
     pciutils
     asusctl
     alacritty
+    bluez
+    bluetoothctl
   ];
 
   environment.variables.EDITOR = "micro";
@@ -210,6 +213,8 @@ in
   services.asusd.enableUserService = true;
 
   services.power-profiles-daemon.enable = true;
+
+  # services.blueman.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
