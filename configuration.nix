@@ -205,7 +205,6 @@ in
     #alacritty
     bluez
     thorium-pkg
-    smplayer
     strawberry
     mpv
   ];
