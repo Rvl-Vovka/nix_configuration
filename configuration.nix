@@ -90,10 +90,18 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
   # Enable DNS
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking.nameservers = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
+
+  services.resolved = {
+    enable = true;
+    dnsOverTls = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Minsk";
@@ -189,7 +197,7 @@ in
     obs-studio
     cbonsai
     nudoku
-    htop
+    #htop
     btop
     atuin
     eza
