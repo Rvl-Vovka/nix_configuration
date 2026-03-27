@@ -211,6 +211,7 @@ in
     strawberry
     mpv
     protonvpn-gui
+    dnslookup
   ];
 
   environment.variables.EDITOR = "micro";
