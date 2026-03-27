@@ -106,7 +106,7 @@ in
     layout = "us,ru";
     
     # Optional: Match variants with layouts, also comma-separated
-    variant = ",";
+    variant = ",typewriter";
     
     # Set the key combination to switch layouts (e.g., Alt+Shift)
     # options = "grp:ctrl_shift_toggle";
