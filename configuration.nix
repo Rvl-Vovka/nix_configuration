@@ -85,9 +85,16 @@ in
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Set multiple layouts separated by commas
+    layout = "us,ru";
+    
+    # Optional: Match variants with layouts, also comma-separated
+    variant = ",phonetic"; 
+    
+    # Set the key combination to switch layouts (e.g., Alt+Shift)
+    options = "grp:ctrl_shift_toggle";
   };
+  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
