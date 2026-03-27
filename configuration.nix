@@ -161,6 +161,7 @@ in
   # Install firefox.
   # programs.firefox.enable = true;
   programs.gamemode.enable = true;
+  programs.steam.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -177,7 +178,7 @@ in
     git
     unstable.powershell
     python315
-    kitty
+    #kitty
     micro
     msedit
     unstable.gemini-cli
@@ -197,11 +198,11 @@ in
     lolcat
     fortune
     ffmpeg
-    haruna
+    #haruna
     xsel
     pciutils
     asusctl
-    alacritty
+    #alacritty
     bluez
     thorium-pkg
   ];
