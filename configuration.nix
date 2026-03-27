@@ -9,6 +9,13 @@ let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 
+let
+  # Pull the Thorium flake directly
+  thorium = (builtins.getFlake "github:Rishabh5321/thorium_flake");
+  # Choose the AVX2 version for Ryzen 7 4800H
+  thorium-pkg = thorium.packages.${pkgs.system}.thorium-avx2;
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -196,6 +203,7 @@ in
     asusctl
     alacritty
     bluez
+    thorium-pkg
   ];
 
   environment.variables.EDITOR = "micro";
@@ -237,7 +245,8 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
