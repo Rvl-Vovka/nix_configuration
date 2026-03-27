@@ -29,6 +29,22 @@ in
 
   # Enable OpenGL/Graphics
   hardware.graphics.enable = true;
+
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true; # Shows battery charge on supported adapters
+        FastConnectable = true; # Faster connections, higher power consumption
+      };
+      Policy = {
+        AutoEnable = true; # Enable all controllers when found
+      };
+    };
+  };
  
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
@@ -213,7 +229,7 @@ in
 
   services.power-profiles-daemon.enable = true;
 
-  # services.blueman.enable = true;
+  services.blueman.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
