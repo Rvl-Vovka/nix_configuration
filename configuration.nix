@@ -21,9 +21,45 @@ in
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Enable OpenGL/Graphics
+  hardware.graphics.enable = true;
+ 
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+ 
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    powerManagement.enable = true;
+    # Fine-grained power management. Turns off GPU when not in use.
+    powerManagement.finegrained = true;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # nouveau open source driver). Only available on driver 515.43.04+
+    # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing).
+    open = false;
+
+    # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # PRIME settings for Hybrid Graphics
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      amdgpuBusId = "PCI:5:0:0"; # ADJUST THESE
+      nvidiaBusId = "PCI:1:0:0"; # ADJUST THESE
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -88,12 +124,9 @@ in
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
   
-  # Disable prompting for password on boot
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "vlryz";
-  
   # Install firefox.
   programs.firefox.enable = true;
+  programs.gamemode.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -132,6 +165,8 @@ in
     ffmpeg
     haruna
     xsel
+    pciutils
+    asusctl
   ];
 
   environment.variables.EDITOR = "micro";
@@ -156,12 +191,28 @@ in
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  # Disable prompting for password on boot
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "vlryz";
+
+  services.asusd.enable = true;
+  services.asusd.enableUserService = true;
+
+  services.power-profiles-daemon.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
