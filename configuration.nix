@@ -205,6 +205,8 @@ in
     #alacritty
     bluez
     thorium-pkg
+    smplayer
+    strawberry
   ];
 
   environment.variables.EDITOR = "micro";
