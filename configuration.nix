@@ -31,7 +31,7 @@ in
   hardware.graphics.enable = true;
 
   # Enable bluetooth
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
