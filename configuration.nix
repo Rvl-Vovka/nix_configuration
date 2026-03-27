@@ -4,6 +4,11 @@
 
 { config, pkgs, ... }:
 
+let
+  # Import the unstable channel
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -103,7 +108,7 @@
     fastfetch
     yt-dlp
     git
-    powershell
+    unstable.powershell
     python315
     kitty
     micro
