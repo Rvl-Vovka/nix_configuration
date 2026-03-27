@@ -207,6 +207,7 @@ in
     thorium-pkg
     strawberry
     mpv
+    protonvpn-gui
   ];
 
   environment.variables.EDITOR = "micro";
