@@ -98,7 +98,7 @@ in
 
   services.resolved = {
     enable = true;
-    dnsOverTls = "true";
+    dnsovertls = "true";
     domains = [ "~." ];
     fallbackDns = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
   };
