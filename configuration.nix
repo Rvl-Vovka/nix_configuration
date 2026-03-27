@@ -20,7 +20,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -51,7 +52,7 @@ in
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-
+    
     # PRIME settings for Hybrid Graphics
     prime = {
       offload.enable = true;
