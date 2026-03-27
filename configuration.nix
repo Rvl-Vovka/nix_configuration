@@ -130,7 +130,15 @@
   ];
 
   environment.variables.EDITOR = "micro";
-  
+
+
+  environment.shellAliases = {
+    # Format: "aliasName" = "command to run";
+    copy = "xsel --input --clipboard";
+    paste = "xsel --output --clipboard";
+    cdd = "cd /home/vlryz/Downloads";
+    rebuild = "~/rebuild.sh";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
