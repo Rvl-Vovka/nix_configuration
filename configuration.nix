@@ -79,7 +79,14 @@
     #  thunderbird
     ];
   };
-
+  
+  # Disable prompting for password when using sudo
+  security.sudo.wheelNeedsPassword = false;
+  
+  # Disable prompting for password on boot
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "vlryz";
+  
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -89,8 +96,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    floorp-bin
+    android-tools
+    fastfetch
+    yt-dlp
+    git
+    powershell
+    python315
+    kitty
+    micro
+    msedit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
