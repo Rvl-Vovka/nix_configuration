@@ -108,6 +108,22 @@
     kitty
     micro
     msedit
+    nodejs_25
+    zoxide
+    obs-studio
+    cbonsai
+    nudoku
+    htop
+    btop
+    atuin
+    eza
+    bat
+    neo-cowsay
+    figlet
+    toilet
+    sl
+    lolcat
+    fortune
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
