@@ -57,8 +57,8 @@ in
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;
-      amdgpuBusId = "PCI:5:0:0"; # ADJUST THESE
-      nvidiaBusId = "PCI:1:0:0"; # ADJUST THESE
+      amdgpuBusId = "PCI:5:0:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
   };
 
@@ -90,7 +90,7 @@ in
     layout = "us,ru";
     
     # Optional: Match variants with layouts, also comma-separated
-    variant = ",phonetic"; 
+    variant = ",";
     
     # Set the key combination to switch layouts (e.g., Alt+Shift)
     options = "grp:ctrl_shift_toggle";
@@ -134,7 +134,7 @@ in
   security.sudo.wheelNeedsPassword = false;
   
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.gamemode.enable = true;
 
   # Allow unfree packages
@@ -143,7 +143,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     floorp-bin
     android-tools
@@ -155,7 +155,7 @@ in
     kitty
     micro
     msedit
-    gemini-cli
+    unstable.gemini-cli
     zoxide
     obs-studio
     cbonsai
@@ -176,6 +176,7 @@ in
     xsel
     pciutils
     asusctl
+    alacritty
   ];
 
   environment.variables.EDITOR = "micro";
