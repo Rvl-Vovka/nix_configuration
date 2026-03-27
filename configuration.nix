@@ -179,6 +179,7 @@ in
     paste = "xsel --output --clipboard";
     cdd = "cd /home/vlryz/Downloads";
     rebuild = "~/rebuild.sh";
+    n = "nvidia-offload";
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
