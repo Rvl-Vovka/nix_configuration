@@ -207,6 +207,7 @@ in
     thorium-pkg
     smplayer
     strawberry
+    mpv
   ];
 
   environment.variables.EDITOR = "micro";
