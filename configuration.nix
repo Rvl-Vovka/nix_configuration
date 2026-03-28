@@ -222,6 +222,7 @@ in
     dnslookup
     lsof
     mesa-demos
+    vscode
   ];
 
   environment.variables.EDITOR = "micro";
