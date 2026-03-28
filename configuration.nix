@@ -218,8 +218,10 @@ in
     thorium-pkg
     strawberry
     mpv
-    protonvpn-gui
+    #protonvpn-gui
     dnslookup
+    lsof
+    mesa-demos
   ];
 
   environment.variables.EDITOR = "micro";
