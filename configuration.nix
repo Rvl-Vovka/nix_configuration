@@ -31,7 +31,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=alc256-asus-mic
+    options snd-hda-intel model=alc256-asus-mic dmic_detect=0
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
