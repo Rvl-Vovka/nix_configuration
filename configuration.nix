@@ -31,7 +31,6 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    # Use the model quirk that helped before, plus position_fix to help with low volume.
     options snd-hda-intel model=alc256-asus-mic position_fix=1
   '';
 
@@ -239,7 +238,7 @@ in
     cdd = "cd /home/vlryz/Downloads";
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
-    vim = "nvim"
+    vim = "nvim";
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
