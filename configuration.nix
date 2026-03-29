@@ -31,7 +31,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=alc256-asus-mic dmic_detect=0
+    # Use the model quirk that helped before, plus position_fix to help with low volume.
+    options snd-hda-intel model=alc256-asus-mic position_fix=1
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -228,7 +229,7 @@ in
     alsa-utils
   ];
 
-  environment.variables.EDITOR = "micro";
+  environment.variables.EDITOR = "nvim";
 
 
   environment.shellAliases = {
@@ -238,6 +239,7 @@ in
     cdd = "cd /home/vlryz/Downloads";
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
+    vim = "nvim"
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
