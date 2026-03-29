@@ -30,6 +30,9 @@ in
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=alc256-asus-mic
+  '';
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -181,7 +184,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    wget
+    #wget
     floorp-bin
     android-tools
     fastfetch
@@ -199,7 +202,6 @@ in
     nudoku
     #htop
     btop
-    atuin
     eza
     bat
     neo-cowsay
@@ -223,6 +225,7 @@ in
     lsof
     mesa-demos
     vscode
+    alsa-utils
   ];
 
   environment.variables.EDITOR = "micro";
