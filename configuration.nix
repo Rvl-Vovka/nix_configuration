@@ -31,8 +31,23 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=headset-mic position_fix=1
+    # Use a manual hardware patch to force the jack to be a Microphone Only.
+    options snd-hda-intel model=alc256-asus-mic patch=hda-jack-retask.fw position_fix=1
   '';
+
+  # Create the hardware patch to "re-wire" the ALC256 pins.
+  hardware.firmware = [
+    (pkgs.writeTextDir "lib/firmware/hda-jack-retask.fw" ''
+      [codec]
+      0x10ec0256 0x104316ef 0
+
+      [pincfg]
+      # Node 0x19 (Source): Force to "Mic In"
+      0x19 0x01a19020
+      # Node 0x21 (Output): Force to "Headphones"
+      0x21 0x01211010
+    '')
+  ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -240,6 +255,7 @@ in
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
+    no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev"
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
