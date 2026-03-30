@@ -31,7 +31,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=dell-headset-multi position_fix=1
+    options snd-hda-intel model=alc256-asus-headset position_fix=1
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
