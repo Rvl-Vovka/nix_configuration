@@ -31,8 +31,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    # Use a manual hardware patch to force the jack to be a Microphone Only.
-    options snd-hda-intel model=alc256-asus-mic patch=hda-jack-retask.fw position_fix=1
+    # headset-mode is the most stable quirk for ALC256 jack sensing.
+    options snd-hda-intel model=headset-mode position_fix=1
   '';
 
   # Create the hardware patch to "re-wire" the ALC256 pins.
@@ -45,9 +45,8 @@ in
       [pincfg]
       # Node 0x19 (Source): Force to "Mic In" with Jack Detect
       0x19 0x01a19030
-      # Node 0x21 (Output): Force to "NOT CONNECTED" (40000000)
-      # This prevents the system from switching to "ghost" headphones and crashing apps.
-      0x21 0x40000000
+      # Node 0x21 (Output): Restore as Headphones (0x01211010)
+      0x21 0x01211010
     '')
   ];
 
@@ -262,6 +261,7 @@ in
     vscode
     alsa-utils
     alsa-tools
+    tauon
   ];
 
   # Change enviromental variables
@@ -323,8 +323,8 @@ in
       # Loop for 10 seconds to fight against KDE/PipeWire auto-muting
       for i in {1..10}; do
         # 1. Force hardware VREF power on Node 0x19 (the 3.5mm mic jack)
-        # 0x24 = Enable Input + 80% Bias Power (required for many headsets)
-        ${pkgs.alsa-tools}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x24
+        # 0x25 = Enable Input + 100% Bias Power (Strongest power for mics)
+        ${pkgs.alsa-tools}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x25
         
         # 2. Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
         ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
