@@ -43,8 +43,8 @@ in
       0x10ec0256 0x10431a0e 0
 
       [pincfg]
-      # Node 0x19 (Source): Force to "Mic In"
-      0x19 0x01a19020
+      # Node 0x19 (Source): Force to "Mic In" with Jack Detect
+      0x19 0x01a19030
       # Node 0x21 (Output): Force to "Headphones"
       0x21 0x01211010
     '')
@@ -242,6 +242,7 @@ in
     mesa-demos
     vscode
     alsa-utils
+    hda-verb
   ];
 
   # Change enviromental variables
@@ -297,23 +298,30 @@ in
   
   # Automate audio fix AFTER login (prevents PipeWire/KDE from resetting it).
   systemd.user.services.fix-audio-gain = {
-    description = "Set safe audio gain levels after login";
+    description = "Force microphone alive and static-free";
     wantedBy = [ "default.target" ];
     script = ''
-      # Give PipeWire/KDE enough time to initialize and "restore" old settings
-      sleep 5
-      # Target the Realtek card by name (Generic_1)
-      # Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
-      # Force Unmute (Capture Switch) to prevent the mic from muting itself
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Switch' on
-      # Set clean Capture Volume to max
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
-      # Force Headset Mic as the capture source
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Source' 1
-      # Stop speakers from muting when plugging in the microphone
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 sset 'Auto-Mute Mode' Disabled
+      # Loop for 10 seconds to fight against KDE/PipeWire auto-muting
+      for i in {1..10}; do
+        # 1. Force hardware VREF power on Node 0x19 (the 3.5mm mic jack)
+        # 0x24 = Enable Input + 80% Bias Power (required for many headsets)
+        ${pkgs.hda-verb}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x24
+        
+        # 2. Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
+        
+        # 3. Force UNMUTE via PipeWire and ALSA
+        ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Switch' on
+        
+        # 4. Set clean volumes
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Source' 1
+        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 sset 'Auto-Mute Mode' Disabled
+        
+        sleep 1
+      done
     '';
   };
 
