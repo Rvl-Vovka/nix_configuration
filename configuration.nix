@@ -31,8 +31,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    # headset-mode is the most stable quirk for ALC256 jack sensing.
-    options snd-hda-intel model=headset-mode position_fix=1
+    # alc256-headset-multi is the most modern version for ALC256 combo jacks.
+    options snd-hda-intel model=alc256-headset-multi position_fix=1
   '';
 
   # Create the hardware patch to "re-wire" the ALC256 pins.
@@ -43,8 +43,9 @@ in
       0x10ec0256 0x10431a0e 0
 
       [pincfg]
-      # Node 0x19 (Source): Force to "Mic In" with Jack Detect
-      0x19 0x01a19030
+      # Node 0x19 (Source): Force to "Mic In" WITHOUT Jack Detect (0x01a19020)
+      # This forces the "Headset Microphone" to always be seen as plugged in.
+      0x19 0x01a19020
       # Node 0x21 (Output): Restore as Headphones (0x01211010)
       0x21 0x01211010
     '')
@@ -255,7 +256,7 @@ in
     strawberry
     mpv
     #protonvpn-gui
-    dnslookup
+    #dnslookup
     lsof
     mesa-demos
     vscode
