@@ -242,7 +242,7 @@ in
     mesa-demos
     vscode
     alsa-utils
-    hda-verb
+    alsa-tools
   ];
 
   # Change enviromental variables
@@ -305,7 +305,7 @@ in
       for i in {1..10}; do
         # 1. Force hardware VREF power on Node 0x19 (the 3.5mm mic jack)
         # 0x24 = Enable Input + 80% Bias Power (required for many headsets)
-        ${pkgs.hda-verb}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x24
+        ${pkgs./alsa-tools}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x24
         
         # 2. Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
         ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
