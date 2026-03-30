@@ -236,6 +236,7 @@ in
     copy = "xsel --input --clipboard";
     paste = "xsel --output --clipboard";
     cdd = "cd /home/vlryz/Downloads";
+    cdl = "cd /home/vlryz/Important/Legendary"
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
@@ -282,15 +283,13 @@ in
     description = "Set safe audio gain levels on boot";
     after = [ "sound.target" "multi-user.target" ];
     wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      # Card 2 is Realtek ALC256
-      # numid=9 is Internal Mic Boost, numid=7 is Capture Volume
-      ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0";
-    };
-      # Force headset mic as the default capture source to avoid conflict
+    serviceConfig.Type = "oneshot";
     script = ''
+      # numid=9 is Internal Mic Boost (Set to 0 to stop static)
+      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0
+      # numid=7 is Capture Volume (Set to 100%)
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=7 63
+      # numid=6 is Capture Source (Force headset mic as default)
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=6 1
     '';
   };
