@@ -29,15 +29,23 @@ in
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "amd_pstate=active" ];
-
-  # --- AUDIO FIX START ---
-  # Force legacy HDA mode by blacklisting the problematic AMD SOF drivers
-  boot.blacklistedKernelModules = [ 
-    "snd_sof_amd_renoir" 
-    "snd_sof_amd_acp" 
+  boot.kernelParams = [ 
+    "amd_pstate=active" 
+    # Force legacy HDA driver to stop AMD SOF from hijacking the jack
+    "snd_intel_dspcfg.dsp_driver=1"
   ];
 
+  # --- AUDIO FIX START ---
+  # Force legacy HDA mode by blacklisting ALL problematic AMD SOF/ACP drivers
+  boot.blacklistedKernelModules = [ 
+    "snd_sof_amd_renoir" 
+    "snd_sof_amd_acp"
+    "snd_pci_acp3x"
+    "snd_rn_pci_acp3x"
+    "snd_acp_pci"
+    "snd_acp_config"
+    "snd_pci_ps"
+  ];
   boot.extraModprobeConfig = ''
     options snd-hda-intel model=alc256-asus-mic
   '';
@@ -241,7 +249,7 @@ in
     pciutils
     asusctl
     #alacritty
-    bluez
+    #bluez
     thorium-pkg
     strawberry
     mpv
