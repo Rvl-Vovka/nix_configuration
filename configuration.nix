@@ -30,44 +30,6 @@ in
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
-  boot.extraModprobeConfig = ''
-    # alc256-headset-multi is the most modern version for ALC256 combo jacks.
-    options snd-hda-intel model=alc256-headset-multi position_fix=1
-  '';
-
-  # Create the hardware patch to "re-wire" the ALC256 pins.
-  hardware.firmware = [
-    (pkgs.writeTextDir "lib/firmware/hda-jack-retask.fw" ''
-      [codec]
-      # Corrected Subsystem ID for the Realtek card: 1043:1a0e
-      0x10ec0256 0x10431a0e 0
-
-      [pincfg]
-      # Node 0x19 (Source): Force to "Mic In" WITHOUT Jack Detect (0x01a19020)
-      # This forces the "Headset Microphone" to always be seen as plugged in.
-      0x19 0x01a19020
-      # Node 0x21 (Output): Restore as Headphones (0x01211010)
-      0x21 0x01211010
-    '')
-  ];
-
-  # Force WirePlumber to use a Microphone-only profile for this card
-  services.pipewire.wireplumber.extraConfig."10-mic-only-profile" = {
-    "monitor.alsa.rules" = [
-      {
-        matches = [
-          {
-            "node.name" = "alsa_card.pci-0000_05_00.6";
-          }
-        ];
-        actions = {
-          update-props = {
-            "device.profile" = "input:analog-stereo";
-          };
-        };
-      }
-    ];
-  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -329,7 +291,6 @@ in
         
         # 2. Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
         ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
-        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
         
         # 3. Force UNMUTE via PipeWire and ALSA
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
