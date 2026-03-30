@@ -31,26 +31,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
 
-  # --- AUDIO FIX START ---
-  # Disable legacy HDA mode
   boot.blacklistedKernelModules = [ "snd_hda_codec_generic" "snd_hda_codec_realtek" ];
-
-  # Automate audio fix AFTER login to stop static and self-muting
-  systemd.user.services.fix-audio-gain = {
-    description = "Set safe audio gain levels after login";
-    wantedBy = [ "default.target" ];
-    script = ''
-      sleep 3
-      # Kill boosts to stop static
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
-      # Force Unmute
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Switch' on
-      # Set clean Capture Volume
-      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
-    '';
-  };
-  # --- AUDIO FIX END ---
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
