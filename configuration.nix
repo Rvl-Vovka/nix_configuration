@@ -30,12 +30,12 @@ in
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
-  boot.extraModprobeConfig = ''
-  options snd-intel-dspcfg dsp_driver=3
-  options snd_sof sof_debug=128
-  '';
+  #boot.extraModprobeConfig = ''
+  #options snd-intel-dspcfg dsp_driver=3
+  #options snd_sof sof_debug=128
+  #'';
 
-  boot.blacklistedKernelModules = [ "snd_hda_codec_generic" "snd_hda_codec_realtek" ];
+  #boot.blacklistedKernelModules = [ "snd_hda_codec_generic" "snd_hda_codec_realtek" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
