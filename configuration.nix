@@ -31,7 +31,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=alc256-asus-mic position_fix=1
+    options snd-hda-intel model=dell-headset-multi position_fix=1
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -275,6 +275,24 @@ in
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
+  };
+  
+  # Automate audio gain settings on boot to prevent static.
+  systemd.services.fix-audio-gain = {
+    description = "Set safe audio gain levels on boot";
+    after = [ "sound.target" "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      # Card 2 is Realtek ALC256
+      # numid=9 is Internal Mic Boost, numid=7 is Capture Volume
+      ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0";
+    };
+    script = ''
+      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=7 63
+      # Force headset mic as the default capture source to avoid conflict
+      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=6 1
+    '';
   };
   
 
