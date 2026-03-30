@@ -39,7 +39,8 @@ in
   hardware.firmware = [
     (pkgs.writeTextDir "lib/firmware/hda-jack-retask.fw" ''
       [codec]
-      0x10ec0256 0x104316ef 0
+      # Corrected Subsystem ID for the Realtek card: 1043:1a0e
+      0x10ec0256 0x10431a0e 0
 
       [pincfg]
       # Node 0x19 (Source): Force to "Mic In"
@@ -255,7 +256,7 @@ in
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
-    no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
+    # no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -305,6 +306,8 @@ in
       # Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
       ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
       ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
+      # Force Unmute (Capture Switch) to prevent the mic from muting itself
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Switch' on
       # Set clean Capture Volume to max
       ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
       # Force Headset Mic as the capture source
