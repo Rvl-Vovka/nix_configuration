@@ -31,8 +31,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    # asus-zenbook is a highly compatible quirk for ASUS TUF ALC256 combo jacks.
-    options snd-hda-intel model=asus-zenbook position_fix=1
+    options snd-hda-intel model=headset-mic position_fix=1
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -284,14 +283,18 @@ in
     description = "Set safe audio gain levels after login";
     wantedBy = [ "default.target" ];
     script = ''
-      # Give PipeWire/KDE a moment to initialize
-      sleep 2
-      # numid=9 is Internal Mic Boost (Set to 0 to stop static)
-      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0
-      # numid=7 is Capture Volume (Set to 100%)
-      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=7 63
-      # numid=6 is Capture Source (Force headset mic to avoid conflict)
-      ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=6 1
+      # Give PipeWire/KDE enough time to initialize and "restore" old settings
+      sleep 5
+      # Target the Realtek card by name (Generic_1)
+      # Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Headset Mic Boost Volume' 0
+      # Set clean Capture Volume to max
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
+      # Force Headset Mic as the capture source
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Source' 1
+      # Stop speakers from muting when plugging in the microphone
+      ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 sset 'Auto-Mute Mode' Disabled
     '';
   };
 
