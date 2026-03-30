@@ -288,9 +288,9 @@ in
       # numid=9 is Internal Mic Boost, numid=7 is Capture Volume
       ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0";
     };
+      # Force headset mic as the default capture source to avoid conflict
     script = ''
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=7 63
-      # Force headset mic as the default capture source to avoid conflict
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=6 1
     '';
   };
