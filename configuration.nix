@@ -45,10 +45,29 @@ in
       [pincfg]
       # Node 0x19 (Source): Force to "Mic In" with Jack Detect
       0x19 0x01a19030
-      # Node 0x21 (Output): Force to "Headphones"
-      0x21 0x01211010
+      # Node 0x21 (Output): Force to "NOT CONNECTED" (40000000)
+      # This prevents the system from switching to "ghost" headphones and crashing apps.
+      0x21 0x40000000
     '')
   ];
+
+  # Force WirePlumber to use a Microphone-only profile for this card
+  services.pipewire.wireplumber.extraConfig."10-mic-only-profile" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          {
+            "node.name" = "alsa_card.pci-0000_05_00.6";
+          }
+        ];
+        actions = {
+          update-props = {
+            "device.profile" = "input:analog-stereo";
+          };
+        };
+      }
+    ];
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -257,7 +276,7 @@ in
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
-    # no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
+    no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
