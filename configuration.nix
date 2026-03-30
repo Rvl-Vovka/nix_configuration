@@ -294,6 +294,11 @@ in
     '';
   };
   
+  services.udev.extraRules = ''
+    # Force Internal Mic Boost to 0 for the Realtek card on cold-plug and change
+    SUBSYSTEM=="sound", ACTION=="add|change", ATTRS{id}=="Generic_1", RUN+="${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0"
+  '';
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
