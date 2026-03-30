@@ -247,6 +247,7 @@ in
     alsa-tools
     tauon
     vlc
+    sof-firmware
   ];
 
   # Change enviromental variables
