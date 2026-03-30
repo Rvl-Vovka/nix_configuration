@@ -147,7 +147,7 @@ in
     
     # Set the key combination to switch layouts (e.g., Alt+Shift)
     # options = "grp:ctrl_shift_toggle";
-    options = "grp:alt_shift_toggle";
+    options = "grp:ctrl_shift_toggle";
   };
   
 
