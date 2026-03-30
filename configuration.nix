@@ -236,7 +236,7 @@ in
     copy = "xsel --input --clipboard";
     paste = "xsel --output --clipboard";
     cdd = "cd /home/vlryz/Downloads";
-    cdl = "cd /home/vlryz/Important/Legendary"
+    cdl = "cd /home/vlryz/Important/Legendary";
     rebuild = "~/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
