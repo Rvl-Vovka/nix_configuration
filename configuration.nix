@@ -31,7 +31,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd-hda-intel model=alc256-asus-headset position_fix=1
+    # asus-zenbook is a highly compatible quirk for ASUS TUF ALC256 combo jacks.
+    options snd-hda-intel model=asus-zenbook position_fix=1
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -228,8 +229,8 @@ in
     alsa-utils
   ];
 
+  # Change enviromental variables
   environment.variables.EDITOR = "nvim";
-
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -278,26 +279,21 @@ in
     options = "--delete-older-than 7d";
   };
   
-  # Automate audio gain settings on boot to prevent static.
-  systemd.services.fix-audio-gain = {
-    description = "Set safe audio gain levels on boot";
-    after = [ "sound.target" "multi-user.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig.Type = "oneshot";
+  # Automate audio fix AFTER login (prevents PipeWire/KDE from resetting it).
+  systemd.user.services.fix-audio-gain = {
+    description = "Set safe audio gain levels after login";
+    wantedBy = [ "default.target" ];
     script = ''
+      # Give PipeWire/KDE a moment to initialize
+      sleep 2
       # numid=9 is Internal Mic Boost (Set to 0 to stop static)
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0
       # numid=7 is Capture Volume (Set to 100%)
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=7 63
-      # numid=6 is Capture Source (Force headset mic as default)
+      # numid=6 is Capture Source (Force headset mic to avoid conflict)
       ${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=6 1
     '';
   };
-  
-  services.udev.extraRules = ''
-    # Force Internal Mic Boost to 0 for the Realtek card on cold-plug and change
-    SUBSYSTEM=="sound", ACTION=="add|change", ATTRS{id}=="Generic_1", RUN+="${pkgs.alsa-utils}/bin/amixer -c 2 cset numid=9 0"
-  '';
 
 
   # This value determines the NixOS release from which the default
