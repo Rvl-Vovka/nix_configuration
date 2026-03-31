@@ -275,8 +275,8 @@ in
 
   systemd.user.services.ydotoold = {
     Unit.Description = "An auto-input utility for wayland";
-    Service.ExecStart = "/run/current-system/sw/bin/ydotoold --socket-path /tmp/ydotools";
-    Install.WantedBy = ["default.target"];
+    Service.ExecStart = "${pkgs.ydotool}/bin/ydotoold --socket-path /tmp/ydotool";
+    wantedBy = [ "default.target" ];
   };
 
   # Open ports in the firewall.
