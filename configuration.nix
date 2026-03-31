@@ -230,9 +230,10 @@ in
     vscode
     alsa-utils
     alsa-tools
-    tauon
+    #tauon
     vlc
-    sof-firmware
+    #sof-firmware
+    xmacro
   ];
 
   # Change enviromental variables
