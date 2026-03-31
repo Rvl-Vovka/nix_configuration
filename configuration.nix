@@ -179,6 +179,7 @@ in
   # programs.firefox.enable = true;
   programs.gamemode.enable = true;
   programs.steam.enable = true;
+  programs.ydotool.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -233,7 +234,6 @@ in
     #tauon
     vlc
     #sof-firmware
-    ydotool
   ];
 
   # Change enviromental variables
