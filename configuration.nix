@@ -233,7 +233,7 @@ in
     #tauon
     vlc
     #sof-firmware
-    xmacro
+    autokey
   ];
 
   # Change enviromental variables
