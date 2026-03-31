@@ -229,8 +229,8 @@ in
     lsof
     mesa-demos
     vscode
-    alsa-utils
-    alsa-tools
+    #alsa-utils
+    #alsa-tools
     #tauon
     vlc
     #sof-firmware
@@ -238,6 +238,7 @@ in
 
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
+  environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
