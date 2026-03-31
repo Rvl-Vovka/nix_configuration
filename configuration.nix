@@ -273,18 +273,6 @@ in
 
   services.blueman.enable = true;
 
-  systemd.user.services.ydotoold = {
-    Unit = {
-      Description = "An auto-input utility for wayland";
-    };
-    Service = {
-      ExecStart = "${pkgs.ydotool}/bin/ydotoold --socket-path /tmp/ydotool";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
