@@ -233,7 +233,7 @@ in
     #tauon
     vlc
     #sof-firmware
-    autokey
+    ydotool
   ];
 
   # Change enviromental variables
