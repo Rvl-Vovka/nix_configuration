@@ -230,7 +230,6 @@ in
     mesa-demos
     vscode
     alsa-utils
-    #alsa-tools
     #tauon
     vlc
     #sof-firmware
@@ -294,35 +293,6 @@ in
     options = "--delete-older-than 7d";
   };
   
-#  # Automate audio fix AFTER login (prevents PipeWire/KDE from resetting it).
-#  systemd.user.services.fix-audio-gain = {
-#    description = "Force microphone alive and static-free";
-#    wantedBy = [ "default.target" ];
-#    script = ''
-#      # Loop for 10 seconds to fight against KDE/PipeWire auto-muting
-#      for i in {1..10}; do
-#        # 1. Force hardware VREF power on Node 0x19 (the 3.5mm mic jack)
-#        # 0x25 = Enable Input + 100% Bias Power (Strongest power for mics)
-#        ${pkgs.alsa-tools}/bin/hda-verb /dev/snd/hwC2D0 0x19 SET_PIN_WIDGET_CONTROL 0x25
-#        
-#        # 2. Kill Internal and Headset Mic Boosts (0 is safe, 3 is static)
-#        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Internal Mic Boost Volume' 0
-#        
-#        # 3. Force UNMUTE via PipeWire and ALSA
-#        ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
-#        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Switch' on
-#        
-#        # 4. Set clean volumes
-#        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Volume' 63
-#        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 cset name='Capture Source' 1
-#        ${pkgs.alsa-utils}/bin/amixer -D hw:Generic_1 sset 'Auto-Mute Mode' Disabled
-#        
-#        sleep 1
-#      done
-#    '';
-#  };
-
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
