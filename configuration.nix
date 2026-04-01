@@ -255,6 +255,8 @@ in
     vim = "nvim";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     trid = "python ~/.trid/trid.py";
+    parrot = "python ~/.parrot.py";
+    rr = "python ~/.rr.py";
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
