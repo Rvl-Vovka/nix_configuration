@@ -243,7 +243,7 @@ in
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
   environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
-  enviroment.variables.HISTCONTROL = "ignoredups";
+  environment.variables.HISTCONTROL = "ignoredups";
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
