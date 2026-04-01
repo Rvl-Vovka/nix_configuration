@@ -229,16 +229,21 @@ in
     lsof
     mesa-demos
     vscode
-    #alsa-utils
+    alsa-utils
     #alsa-tools
     #tauon
     vlc
     #sof-firmware
+    bastet
+    cmatrix
+    espeak
+    unar
   ];
 
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
   environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
+  enviroment.variables.HISTCONTROL = "ignoredups";
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -250,6 +255,7 @@ in
     n = "nvidia-offload";
     vim = "nvim";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
+    trid = "python ~/.trid/trid.py"
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
