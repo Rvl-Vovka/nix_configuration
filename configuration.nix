@@ -240,6 +240,15 @@ in
     wpsoffice
   ];
 
+  # Install custom fonts
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+     nerd-fonts.jetbrains-mono 
+     ubuntu-sans-mono
+    ];
+  };
+
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
   environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
