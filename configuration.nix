@@ -237,6 +237,7 @@ in
     cmatrix
     espeak
     unar
+    wpsoffice
   ];
 
   # Change enviromental variables
