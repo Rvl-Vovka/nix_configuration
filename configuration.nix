@@ -238,6 +238,7 @@ in
     espeak
     unar
     wpsoffice
+    imagemagick
   ];
 
   # Install custom fonts
