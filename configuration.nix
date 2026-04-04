@@ -167,7 +167,7 @@ in
     description = "vlryz";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
+    #  kdePackages.kate
     #  thunderbird
     ];
   };
@@ -239,6 +239,8 @@ in
     unar
     wpsoffice
     imagemagick
+    kdePackages.kate
+    kdePackages.kcalc
   ];
 
   # Install custom fonts
