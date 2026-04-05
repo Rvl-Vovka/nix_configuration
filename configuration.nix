@@ -241,6 +241,7 @@ in
     imagemagick
     kdePackages.kate
     kdePackages.kcalc
+    kdePackages.kalgebra
   ];
 
   # Install custom fonts
