@@ -260,6 +260,7 @@ in
   environment.variables.EDITOR = "nvim";
   environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
   environment.variables.HISTCONTROL = "erasedups";
+  environment.variables.PROMPT_COMMAND = "echo -ne '\e[A'";
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
