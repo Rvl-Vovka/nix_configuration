@@ -180,6 +180,10 @@ in
   programs.gamemode.enable = true;
   programs.steam.enable = true;
   programs.ydotool.enable = true;
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -201,7 +205,6 @@ in
     msedit
     unstable.gemini-cli
     zoxide
-    obs-studio
     cbonsai
     nudoku
     #htop
