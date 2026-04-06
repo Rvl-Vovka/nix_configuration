@@ -260,7 +260,7 @@ in
   environment.variables.EDITOR = "nvim";
   environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
   environment.variables.HISTCONTROL = "erasedups";
-  environment.variables.PROMPT_COMMAND = "echo -ne '\e[A'";
+  environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'";
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -276,6 +276,15 @@ in
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
   };
+
+  environment.etc."pipewire/pipewire.conf.d/extra-sinks-sources.conf".text = ''
+    context.objects = [
+      { factory = support.node.driver args = { factory.name = support.node.driver node.name = "Dummy-Driver" priority.driver = 8000 } }
+      { factory = adapter args = { factory.name = support.null-audio-sink node.name = "Microphone-Proxy" node.description = "Microphone Proxy" media.class = Audio/Source/Virtual audio.position = MONO } }
+      { factory = adapter args = { factory.name = support.null-audio-sink node.name = "OBS-Track1-Proxy" node.description = "OBS Track 1" media.class = Audio/Sink audio.position = FL,FR } }
+    ]
+  '';
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
