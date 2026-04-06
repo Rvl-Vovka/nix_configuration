@@ -156,6 +156,29 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  services.pipewire.extraConfig.pipewire."91-null-sinks" = {
+    "context.objects" = [
+      {
+        factory = "spa-node-factory";
+        args = {
+          "factory.name" = "support.node.driver";
+          "node.name" = "Dummy-Driver";
+          "priority.driver" = 8000;
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "factory.name" = "support.null-audio-sink";
+          "node.name" = "Microphone-Proxy";
+          "node.description" = "Microphone";
+          "media.class" = "Audio/Source/Virtual";
+          "audio.position" = "MONO";
+        };
+      }
+    ];
+  };
+
   hardware.bluetooth.settings.General.Enable = "Source,Sink,Media,Socket";   
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -245,6 +268,7 @@ in
     kdePackages.kate
     kdePackages.kcalc
     kdePackages.kalgebra
+    qpwgraph
   ];
 
   # Install custom fonts
@@ -276,14 +300,6 @@ in
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
   };
-
-  environment.etc."pipewire/pipewire.conf.d/extra-sinks-sources.conf".text = ''
-    context.objects = [
-      { factory = support.node.driver args = { factory.name = support.node.driver node.name = "Dummy-Driver" priority.driver = 8000 } }
-      { factory = adapter args = { factory.name = support.null-audio-sink node.name = "Microphone-Proxy" node.description = "Microphone Proxy" media.class = Audio/Source/Virtual audio.position = MONO } }
-      { factory = adapter args = { factory.name = support.null-audio-sink node.name = "OBS-Track1-Proxy" node.description = "OBS Track 1" media.class = Audio/Sink audio.position = FL,FR } }
-    ]
-  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
