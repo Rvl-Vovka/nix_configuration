@@ -272,6 +272,8 @@ in
     kdePackages.kcalc
     kdePackages.kalgebra
     qpwgraph
+    mp3gain
+    easytag
   ];
 
   # Install custom fonts
