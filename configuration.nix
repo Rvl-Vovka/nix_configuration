@@ -31,7 +31,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.extraModprobeConfig = ''
-    options snd_hda_intel model=alc256-asus-tuf
+    options snd_hda_intel model=alc255-asus-tuf,alc255-asus-tuf,alc255-asus-tuf
+    options snd_hda_intel dmic_detect=0
     options snd_hda_intel power_save=0
     options snd_hda_intel power_save_controller=N
   '';
