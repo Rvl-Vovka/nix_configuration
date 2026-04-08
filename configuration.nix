@@ -249,6 +249,7 @@ in
     easytag
     wl-clipboard
     tree
+    units
   ];
 
   # Install custom fonts
