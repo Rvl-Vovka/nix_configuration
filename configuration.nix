@@ -29,10 +29,10 @@ in
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelParams = [ "amd_pstate=active" "snd_intel_dspcfg.dsp_driver=1" ];
   boot.extraModprobeConfig = ''
-    options snd_hda_intel model=alc255-asus-tuf,alc255-asus-tuf,alc255-asus-tuf
-    options snd_hda_intel dmic_detect=0
+    options snd_hda_intel model=headset-mic,headset-mic,headset-mic
+    options snd_hda_intel enable_msi=1
     options snd_hda_intel power_save=0
     options snd_hda_intel power_save_controller=N
   '';
@@ -261,6 +261,7 @@ in
     mesa-demos
     vscode
     alsa-utils
+    alsa-tools
     #tauon
     vlc
     sof-firmware
