@@ -218,7 +218,7 @@ in
     ffmpeg
     #haruna
     #xsel
-    pciutils
+    #pciutils
     asusctl
     #alacritty
     #bluez
@@ -231,10 +231,10 @@ in
     mesa-demos
     vscode
     alsa-utils
-    alsa-tools
+    #alsa-tools
     #tauon
     vlc
-    sof-firmware
+    #sof-firmware
     bastet
     cmatrix
     espeak
@@ -244,7 +244,7 @@ in
     kdePackages.kate
     kdePackages.kcalc
     kdePackages.kalgebra
-    qpwgraph
+    #qpwgraph
     mp3gain
     easytag
     wl-clipboard
