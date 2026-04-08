@@ -275,6 +275,7 @@ in
     mp3gain
     easytag
     wl-clipboard
+    tree
   ];
 
   # Install custom fonts
