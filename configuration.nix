@@ -29,13 +29,7 @@ in
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "amd_pstate=active" "snd_intel_dspcfg.dsp_driver=1" ];
-  boot.extraModprobeConfig = ''
-    options snd_hda_intel model=headset-mic,headset-mic,headset-mic
-    options snd_hda_intel enable_msi=1
-    options snd_hda_intel power_save=0
-    options snd_hda_intel power_save_controller=N
-  '';
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -155,25 +149,6 @@ in
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-    
-    # Force jack detection to be ignored so "unavailable" ports stay active
-    wireplumber.extraConfig."10-force-available" = {
-      "monitor.alsa.rules" = [
-        {
-          matches = [
-            {
-              "node.name" = "~alsa_output.pci-0000_05_00.6.*"
-            }
-          ]
-          actions = {
-            update-props = {
-              "api.alsa.disable-jack-detection" = true
-              "api.alsa.ignore-jack-selection" = true
-            }
-          }
-        }
-      ]
-    };
   };
 
   hardware.bluetooth.settings.General.Enable = "Source,Sink,Media,Socket";   
