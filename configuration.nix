@@ -245,7 +245,7 @@ in
     fortune
     ffmpeg
     #haruna
-    xsel
+    #xsel
     pciutils
     asusctl
     #alacritty
@@ -274,6 +274,8 @@ in
     qpwgraph
     mp3gain
     easytag
+    copyq
+    wl-clipboard
   ];
 
   # Install custom fonts
