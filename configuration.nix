@@ -37,8 +37,6 @@ in
     options snd_hda_intel power_save_controller=N
   '';
 
-  #boot.blacklistedKernelModules = [ "snd_hda_codec_generic" "snd_hda_codec_realtek" ];
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -157,29 +155,26 @@ in
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+    
+    # Force jack detection to be ignored so "unavailable" ports stay active
+    wireplumber.extraConfig."10-force-available" = {
+      "monitor.alsa.rules" = [
+        {
+          matches = [
+            {
+              "node.name" = "~alsa_output.pci-0000_05_00.6.*"
+            }
+          ]
+          actions = {
+            update-props = {
+              "api.alsa.disable-jack-detection" = true
+              "api.alsa.ignore-jack-selection" = true
+            }
+          }
+        }
+      ]
+    };
   };
-  #services.pipewire.extraConfig.pipewire."91-null-sinks" = {
-  #  "context.objects" = [
-  #    {
-  #      factory = "spa-node-factory";
-  #      args = {
-  #        "factory.name" = "support.node.driver";
-  #        "node.name" = "Dummy-Driver";
-  #        "priority.driver" = 8000;
-  #      };
-  #    }
-  #    {
-  #      factory = "adapter";
-  #      args = {
-  #        "factory.name" = "support.null-audio-sink";
-  #        "node.name" = "Microphone-Proxy";
-  #        "node.description" = "Microphone";
-  #        "media.class" = "Audio/Source/Virtual";
-  #        "audio.position" = "MONO";
-  #      };
-  #    }
-  #  ];
-  #};
 
   hardware.bluetooth.settings.General.Enable = "Source,Sink,Media,Socket";   
 
