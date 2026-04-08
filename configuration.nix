@@ -295,8 +295,8 @@ in
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
-    copy = "xsel --input --clipboard";
-    paste = "xsel --output --clipboard";
+    copy = "wl-copy";
+    paste = "wl-paste";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     rebuild = "~/rebuild.sh";
