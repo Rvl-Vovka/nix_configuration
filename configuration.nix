@@ -274,7 +274,6 @@ in
     qpwgraph
     mp3gain
     easytag
-    copyq
     wl-clipboard
   ];
 
