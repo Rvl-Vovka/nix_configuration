@@ -258,7 +258,7 @@ in
     packages = with pkgs; [
      nerd-fonts.jetbrains-mono 
      ubuntu-sans-mono
-     ttf-mscorefonts-installer
+     vista-fonts
     ];
   };
 
