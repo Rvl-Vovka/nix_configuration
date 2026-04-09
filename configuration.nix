@@ -259,6 +259,7 @@ in
      nerd-fonts.jetbrains-mono 
      ubuntu-sans-mono
      vista-fonts
+     corefonts
     ];
   };
 
