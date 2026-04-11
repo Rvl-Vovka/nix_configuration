@@ -194,10 +194,10 @@ in
     floorp-bin
     android-tools
     fastfetch
-    yt-dlp
+    unstable.yt-dlp
     git
     unstable.powershell
-    python315
+    unstable.python315
     #kitty
     micro
     msedit
@@ -229,7 +229,7 @@ in
     #dnslookup
     lsof
     mesa-demos
-    vscode
+    unstable.vscode
     alsa-utils
     #alsa-tools
     #tauon
