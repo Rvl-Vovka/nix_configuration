@@ -250,7 +250,8 @@ in
     wl-clipboard
     tree
     units
-    linuxPackages.kernelHeaders
+    linuxPackages
+    wl-clicker
   ];
 
   # Install custom fonts
