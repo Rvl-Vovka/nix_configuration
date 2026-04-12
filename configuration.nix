@@ -250,7 +250,6 @@ in
     wl-clipboard
     tree
     units
-    linuxPackages
     wl-clicker
   ];
 
