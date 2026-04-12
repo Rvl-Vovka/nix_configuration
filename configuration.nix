@@ -250,7 +250,6 @@ in
     wl-clipboard
     tree
     units
-    wl-clicker
   ];
 
   # Install custom fonts
