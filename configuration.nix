@@ -250,6 +250,7 @@ in
     wl-clipboard
     tree
     units
+    kdePackages.xdg-desktop-portal-kde
   ];
 
   # Install custom fonts
