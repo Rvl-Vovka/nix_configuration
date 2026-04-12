@@ -250,6 +250,7 @@ in
     wl-clipboard
     tree
     units
+    linuxPackages.kernelHeaders
   ];
 
   # Install custom fonts
@@ -265,7 +266,6 @@ in
 
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
-  environment.variables.YDOTOOL_SOCKET = "/run/ydotoold/socket";
   environment.variables.HISTCONTROL = "erasedups";
   environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'";
 
