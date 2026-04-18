@@ -29,7 +29,7 @@ in
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelParams = [ "amd_pstate=active" "usbcore.autosuspend=-1" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -167,11 +167,6 @@ in
     ];
   };
   
-  # Enable udev rules for Android devices
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-  
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
   
@@ -257,6 +252,7 @@ in
     tree
     units
     broot
+    usbutils
   ];
 
   # Install custom fonts
