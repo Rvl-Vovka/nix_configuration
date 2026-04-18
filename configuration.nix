@@ -29,7 +29,7 @@ in
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "amd_pstate=active" "usbcore.autosuspend=-1" ];
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -160,7 +160,7 @@ in
   users.users.vlryz = {
     isNormalUser = true;
     description = "vlryz";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  kdePackages.kate
     #  thunderbird
