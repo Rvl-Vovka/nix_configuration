@@ -250,6 +250,7 @@ in
     wl-clipboard
     tree
     units
+    broot
   ];
 
   # Install custom fonts
@@ -281,6 +282,8 @@ in
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
+    cat = "bat";
+    ls = "eza";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
