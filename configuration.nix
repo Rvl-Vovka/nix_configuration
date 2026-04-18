@@ -160,12 +160,17 @@ in
   users.users.vlryz = {
     isNormalUser = true;
     description = "vlryz";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
     #  kdePackages.kate
     #  thunderbird
     ];
   };
+  
+  # Enable udev rules for Android devices
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
   
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
