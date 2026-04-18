@@ -175,7 +175,7 @@ in
   programs.gamemode.enable = true;
   programs.steam.enable = true;
   programs.ydotool.enable = true;
-  programs.android-tools.enable = true;
+  programs.adb.enable = true;
   programs.obs-studio = {
     enable = true;
     enableVirtualCamera = true;
