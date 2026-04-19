@@ -253,6 +253,7 @@ in
     units
     broot
     usbutils
+    gcc
   ];
 
   # Install custom fonts
