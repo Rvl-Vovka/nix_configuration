@@ -191,7 +191,6 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    neovim-qt
     #wget
     floorp-bin
     #android-tools
@@ -216,7 +215,6 @@ in
     toilet
     sl
     lolcat
-    clolcat
     fortune
     ffmpeg
     #haruna
