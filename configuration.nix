@@ -191,6 +191,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
+    neovim-qt
     #wget
     floorp-bin
     #android-tools
@@ -199,7 +200,7 @@ in
     git
     unstable.powershell
     unstable.python315
-    #kitty
+    kitty
     micro
     msedit
     unstable.gemini-cli
@@ -207,7 +208,7 @@ in
     cbonsai
     nudoku
     #htop
-    btop
+    btop-cuda
     eza
     bat
     neo-cowsay
@@ -215,6 +216,7 @@ in
     toilet
     sl
     lolcat
+    clolcat
     fortune
     ffmpeg
     #haruna
@@ -240,7 +242,7 @@ in
     cmatrix
     espeak
     unar
-    wpsoffice
+    wpsoffice-cn
     imagemagick
     kdePackages.kate
     kdePackages.kcalc
