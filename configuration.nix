@@ -255,7 +255,6 @@ in
     usbutils
     gcc
     masterpdfeditor4
-    libreoffice-qt-fresh
   ];
 
   # Install custom fonts
