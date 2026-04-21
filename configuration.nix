@@ -279,7 +279,7 @@ in
     paste = "wl-paste";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
-    rebuild = "~/rebuild.sh";
+    rebuild = "~/Important/Legendary/rebuild.sh";
     n = "nvidia-offload";
     vim = "nvim";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
