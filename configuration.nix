@@ -262,6 +262,7 @@ in
     unstable.davinci-resolve
     easyeffects
     qbittorrent
+    riseup-vpn
   ];
 
   # Install custom fonts
