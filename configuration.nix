@@ -167,7 +167,7 @@ in
     ];
   };
   users.defaultUserShell = pkgs.zsh;
-  users.useDefaultShell = true;
+  users.users.vlryz.useDefaultShell = true;
   
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
