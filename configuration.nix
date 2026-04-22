@@ -166,6 +166,8 @@ in
     #  thunderbird
     ];
   };
+  users.defaultUserShell = pkgs.zsh;
+  users.useDefaultShell = true;
   
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
@@ -260,6 +262,8 @@ in
     usbutils
     gcc
     masterpdfeditor4
+    easyeffects
+    davinci-resolve
   ];
 
   # Install custom fonts
