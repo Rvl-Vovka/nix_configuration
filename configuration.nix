@@ -230,7 +230,7 @@ in
     thorium-pkg
     strawberry
     #mpv
-    protonvpn-gui
+    #protonvpn-gui
     #dnslookup
     lsof
     mesa-demos
@@ -262,7 +262,6 @@ in
     unstable.davinci-resolve
     easyeffects
     qbittorrent
-    ivpn
   ];
 
   # Install custom fonts
