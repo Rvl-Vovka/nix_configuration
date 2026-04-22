@@ -16,6 +16,14 @@ let
   thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
 in
 
+let
+  # This is a verified commit from the stable 23.11 release
+  oldPkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/458ef9126aa380996d77d44f53f886c2d8485f53.tar.gz";
+    sha256 = "0jp1kil8mwswbwbrrcjd4pq7l7yfg5g1cvkf5gdx6irv6rm2am7b";
+  }) { config.allowUnfree = true; };
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -262,10 +270,9 @@ in
     usbutils
     gcc
     masterpdfeditor4
+    unstable.davinci-resolve
     easyeffects
-    davinci-resolve
-    lyrebird
-    pulsemeeter
+    oldPkgs.soundux
   ];
 
   # Install custom fonts
