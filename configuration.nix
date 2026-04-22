@@ -264,6 +264,8 @@ in
     masterpdfeditor4
     easyeffects
     davinci-resolve
+    lyrebird
+    pulsemeeter
   ];
 
   # Install custom fonts
