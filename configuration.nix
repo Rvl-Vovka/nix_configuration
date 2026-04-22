@@ -185,10 +185,7 @@ in
     ];
   };
   programs.adb.enable = true;
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.zoxide.enable = true;
   programs.zsh.enable = true;
 
   # Allow unfree packages
@@ -233,7 +230,7 @@ in
     thorium-pkg
     strawberry
     #mpv
-    #protonvpn-gui
+    protonvpn-gui
     #dnslookup
     lsof
     mesa-demos
@@ -264,6 +261,7 @@ in
     masterpdfeditor4
     unstable.davinci-resolve
     easyeffects
+    qbittorrent
   ];
 
   # Install custom fonts
