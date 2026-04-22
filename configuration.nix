@@ -16,14 +16,6 @@ let
   thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
 in
 
-let
-  # This is a verified commit from the stable 23.11 release
-  oldPkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/458ef9126aa380996d77d44f53f886c2d8485f53.tar.gz";
-    sha256 = "0jp1kil8mwswbwbrrcjd4pq7l7yfg5g1cvkf5gdx6irv6rm2am7b";
-  }) { config.allowUnfree = true; };
-in
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -272,7 +264,6 @@ in
     masterpdfeditor4
     unstable.davinci-resolve
     easyeffects
-    oldPkgs.soundux
   ];
 
   # Install custom fonts
@@ -331,6 +322,12 @@ in
   services.power-profiles-daemon.enable = true;
 
   services.blueman.enable = true;
+
+  # Enable Flatpak service
+  services.flatpak.enable = true;
+
+  # Required for Flatpak desktop integration
+  xdg.portal.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
