@@ -183,6 +183,11 @@ in
       obs-backgroundremoval
     ];
   };
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  }
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -203,7 +208,7 @@ in
     micro
     msedit
     unstable.gemini-cli
-    zoxide
+    #zoxide
     cbonsai
     nudoku
     #htop
@@ -277,6 +282,7 @@ in
     # Format: "aliasName" = "command to run";
     copy = "wl-copy";
     paste = "wl-paste";
+    cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     rebuild = "~/Important/Legendary/rebuild.sh";
