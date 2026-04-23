@@ -188,15 +188,21 @@ in
   programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
-    #ohMyZsh = {
-    #  enable = true;
+    ohMyZsh = {
+      enable = true;
     #  plugins = [ "git" "zsh-autosuggestions" ];
-    #  theme = "agnoster";
+      theme = "agnoster";
+    };
+    #zplug = {
+    #  enable = true;
+    #  plugins = [
+    #    { name = "zsh-users/zsh-autosuggestions"; }
+    #  ];
     #};
-    zplug = {
+    antidote = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
+        "zsh-users/zsh-autosuggestions"
       ];
     };
   };
