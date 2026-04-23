@@ -193,18 +193,9 @@ in
     #  plugins = [ "git" "zsh-autosuggestions" ];
       theme = "agnoster";
     };
-    #zplug = {
-    #  enable = true;
-    #  plugins = [
-    #    { name = "zsh-users/zsh-autosuggestions"; }
-    #  ];
-    #};
-    antidote = {
-      enable = true;
-      plugins = [
-        "zsh-users/zsh-autosuggestions"
-      ];
-    };
+    initExtra = ''
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    '';
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
