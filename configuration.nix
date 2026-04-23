@@ -193,6 +193,9 @@ in
     #  plugins = [ "git" "zsh-autosuggestions" ];
       theme = "agnoster";
     };
+    initContent = ''
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    '';
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
