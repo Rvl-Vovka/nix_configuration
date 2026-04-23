@@ -188,11 +188,31 @@ in
   programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "zsh-autosuggestions" ];
-      theme = "agnoster";
-    };
+    #ohMyZsh = {
+    #  enable = true;
+    #  plugins = [ "git" "zsh-autosuggestions" ];
+    #  theme = "agnoster";
+    #};
+    plugins = [
+      {
+        name = "zsh-autocomplete";
+        src = pkgs.fetchFromGitHub {
+          owner = "marlonrichert";
+          repo = "zsh-autocomplete";
+          rev = "23.07.13";
+          sha256 = "sha256-/6V6IHwB5p0GT1u5SAiUa20LjFDSrMo731jFBq/bnpw=";
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.8.0";
+          sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
+        };
+      }
+    ];
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
