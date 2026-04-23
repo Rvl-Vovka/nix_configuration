@@ -186,8 +186,14 @@ in
   };
   programs.adb.enable = true;
   programs.zoxide.enable = true;
-  programs.zsh.enable = true;
-
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "zsh-autosuggestions" ];
+      theme = "agnoster";
+    };
+  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -294,7 +300,6 @@ in
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
-    cat = "bat";
     ls = "eza";
   };
 
