@@ -20,7 +20,6 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./home.nix
     ];
 
   # Bootloader.
@@ -167,7 +166,6 @@ in
     #  thunderbird
     ];
   };
-  home-manager.users.vlryz = import ./home.nix;
   users.defaultUserShell = pkgs.zsh;
   users.users.vlryz.useDefaultShell = true;
   
