@@ -20,6 +20,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./home.nix
     ];
 
   # Bootloader.
@@ -166,6 +167,7 @@ in
     #  thunderbird
     ];
   };
+  home-manager.users.vlryz = import ./home.nix;
   users.defaultUserShell = pkgs.zsh;
   users.users.vlryz.useDefaultShell = true;
   
@@ -193,9 +195,6 @@ in
     #  plugins = [ "git" "zsh-autosuggestions" ];
       theme = "agnoster";
     };
-    initExtra = ''
-      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    '';
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
