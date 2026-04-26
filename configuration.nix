@@ -212,7 +212,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    floorp-bin
+    #floorp-bin
     fastfetch
     yt-dlp #unstable.yt-dlp
     git
