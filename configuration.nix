@@ -194,13 +194,19 @@ in
       theme = "agnoster";
     };
   };
+  programs.neovim = {
+    enable = true;
+
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     floorp-bin
     fastfetch
     unstable.yt-dlp
@@ -284,7 +290,6 @@ in
     cdl = "cd /home/vlryz/Important/Legendary";
     rebuild = "~/Important/Legendary/rebuild.sh";
     n = "nvidia-offload";
-    vim = "nvim";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
