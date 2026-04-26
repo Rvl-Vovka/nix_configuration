@@ -117,6 +117,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -129,7 +130,7 @@
     khelpcenter
     kate
     konsole
-    kwallet
+    kwalletmanager
     okular
   ];
 
@@ -225,6 +226,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  environment.defaultPackages = []
   environment.systemPackages = with pkgs; [
     floorp-bin
     fastfetch
@@ -233,8 +235,8 @@
     powershell #unstable.powershell
     python315 #unstable.python315
     kitty
-    micro
-    msedit
+    #micro
+    #msedit
     gemini-cli #unstable.gemini-cli
     cbonsai
     nudoku
@@ -353,7 +355,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  
+
+  documentation.nixos.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
   nix.gc = {
