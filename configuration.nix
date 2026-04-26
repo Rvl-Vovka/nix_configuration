@@ -201,9 +201,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    #wget
     floorp-bin
-    #android-tools
     fastfetch
     unstable.yt-dlp
     git
@@ -213,10 +211,8 @@ in
     micro
     msedit
     unstable.gemini-cli
-    #zoxide
     cbonsai
     nudoku
-    #htop
     btop-cuda
     eza
     bat
@@ -227,19 +223,13 @@ in
     lolcat
     fortune
     ffmpeg
-    #haruna
-    #xsel
     #pciutils
     asusctl
-    #alacritty
-    #bluez
     thorium-pkg
     strawberry
-    #mpv
-    #protonvpn-gui
     #dnslookup
-    lsof
-    mesa-demos
+    #lsof
+    #mesa-demos
     unstable.vscode
     alsa-utils
     #alsa-tools
@@ -248,11 +238,10 @@ in
     #sof-firmware
     bastet
     cmatrix
-    espeak
+    #espeak
     unar
     wpsoffice-cn
     imagemagick
-    kdePackages.kate
     kdePackages.kcalc
     kdePackages.kalgebra
     #qpwgraph
@@ -262,7 +251,7 @@ in
     tree
     units
     broot
-    usbutils
+    #usbutils
     gcc
     masterpdfeditor4
     unstable.davinci-resolve
@@ -300,7 +289,9 @@ in
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
+    cat = "bat";
     ls = "eza";
+    which = "/run/current-system/sw/bin/which"; # Compatability for zsh
   };
 
   # Some programs need SUID wrappers, can be configured further or are
