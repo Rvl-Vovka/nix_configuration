@@ -9,12 +9,12 @@
 #  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 #in
 
-let
-  # Pull the Thorium flake directly
-  thorium = (builtins.getFlake "github:Rishabh5321/custom-packages-flake");
-  # Choose the AVX2 version for Ryzen 7 4800H
-  thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
-in
+#let
+#  # Pull the Thorium flake directly
+#  thorium = (builtins.getFlake "github:Rishabh5321/custom-packages-flake");
+#  # Choose the AVX2 version for Ryzen 7 4800H
+#  thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
+#in
 
 {
   imports =
@@ -236,7 +236,7 @@ in
     ffmpeg
     #pciutils
     asusctl
-    thorium-pkg
+    #thorium-pkg
     strawberry
     #dnslookup
     #lsof
