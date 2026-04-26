@@ -199,7 +199,6 @@ in
 
     viAlias = true;
     vimAlias = true;
-    vimdiffAlias = true;
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
