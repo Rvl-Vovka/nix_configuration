@@ -226,7 +226,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.defaultPackages = []
+  environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
     floorp-bin
     fastfetch
