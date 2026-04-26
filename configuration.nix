@@ -29,11 +29,14 @@
 
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  hardware.enableRedistributableFirmware = true;
 
   # Enable OpenGL/Graphics
   hardware.graphics.enable = true;
@@ -55,7 +58,7 @@
   };
  
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
  
   hardware.nvidia = {
     # Modesetting is required.
@@ -99,9 +102,9 @@
 
   services.resolved = {
     enable = true;
-    dnsovertls = "true";
-    domains = [ "~." ];
-    fallbackDns = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
+    settings.Resolve.DNSOverTLS = "true";
+    settings.Resolve.Domains = [ "~." ];
+    settings.Resolve.FallbackDNS = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
   };
 
   # Set your time zone.
