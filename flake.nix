@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable_nixpkgs.url = "github:nixos/nixpkgs/25.11";
+    thorium.url = "github:Rishabh5321/custom-packages-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";

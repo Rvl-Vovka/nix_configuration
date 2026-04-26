@@ -215,7 +215,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #floorp-bin
+    floorp-bin
     fastfetch
     yt-dlp #unstable.yt-dlp
     git
@@ -238,8 +238,8 @@
     fortune
     ffmpeg
     #pciutils
-    asusctl
-    #thorium-pkg
+    asusctl   
+    inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
     strawberry
     #dnslookup
     #lsof
