@@ -191,7 +191,6 @@ in
       obs-backgroundremoval
     ];
   };
-  programs.adb.enable = true;
   programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
@@ -269,6 +268,7 @@ in
     unstable.davinci-resolve
     easyeffects
     qbittorrent
+    android-tools
   ];
 
   # Install custom fonts
@@ -321,8 +321,8 @@ in
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "vlryz";
 
-  services.asusd.enable = true;
-  services.asusd.enableUserService = true;
+  #services.asusd.enable = true;
+  #services.asusd.enableUserService = true;
 
   services.power-profiles-daemon.enable = true;
 
