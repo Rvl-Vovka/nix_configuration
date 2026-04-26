@@ -4,10 +4,10 @@
 
 { config, pkgs, inputs, ... }:
 
-let
-  # Import the unstable channel
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+#let
+#  # Import the unstable channel
+#  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+#in
 
 let
   # Pull the Thorium flake directly
@@ -214,14 +214,14 @@ in
   environment.systemPackages = with pkgs; [
     floorp-bin
     fastfetch
-    unstable.yt-dlp
+    yt-dlp #unstable.yt-dlp
     git
-    unstable.powershell
-    unstable.python315
+    powershell #unstable.powershell
+    python315 #unstable.python315
     kitty
     micro
     msedit
-    unstable.gemini-cli
+    gemini-cli #unstable.gemini-cli
     cbonsai
     nudoku
     btop-cuda
@@ -241,7 +241,7 @@ in
     #dnslookup
     #lsof
     #mesa-demos
-    unstable.vscode
+    vscode #unstable.vscode
     alsa-utils
     #alsa-tools
     #tauon
@@ -265,7 +265,7 @@ in
     #usbutils
     gcc
     masterpdfeditor4
-    unstable.davinci-resolve
+    davinci-resolve #unstable.davinci-resolve
     easyeffects
     qbittorrent
     android-tools
