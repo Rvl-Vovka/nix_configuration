@@ -38,8 +38,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "zsh-users";
         repo = "zsh-autosuggestions";
-        rev = "v0.7.0";
-        sha256 = "sha256-/6V6IHwB5p0GT1u5SAiUa20LjFDSrMo731jFBq/bnpw=";
+        rev = "v0.7.1";
+        sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
       };
       file = "zsh-autosuggestions.zsh";
     }
