@@ -234,9 +234,7 @@
       };
     }
     ];
-    initContent = ''
-      source ${pkgs.fetchFromGitHub { ... }}/zsh-autosuggestions.zsh
-    '';
+    file = "zsh-autosuggestions.zsh";
   };
   programs.neovim = {
     enable = true;
