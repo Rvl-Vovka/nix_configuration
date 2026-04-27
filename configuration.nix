@@ -232,9 +232,9 @@
         rev = "v0.7.0";
         sha256 = "sha256-/6V6IHwB5p0GT1u5SAiUa20LjFDSrMo731jFBq/bnpw=";
       };
+      file = "zsh-autosuggestions.zsh";
     }
     ];
-    file = "zsh-autosuggestions.zsh";
   };
   programs.neovim = {
     enable = true;
