@@ -206,6 +206,7 @@
     ];
   };
   programs.zoxide.enable = true;
+  programs.zsh.enable = true;
   programs.neovim = {
     enable = true;
 
