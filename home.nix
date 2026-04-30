@@ -30,9 +30,9 @@
       file = "nix-shell.plugin.zsh";
     }
     {
-      name = "zsh-autocomplete";
-      src = inputs.plugin-zsh-autocomplete;
-      file = "zsh-autocomplete.plugin.zsh";
+      name = "zsh-autosuggestions";
+      src = inputs.plugin-zsh-autosuggestions;
+      file = "zsh-autosuggestions.zsh";
     }
     {
       name = "zsh-syntax-highlighting";
