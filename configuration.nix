@@ -207,12 +207,7 @@
   };
   programs.zoxide.enable = true;
   programs.zsh.enable = true;
-  programs.neovim = {
-    enable = true;
-
-    viAlias = true;
-    vimAlias = true;
-  };
+  programs.neovim.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
