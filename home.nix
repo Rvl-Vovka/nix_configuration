@@ -67,18 +67,19 @@
       {
         plugin = nvim-lspconfig;
         config = ./nvim/plugin/lsp.lua;
-	type = lua;
+        type = "lua";
       }
 
       {
         plugin = comment-nvim;
         config = "require(\"Comment\").setup()";
-	type = lua;
+        type = "lua";
       }
 
       {
         plugin = vscode-nvim;
         config = "colorscheme vscode";
+	type = "viml";
       }
 
       neodev-nvim
@@ -87,13 +88,13 @@
       {
         plugin = nvim-cmp;
         config = ./nvim/plugin/cmp.lua;
-	type = lua;
+        type = "lua";
       }
 
       {
         plugin = telescope-nvim;
         config = ./nvim/plugin/telescope.lua;
-	type = lua;
+        type = "lua";
       }
 
       telescope-fzf-native-nvim
@@ -123,7 +124,7 @@
           p.tree-sitter-markdown_inline
         ]));
         config = ./nvim/plugin/treesitter.lua;
-	type = lua;
+        type = "lua";
       }
 
       vim-nix
