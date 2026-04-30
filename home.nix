@@ -111,7 +111,7 @@
       
       lualine-nvim
       nvim-web-devicons
-
+      
       {
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
@@ -132,8 +132,6 @@
       
       vim-nix
       
-      vim-suda
-
     ];
 
      initLua = ''
