@@ -55,12 +55,7 @@
     }
     ];
   };
-  programs.neovim = 
-  let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
+  programs.neovim = {
     enable = true;
 
     viAlias = true;
@@ -71,12 +66,14 @@
 
       {
         plugin = nvim-lspconfig;
-        config = toLuaFile ./nvim/plugin/lsp.lua;
+        config = ./nvim/plugin/lsp.lua;
+	type = lua;
       }
 
       {
         plugin = comment-nvim;
-        config = toLua "require(\"Comment\").setup()";
+        config = "require(\"Comment\").setup()";
+	type = lua;
       }
 
       {
@@ -89,12 +86,14 @@
       nvim-cmp 
       {
         plugin = nvim-cmp;
-        config = toLuaFile ./nvim/plugin/cmp.lua;
+        config = ./nvim/plugin/cmp.lua;
+	type = lua;
       }
 
       {
         plugin = telescope-nvim;
-        config = toLuaFile ./nvim/plugin/telescope.lua;
+        config = ./nvim/plugin/telescope.lua;
+	type = lua;
       }
 
       telescope-fzf-native-nvim
@@ -117,20 +116,21 @@
           p.tree-sitter-lua
           p.tree-sitter-python
           p.tree-sitter-json
-	  p.tree-sitter-c
-	  p.tree-sitter-kitty
-	  p.tree-sitter-powershell
-	  p.tree-sitter-markdown
-	  p.tree-sitter-markdown_inline
+          p.tree-sitter-c
+          p.tree-sitter-kitty
+          p.tree-sitter-powershell
+          p.tree-sitter-markdown
+          p.tree-sitter-markdown_inline
         ]));
-        config = toLuaFile ./nvim/plugin/treesitter.lua;
+        config = ./nvim/plugin/treesitter.lua;
+	type = lua;
       }
 
       vim-nix
 
     ];
 
-     extraLuaConfig = ''
+     initLua = ''
       ${builtins.readFile ./nvim/options.lua}
     '';
   };
