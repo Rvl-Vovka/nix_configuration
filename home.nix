@@ -37,7 +37,7 @@
     {
       name = "zsh-syntax-highlighting";
       src = inputs.plugin-zsh-syntax-highlighting;
-      file = "zsh-syntax-highlighting.zsh";
+      file = "zsh-syntax-highlighting.plugin.zsh";
     }
     ];
   };
