@@ -66,7 +66,7 @@
 
       {
         plugin = nvim-lspconfig;
-        config = ./nvim/plugin/lsp.lua;
+        config = builtins.readFile ./nvim/plugin/lsp.lua;
         type = "lua";
       }
 
@@ -87,13 +87,13 @@
       nvim-cmp 
       {
         plugin = nvim-cmp;
-        config = ./nvim/plugin/cmp.lua;
+        config = builtins.readFile ./nvim/plugin/cmp.lua;
         type = "lua";
       }
 
       {
         plugin = telescope-nvim;
-        config = ./nvim/plugin/telescope.lua;
+        config = builtins.readFile ./nvim/plugin/telescope.lua;
         type = "lua";
       }
 
@@ -123,7 +123,7 @@
           p.tree-sitter-markdown
           p.tree-sitter-markdown_inline
         ]));
-        config = ./nvim/plugin/treesitter.lua;
+        config = builtins.readFile ./nvim/plugin/treesitter.lua;
         type = "lua";
       }
 
