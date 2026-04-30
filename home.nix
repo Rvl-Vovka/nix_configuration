@@ -57,58 +57,58 @@
   };
   programs.neovim = {
     enable = true;
-
+    
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-
+    
     withRuby = false;
     withPython3 = false;
-
+    
     plugins = with pkgs.vimPlugins; [
-
+      
       {
         plugin = nvim-lspconfig;
         config = builtins.readFile ./nvim/plugin/lsp.lua;
         type = "lua";
       }
-
+      
       {
         plugin = comment-nvim;
         config = "require(\"Comment\").setup()";
         type = "lua";
       }
-
+      
       {
         plugin = vscode-nvim;
         config = "colorscheme vscode";
 	type = "viml";
       }
-
+      
       neodev-nvim
-
+      
       nvim-cmp 
       {
         plugin = nvim-cmp;
         config = builtins.readFile ./nvim/plugin/cmp.lua;
         type = "lua";
       }
-
+      
       {
         plugin = telescope-nvim;
         config = builtins.readFile ./nvim/plugin/telescope.lua;
         type = "lua";
       }
-
+      
       telescope-fzf-native-nvim
-
+      
       cmp_luasnip
       cmp-nvim-lsp
-
+      
       luasnip
       friendly-snippets
-
-
+      
+      
       lualine-nvim
       nvim-web-devicons
 
@@ -129,8 +129,10 @@
         config = builtins.readFile ./nvim/plugin/treesitter.lua;
         type = "lua";
       }
-
+      
       vim-nix
+      
+      vim-suda
 
     ];
 
