@@ -32,12 +32,12 @@
     {
       name = "zsh-autocomplete";
       src = inputs.plugin-zsh-autocomplete;
-      file = "zsh-autocomplete.zsh";
+      file = "zsh-autocomplete.plugin.zsh";
     }
     {
       name = "zsh-syntax-highlighting";
       src = inputs.plugin-zsh-syntax-highlighting;
-      file = "zsh-syntax-highlighting.plugin.zsh";
+      file = "zsh-syntax-highlighting.zsh";
     }
     ];
   };
