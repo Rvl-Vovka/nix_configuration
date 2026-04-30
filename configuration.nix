@@ -343,6 +343,10 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  nix.settings = {
+    warn-dirty = false;
+  };
+
   documentation.nixos.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
