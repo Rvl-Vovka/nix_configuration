@@ -10,6 +10,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    plugin-zsh-nix-shell.url = "github:chisui/zsh-nix-shell";
+    plugin-zsh-nix-shell.flake = false;
+    plugin-zsh-autocomplete.url = "github:marlonrichert/zsh-autocomplete";
+    plugin-zsh-autocomplete.flake = false;
+    plugin-zsh-syntax-highlighting.url = "github:zsh-users/zsh-syntax-highlighting";
+    plugin-zsh-syntax-highlighting.flake = false;
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

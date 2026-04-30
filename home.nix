@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -16,7 +16,8 @@
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
   programs.zsh = {
-    enable = true;
+  enable = true;
+  enableCompletion = false; # Required for zsh-autocomplete
     oh-my-zsh = {
       enable = true;
     #  plugins = [ "git" "zsh-autosuggestions" ];
@@ -25,32 +26,17 @@
     plugins = [
     {
       name = "zsh-nix-shell";
+      src = inputs.plugin-zsh-nix-shell;
       file = "nix-shell.plugin.zsh";
-      src = pkgs.fetchFromGitHub {
-        owner = "chisui";
-        repo = "zsh-nix-shell";
-        rev = "v0.8.0";
-        sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
-      };
     }
     {
-      name = "zsh-autosuggestions";
-      src = pkgs.fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-autosuggestions";
-        rev = "v0.7.1";
-        sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
-      };
-      file = "zsh-autosuggestions.zsh";
+      name = "zsh-autocomplete";
+      src = inputs.plugin-zsh-autocomplete;
+      file = "zsh-autocomplete.zsh";
     }
     {
       name = "zsh-syntax-highlighting";
-      src = pkgs.fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-syntax-highlighting";
-        rev = "0.8.0";
-        sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
-      };
+      src = inputs.plugin-zsh-syntax-highlighting;
       file = "zsh-syntax-highlighting.zsh";
     }
     ];
