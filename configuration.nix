@@ -297,6 +297,7 @@
     cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
+    cdn = "cd /etc/nixos";
     rebuild = "~/Important/Legendary/rebuild.sh";
     n = "nvidia-offload";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
