@@ -272,6 +272,7 @@
     easyeffects
     qbittorrent
     android-tools
+    fzf
   ];
 
   # Install custom fonts

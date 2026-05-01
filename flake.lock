@@ -52,19 +52,19 @@
         "type": "github"
       }
     },
-    "plugin-zsh-autocomplete": {
+    "plugin-zsh-autosuggestions": {
       "flake": false,
       "locked": {
-        "lastModified": 1774514198,
-        "narHash": "sha256-M8gWOg/9ohkG2NiLVSGERINcmHJCfoES5IG2GBllrRo=",
-        "owner": "marlonrichert",
-        "repo": "zsh-autocomplete",
-        "rev": "20f6c34f20270084b21211428afb6d2534aae8e9",
+        "lastModified": 1750781703,
+        "narHash": "sha256-KmkXgK1J6iAyb1FtF/gOa0adUnh1pgFsgQOUnNngBaE=",
+        "owner": "zsh-users",
+        "repo": "zsh-autosuggestions",
+        "rev": "85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5",
         "type": "github"
       },
       "original": {
-        "owner": "marlonrichert",
-        "repo": "zsh-autocomplete",
+        "owner": "zsh-users",
+        "repo": "zsh-autosuggestions",
         "type": "github"
       }
     },
@@ -104,7 +104,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "plugin-zsh-autocomplete": "plugin-zsh-autocomplete",
+        "plugin-zsh-autosuggestions": "plugin-zsh-autosuggestions",
         "plugin-zsh-nix-shell": "plugin-zsh-nix-shell",
         "plugin-zsh-syntax-highlighting": "plugin-zsh-syntax-highlighting",
         "stable_nixpkgs": "stable_nixpkgs",
