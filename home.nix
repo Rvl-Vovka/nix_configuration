@@ -71,11 +71,10 @@
         type = "viml";
       }
 
-      onedark-nvim # test
-      
       neodev-nvim
+
+      nvim-cmp
       
-      nvim-cmp 
       {
         plugin = nvim-cmp;
         config = builtins.readFile ./nvim/plugin/cmp.lua;
