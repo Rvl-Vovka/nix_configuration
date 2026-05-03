@@ -68,8 +68,10 @@
       {
         plugin = vscode-nvim;
         config = "colorscheme vscode";
-	type = "viml";
+        type = "viml";
       }
+
+      onedark-nvim # test
       
       neodev-nvim
       
