@@ -17,28 +17,34 @@
 
   programs.zsh = {
   enable = true;
-  enableCompletion = false; # Required for zsh-autocomplete
     oh-my-zsh = {
       enable = true;
-    #  plugins = [ "git" "zsh-autosuggestions" ];
       theme = "agnoster";
+      extraConfig = ''
+        # Disable magic functions to prevent paste interference
+        DISABLE_MAGIC_FUNCTIONS=true
+      '';
     };
     plugins = [
-    {
-      name = "zsh-nix-shell";
-      src = inputs.plugin-zsh-nix-shell;
-      file = "nix-shell.plugin.zsh";
-    }
-    {
-      name = "zsh-autosuggestions";
-      src = inputs.plugin-zsh-autosuggestions;
-      file = "zsh-autosuggestions.zsh";
-    }
-    {
-      name = "zsh-syntax-highlighting";
-      src = inputs.plugin-zsh-syntax-highlighting;
-      file = "zsh-syntax-highlighting.zsh";
-    }
+      {
+        name = "zsh-nix-shell";
+        src = inputs.plugin-zsh-nix-shell;
+        file = "nix-shell.plugin.zsh";
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = inputs.plugin-zsh-autosuggestions;
+        file = "zsh-autosuggestions.zsh";
+        init = ''
+          # Ensure suggestions are cleared on paste
+          ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+        '';
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = inputs.plugin-zsh-syntax-highlighting;
+        file = "zsh-syntax-highlighting.zsh";
+      }
     ];
   };
   programs.neovim = {
@@ -124,6 +130,15 @@
      initLua = ''
       ${builtins.readFile ./nvim/options.lua}
     '';
+  };
+
+  home.shellAliases = {
+    # Most aliases are configured in configuration.nix but these ones are overwriten by zsh so need to be there
+    l = "eza -lah";
+    ls = "eza";
+    ll = "eza -la";
+    la = "eza -a";
+    lsa = "eza -lah";
   };
 
   # The home.packages option allows you to install Nix packages into your

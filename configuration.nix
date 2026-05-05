@@ -289,7 +289,7 @@
   # Change enviromental variables
   environment.variables.EDITOR = "nvim";
   environment.variables.HISTCONTROL = "erasedups";
-  environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'";
+  # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -299,14 +299,18 @@
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
-    rebuild = "~/Important/Legendary/rebuild.sh";
+    rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
     n = "nvidia-offload";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
     cat = "bat";
+    l = "eza -lah";
     ls = "eza";
+    ll = "eza -la";
+    la = "eza -a";
+    lsa = "eza -lah";
     which = "/run/current-system/sw/bin/which"; # Compatability for zsh
   };
 
