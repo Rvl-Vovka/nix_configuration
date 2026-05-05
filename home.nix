@@ -46,6 +46,11 @@
         file = "zsh-syntax-highlighting.zsh";
       }
     ];
+    initExtra = ''
+      # Ensure suggestions are cleared on paste
+      # This must be defined for zsh-autosuggestions
+      ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+    '';
   };
   programs.neovim = {
     enable = true;
