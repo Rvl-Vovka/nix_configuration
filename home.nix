@@ -42,7 +42,7 @@
         file = "zsh-syntax-highlighting.zsh";
       }
     ];
-    initExtra = ''
+    initContent = ''
       # Ensure suggestions are cleared on paste
       # This must be defined for zsh-autosuggestions
       ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
