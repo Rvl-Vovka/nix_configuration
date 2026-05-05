@@ -35,10 +35,6 @@
         name = "zsh-autosuggestions";
         src = inputs.plugin-zsh-autosuggestions;
         file = "zsh-autosuggestions.zsh";
-        init = ''
-          # Ensure suggestions are cleared on paste
-          ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-        '';
       }
       {
         name = "zsh-syntax-highlighting";
