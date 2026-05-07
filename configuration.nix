@@ -359,6 +359,17 @@
   documentation.nixos.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/etc/nixos/flake.nix";
+    flags = [
+      "--print-build-logs"
+      "--commit-lock-file"  # Automatically commits updated flake.lock
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+    allowReboot = false;
+  };
   nix.gc = {
     automatic = true;
     dates = "weekly";
