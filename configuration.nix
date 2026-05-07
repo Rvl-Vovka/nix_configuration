@@ -343,6 +343,9 @@
   # Required for Flatpak desktop integration
   xdg.portal.enable = true;
 
+  # Install vmware
+  virtualisation.vmware.host.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
