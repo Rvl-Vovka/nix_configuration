@@ -273,6 +273,7 @@
     qbittorrent
     android-tools
     fzf
+    piper-tts
   ];
 
   # Install custom fonts
