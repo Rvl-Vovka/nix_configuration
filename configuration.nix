@@ -199,7 +199,7 @@
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
-  }
+  };
   programs.ydotool.enable = true;
   programs.obs-studio = {
     enable = true;
