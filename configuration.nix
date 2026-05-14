@@ -196,7 +196,10 @@
   # Install firefox.
   # programs.firefox.enable = true;
   programs.gamemode.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  }
   programs.ydotool.enable = true;
   programs.obs-studio = {
     enable = true;
