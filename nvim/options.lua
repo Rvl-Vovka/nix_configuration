@@ -29,3 +29,5 @@ vim.keymap.set("v", "<Up>", "gk", { noremap = true, silent = true })
 vim.keymap.set("v", "<Down>", "gj", { noremap = true, silent = true })
 vim.keymap.set("i", "<Up>", "<C-o>gk", { noremap = true, silent = true })
 vim.keymap.set("i", "<Down>", "<C-o>gj", { noremap = true, silent = true })
+
+vim.opt.undofile = true

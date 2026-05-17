@@ -309,7 +309,7 @@
     trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
     rr = "python ~/.rr.py";
-    cat = "bat";
+    cat = "bat --theme 'Visual Studio Dark+'";
     l = "eza -lah";
     ls = "eza";
     ll = "eza -la";
