@@ -29,7 +29,7 @@
       enable = true;
       consoleMode = "max";
       extraInstallCommands = ''
-        rm -f /boot/EFI/BOOT/BOOTX64.EFI
+        ${pkgs.coreutils}/bin/rm -f /boot/EFI/BOOT/BOOTX64.EFI
       '';
     };
     efi.canTouchEfiVariables = true;
