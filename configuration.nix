@@ -31,6 +31,9 @@
     };
     efi.canTouchEfiVariables = true;
     timeout = 0;
+    extraInstallCommands = ''
+      rm -f /boot/EFI/BOOT/BOOTX64.EFI
+    '';
   };
 
 
