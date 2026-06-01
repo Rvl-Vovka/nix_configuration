@@ -208,6 +208,7 @@
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
   programs.ydotool.enable = true;
+  programs.kdotool.enable = true;
   programs.obs-studio = {
     enable = true;
     enableVirtualCamera = true;
