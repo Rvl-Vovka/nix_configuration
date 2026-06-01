@@ -284,6 +284,7 @@
     android-tools
     fzf
     piper-tts
+    eloquent
   ];
 
   # Install custom fonts
