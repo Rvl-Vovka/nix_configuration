@@ -28,12 +28,12 @@
     systemd-boot = {
       enable = true;
       consoleMode = "max";
+      extraInstallCommands = ''
+        rm -f /boot/EFI/BOOT/BOOTX64.EFI
+      '';
     };
     efi.canTouchEfiVariables = true;
     timeout = 0;
-    extraInstallCommands = ''
-      rm -f /boot/EFI/BOOT/BOOTX64.EFI
-    '';
   };
 
 
