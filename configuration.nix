@@ -24,8 +24,15 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = { 
+    systemd-boot = {
+      enable = true;
+      consoleMode = "max";
+    };
+    efi.canTouchEfiVariables = true;
+    timeout = 0;
+  };
+
 
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
