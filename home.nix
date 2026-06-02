@@ -196,7 +196,7 @@
   #  /etc/profiles/per-user/vlryz/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    PROMPT_EOL_MARK = '';
   };
 
   # Let Home Manager install and manage itself.

@@ -191,7 +191,7 @@
     #  thunderbird
     ];
   };
-  users.defaultUserShell = pkgs.zsh;
+  users.users.vlryz.shell = pkgs.zsh;
   users.users.vlryz.useDefaultShell = true;
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
