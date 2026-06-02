@@ -306,6 +306,7 @@
   environment.variables.EDITOR = "nvim";
   environment.variables.HISTCONTROL = "erasedups";
   environment.variables.PROMPT_EOL_MARK = "";
+  environment.variables.STEAM_FRAME_FORCE_CLOSE = 1;
   # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
 
   environment.shellAliases = {
