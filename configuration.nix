@@ -289,6 +289,7 @@
     piper-tts
     eloquent
     kdotool
+    evtest
   ];
 
   # Install custom fonts
