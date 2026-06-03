@@ -5,7 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable_nixpkgs.url = "github:nixos/nixpkgs/25.11";
     thorium.url = "github:Rishabh5321/custom-packages-flake";
-
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

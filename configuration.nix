@@ -209,6 +209,7 @@
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    package = pkgs.millennium-steam;
   };
   programs.ydotool.enable = true;
   programs.obs-studio = {
@@ -223,6 +224,7 @@
   programs.neovim.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ inputs.millennium.overlays.default ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
