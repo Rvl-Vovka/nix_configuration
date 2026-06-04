@@ -229,6 +229,8 @@
   programs.zoxide.enable = true;
   programs.zsh.enable = true;
   programs.neovim.enable = true;
+  programs.nix-ld.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
@@ -300,6 +302,7 @@
     kdotool
     evtest
     pince
+    yad
   ];
 
   # Install custom fonts
