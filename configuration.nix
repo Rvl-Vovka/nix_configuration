@@ -211,7 +211,10 @@
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = with pkgs; [ 
+      proton-ge-bin
+      steamtinkerlaunch
+    ];
     package = pkgs.millennium-steam;
   };
   programs.ydotool.enable = true;
