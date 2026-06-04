@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable_nixpkgs.url = "github:nixos/nixpkgs/25.11";
+    stable_nixpkgs.url = "github:nixos/nixpkgs/26.05";
     thorium.url = "github:Rishabh5321/custom-packages-flake";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     
