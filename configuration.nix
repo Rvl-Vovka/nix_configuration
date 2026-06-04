@@ -42,7 +42,10 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
-
+  boot.kernel.sysctl = {
+    "kernel.yama.ptrace_scope" = 0;
+  };
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -292,6 +295,7 @@
     eloquent
     kdotool
     evtest
+    pince
   ];
 
   # Install custom fonts
