@@ -30,4 +30,9 @@ vim.keymap.set("v", "<Down>", "gj", { noremap = true, silent = true })
 vim.keymap.set("i", "<Up>", "<C-o>gk", { noremap = true, silent = true })
 vim.keymap.set("i", "<Down>", "<C-o>gj", { noremap = true, silent = true })
 
+vim.api.nvim_create_user_command('WQ', 'wq', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Q', 'q', {})
+
 vim.opt.undofile = true
