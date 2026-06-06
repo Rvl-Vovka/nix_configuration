@@ -233,7 +233,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
 
   # List packages installed in system profile. To search, run:
