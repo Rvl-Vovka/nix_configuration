@@ -196,7 +196,6 @@
     enable = true;
     extraCompatPackages = with pkgs; [ 
       proton-ge-bin
-      steamtinkerlaunch
     ];
     package = pkgs.millennium-steam;
   };
@@ -211,17 +210,6 @@
   programs.zoxide.enable = true;
   programs.zsh.enable = true;
   programs.neovim.enable = true;
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    libGL
-    libglvnd
-    libX11
-    libXcursor
-    libXi
-    libXrandr
-    # Yad is often required by STL for its GUI
-    yad 
-  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -280,7 +268,6 @@
     python315
     qbittorrent
     sl
-    steamtinkerlaunch
     strawberry
     toilet
     tree
@@ -290,7 +277,6 @@
     vscode
     wl-clipboard
     wpsoffice-cn
-    yad
     yt-dlp
   ];
 
