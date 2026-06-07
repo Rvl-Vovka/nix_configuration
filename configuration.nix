@@ -212,6 +212,16 @@
   programs.zsh.enable = true;
   programs.neovim.enable = true;
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    libGL
+    libglvnd
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXrandr
+    # Yad is often required by STL for its GUI
+    yad 
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -270,6 +280,7 @@
     python315
     qbittorrent
     sl
+    steamtinkerlaunch
     strawberry
     toilet
     tree
