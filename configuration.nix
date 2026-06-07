@@ -233,7 +233,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # nixpkgs.config.cudaSupport = true;
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
 
   # List packages installed in system profile. To search, run:
@@ -261,9 +260,12 @@
     sl
     lolcat
     fortune
-    ffmpeg
+    (ffmpeg-full.override {
+      withNvenc = true; # NVIDIA hardware encoding
+      withCuda = true;  # CUDA processing filters
+    })
     #pciutils
-    asusctl   
+    asusctl
     inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
     strawberry
     #dnslookup
@@ -304,6 +306,9 @@
     evtest
     pince
     yad
+    (openai-whisper.override {
+      torch = python3Packages.torch-bin;
+    })
   ];
 
   # Install custom fonts
