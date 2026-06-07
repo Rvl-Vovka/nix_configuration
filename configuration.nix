@@ -224,13 +224,19 @@
       withCuda = true;  # CUDA processing filters
       withNvenc = true; # NVIDIA hardware encoding
     })
-    (openai-whisper.overrideAttrs (oldAttrs: {
-        # Force whisper to ignore the dependency conflict check
-        pythonCatchConflictsPhase = "true"; 
-      })).override {
-      torch = python3Packages.torch-bin; # Enable cuda support
-      triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
-    }
+    #(openai-whisper.overrideAttrs (oldAttrs: {
+    #    # Force whisper to ignore the dependency conflict check
+    #    pythonCatchConflictsPhase = "true"; 
+    #  })).override {
+    #  torch = python3Packages.torch-bin; # Enable cuda support
+    #  triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
+    #}
+    (python3Packages.openai-whisper.override {
+        torch = python3Packages.torch-bin; # Enable cuda support
+        triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
+      }).overrideAttrs (oldAttrs: {
+        pythonCatchConflictsPhase = "true"; # Force whisper to ignore the dependency conflict check 
+    })
     alsa-utils
     android-tools
     asusctl
