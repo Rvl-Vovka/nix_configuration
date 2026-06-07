@@ -4,18 +4,6 @@
 
 { config, pkgs, lib, inputs, ... }:
 
-#let
-#  # Import the unstable channel
-#  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-#in
-
-#let
-#  # Pull the Thorium flake directly
-#  thorium = (builtins.getFlake "github:Rishabh5321/custom-packages-flake");
-#  # Choose the AVX2 version for Ryzen 7 4800H
-#  thorium-pkg = thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
-#in
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -142,7 +130,6 @@
     ark
     discover
     khelpcenter
-    kate
     konsole
     okular
   ];
@@ -190,10 +177,6 @@
     isNormalUser = true;
     description = "vlryz";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  kdePackages.kate
-    #  thunderbird
-    ];
   };
   users.users.vlryz.shell = pkgs.zsh;
   users.users.vlryz.useDefaultShell = true;
@@ -207,8 +190,7 @@
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
   
-  # Install firefox.
-  # programs.firefox.enable = true;
+  # Install programs
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
@@ -233,82 +215,70 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+  nixpkgs.overlays = [ inputs.millennium.overlays.default ]; # Required for millenium
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
-    floorp-bin
-    fastfetch
-    yt-dlp #unstable.yt-dlp
-    git
-    powershell #unstable.powershell
-    python315 #unstable.python315
-    kitty
-    #micro
-    #msedit
-    gemini-cli #unstable.gemini-cli
-    cbonsai
-    nudoku
-    btop-cuda
-    eza
-    bat
-    neo-cowsay
-    figlet
-    toilet
-    sl
-    lolcat
-    fortune
     (ffmpeg-full.override {
-      withNvenc = true; # NVIDIA hardware encoding
       withCuda = true;  # CUDA processing filters
+      withNvenc = true; # NVIDIA hardware encoding
     })
-    #pciutils
-    asusctl
-    inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
-    strawberry
-    #dnslookup
-    #lsof
-    #mesa-demos
-    vscode #unstable.vscode
-    alsa-utils
-    #alsa-tools
-    #tauon
-    vlc
-    #sof-firmware
-    bastet
-    cmatrix
-    #espeak
-    unar
-    wpsoffice-cn
-    imagemagick
-    kdePackages.kcalc
-    kdePackages.kalgebra
-    #qpwgraph
-    mp3gain
-    easytag
-    wl-clipboard
-    tree
-    units
-    broot
-    #usbutils
-    gcc
-    masterpdfeditor4
-    davinci-resolve #unstable.davinci-resolve
-    easyeffects
-    qbittorrent
-    android-tools
-    fzf
-    piper-tts
-    eloquent
-    kdotool
-    evtest
-    pince
-    yad
     (openai-whisper.override {
-      torch = python3Packages.torch-bin;
+      torch = python3Packages.torch-bin; # Enable cuda support
+      triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
     })
+    alsa-utils
+    android-tools
+    asusctl
+    bastet
+    bat
+    broot
+    btop-cuda
+    cbonsai
+    cmatrix
+    davinci-resolve
+    easyeffects
+    easytag
+    eloquent
+    evtest
+    eza
+    fastfetch
+    figlet
+    floorp-bin
+    fortune
+    fzf
+    gcc
+    gemini-cli
+    git
+    imagemagick
+    inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
+    kdePackages.kalgebra
+    kdePackages.kcalc
+    kdotool
+    kitty
+    lolcat
+    masterpdfeditor4
+    mp3gain
+    neo-cowsay
+    nudoku
+    pince
+    piper-tts
+    powershell
+    python315
+    qbittorrent
+    sl
+    strawberry
+    toilet
+    tree
+    unar
+    units
+    vlc
+    vscode
+    wl-clipboard
+    wpsoffice-cn
+    yad
+    yt-dlp
   ];
 
   # Install custom fonts
