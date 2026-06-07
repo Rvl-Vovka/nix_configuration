@@ -215,10 +215,10 @@
   programs.nix-ld.libraries = with pkgs; [
     libGL
     libglvnd
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXrandr
+    libX11
+    libXcursor
+    libXi
+    libXrandr
     # Yad is often required by STL for its GUI
     yad 
   ];
