@@ -224,7 +224,10 @@
       withCuda = true;  # CUDA processing filters
       withNvenc = true; # NVIDIA hardware encoding
     })
-    (openai-whisper.override {
+    (openai-whisper.overrideAttrs (oldAttrs: {
+        # Force whisper to ignore the dependency conflict check
+        pythonCatchConflictsPhase = "true"; 
+      })).override {
       torch = python3Packages.torch-bin; # Enable cuda support
       triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
     })
@@ -302,7 +305,7 @@
     # Format: "aliasName" = "command to run";
     copy = "wl-copy";
     paste = "wl-paste";
-    cd = "z";
+    #cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
