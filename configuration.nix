@@ -315,7 +315,7 @@
     # Format: "aliasName" = "command to run";
     copy = "wl-copy";
     paste = "wl-paste";
-    #cd = "z";
+    cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
