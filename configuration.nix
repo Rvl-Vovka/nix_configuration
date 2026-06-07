@@ -230,7 +230,7 @@
       })).override {
       torch = python3Packages.torch-bin; # Enable cuda support
       triton = python3Packages.triton; # Fixes version mismatch when enabling cuda support
-    })
+    }
     alsa-utils
     android-tools
     asusctl
