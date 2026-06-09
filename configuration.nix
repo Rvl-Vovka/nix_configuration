@@ -7,7 +7,7 @@
 let
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
-  bottles-native = (pkgs.bottles.override{removeWarningPopud = true;});
+  bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
 in 
 
 {
