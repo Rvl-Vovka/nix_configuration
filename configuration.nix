@@ -138,7 +138,7 @@ in
     discover
     khelpcenter
     konsole
-    okular
+    okulara
   ];
 
   # Configure keymap in X11
@@ -284,10 +284,10 @@ in
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
+     corefonts
      nerd-fonts.jetbrains-mono 
      ubuntu-sans-mono
      vista-fonts
-     corefonts
     ];
   };
 
@@ -299,24 +299,25 @@ in
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
-    copy = "wl-copy";
-    paste = "wl-paste";
+    cat = "bat --theme 'Visual Studio Dark+'";
     cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
-    rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
+    copy = "wl-copy";
+    dt = "date date +'%A, %B %d %Y %H:%M:%S.%N'"
+    l = "eza -lah";
+    la = "eza -a";
+    ll = "eza -la";
+    ls = "eza";
+    lsa = "eza -lah";
     n = "nvidia-offload";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
-    trid = "python ~/.trid/trid.py";
     parrot = "python ~/.parrot.py";
+    paste = "wl-paste";
+    rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
     rr = "python ~/.rr.py";
-    cat = "bat --theme 'Visual Studio Dark+'";
-    l = "eza -lah";
-    ls = "eza";
-    ll = "eza -la";
-    la = "eza -a";
-    lsa = "eza -lah";
+    trid = "python ~/.trid/trid.py";
     which = "/run/current-system/sw/bin/which"; # Compatability for zsh
   };
 
