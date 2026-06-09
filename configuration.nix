@@ -368,11 +368,11 @@ in
           "home:ro"
         ];
       };
-      "com.usebottles.bottles".Context = {
-        filesystems = [
-          "home"
-        ];
-      };
+      #"com.usebottles.bottles".Context = {
+      #  filesystems = [
+      #    "home"
+      #  ];
+      #};
 
     };
   };
