@@ -228,7 +228,6 @@ in
     asusctl
     bastet
     bat
-    bottles
     broot
     btop-cuda
     cbonsai
@@ -349,7 +348,8 @@ in
       "com.usebottles.bottles"
     ];
     update.onActivation = true; # Auto-update on rebuild
-    
+    services.flatpak.uninstallUnmanaged = true;
+
     overrides.settings = {
       global = {
         # Force Wayland by default

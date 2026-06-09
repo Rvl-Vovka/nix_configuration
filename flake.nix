@@ -6,7 +6,7 @@
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";   
+    nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     
     thorium.url = "github:Rishabh5321/custom-packages-flake";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
@@ -25,7 +25,7 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
+        inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };
