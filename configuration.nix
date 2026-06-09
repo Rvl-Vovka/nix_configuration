@@ -4,6 +4,11 @@
 
 { config, pkgs, lib, inputs, ... }:
 
+let
+  thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
+  whisper-cpp = (whisper-cpp.override{cudaSupport = true});
+in 
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -218,14 +223,12 @@
   # List packages installed in system profile.
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
-    (whisper-cpp.override{
-      cudaSupport = true;
-    })
     alsa-utils
     android-tools
     asusctl
     bastet
     bat
+    bottles
     broot
     btop-cuda
     cbonsai
@@ -246,7 +249,6 @@
     gemini-cli
     git
     imagemagick
-    inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
     kdePackages.kalgebra
     kdePackages.kcalc
     kdotool
@@ -263,12 +265,15 @@
     qbittorrent
     sl
     strawberry
+    thorium
     toilet
     tree
     unar
     units
     vlc
     vscode
+    whisper
+    whisper-cpp
     wl-clipboard
     wpsoffice-cn
     yt-dlp
