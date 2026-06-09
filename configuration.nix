@@ -348,7 +348,7 @@ in
       "com.usebottles.bottles"
     ];
     update.onActivation = true; # Auto-update on rebuild
-    services.flatpak.uninstallUnmanaged = true;
+    uninstallUnmanaged = true;
 
     overrides.settings = {
       global = {
