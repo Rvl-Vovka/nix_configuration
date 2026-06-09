@@ -6,7 +6,7 @@
 
 let
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
-  whisper-cpp = (whisper-cpp.override{cudaSupport = true});
+  whisper-cpp = (whisper-cpp.override{cudaSupport = true;});
 in 
 
 {
@@ -272,7 +272,6 @@ in
     units
     vlc
     vscode
-    whisper
     whisper-cpp
     wl-clipboard
     wpsoffice-cn
