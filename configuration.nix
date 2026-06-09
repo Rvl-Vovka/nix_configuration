@@ -138,7 +138,7 @@ in
     discover
     khelpcenter
     konsole
-    okulara
+    okular
   ];
 
   # Configure keymap in X11
@@ -305,7 +305,7 @@ in
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
     copy = "wl-copy";
-    dt = "date date +'%A, %B %d %Y %H:%M:%S.%N'"
+    dt = "date date +'%A, %B %d %Y %H:%M:%S.%N'";
     l = "eza -lah";
     la = "eza -a";
     ll = "eza -la";
