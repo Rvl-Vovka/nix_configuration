@@ -229,6 +229,7 @@ in
     asusctl
     bastet
     bat
+    bottles
     broot
     btop-cuda
     cbonsai
@@ -346,7 +347,7 @@ in
     enable = true;
     packages = [ 
       "io.github.Soundux"
-      "com.usebottles.bottles"
+      #"com.usebottles.bottles"
     ];
     update.onActivation = true; # Auto-update on rebuild
     uninstallUnmanaged = true;
@@ -369,11 +370,11 @@ in
           "home:ro"
         ];
       };
-      "com.usebottles.bottles".Context = {
-        filesystems = [
-          "home"
-        ];
-      };
+      #"com.usebottles.bottles".Context = {
+      #  filesystems = [
+      #    "home"
+      #  ];
+      #};
 
     };
   };
