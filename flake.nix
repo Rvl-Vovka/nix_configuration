@@ -3,14 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable_nixpkgs.url = "github:nixos/nixpkgs/26.05";
+    
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";   
+    
     thorium.url = "github:Rishabh5321/custom-packages-flake";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
     plugin-zsh-nix-shell.url = "github:chisui/zsh-nix-shell";
     plugin-zsh-nix-shell.flake = false;
@@ -26,6 +25,7 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
+        nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };

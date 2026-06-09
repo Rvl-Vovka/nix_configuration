@@ -342,7 +342,40 @@ in
   services.blueman.enable = true;
 
   # Enable Flatpak service
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    packages = [ 
+      "io.github.Soundux"
+      "com.usebottles.bottles"
+    ];
+    update.onActivation = true; # Auto-update on rebuild
+    
+    overrides.settings = {
+      global = {
+        # Force Wayland by default
+        Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+
+        Environment = {
+          # Fix un-themed cursor in some Wayland apps
+          XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+
+          # Force correct theme for some GTK apps
+          GTK_THEME = "Adwaita:dark";
+        };
+      };
+      "io.github.Soundux".Context = {
+        filesystems = [
+          "home:ro"
+        ];
+      };
+      "com.usebottles.bottles".Context = {
+        filesystems = [
+          "home"
+        ];
+      };
+
+    };
+  };
 
   # Required for Flatpak desktop integration
   xdg.portal.enable = true;
