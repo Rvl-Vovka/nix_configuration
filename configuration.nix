@@ -256,6 +256,7 @@ in
     kdotool
     kitty
     lolcat
+    mangohud
     masterpdfeditor4
     mp3gain
     neo-cowsay
