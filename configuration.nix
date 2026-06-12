@@ -227,6 +227,7 @@ in
   environment.systemPackages = with pkgs; [
     alsa-utils
     android-tools
+    antigravity-cli
     asusctl
     bastet
     bat
