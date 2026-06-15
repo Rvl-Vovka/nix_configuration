@@ -33,9 +33,9 @@ in
 
 
   # Use latest kernel.
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelPackages = pkgs.linuxPackages;
+  # boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.kernel.sysctl = {
     "kernel.yama.ptrace_scope" = 0;
