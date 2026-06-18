@@ -16,124 +16,6 @@
   home.stateVersion = "25.11"; # Please read the comment before changing.
   home.enableNixpkgsReleaseCheck = false;
 
-  programs.zsh = {
-  enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "agnoster";
-      extraConfig = ''
-        # Disable magic functions to prevent paste interference
-        DISABLE_MAGIC_FUNCTIONS=true
-      '';
-    };
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        src = inputs.plugin-zsh-nix-shell;
-        file = "nix-shell.plugin.zsh";
-      }
-      {
-        name = "zsh-autosuggestions";
-        src = inputs.plugin-zsh-autosuggestions;
-        file = "zsh-autosuggestions.zsh";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = inputs.plugin-zsh-syntax-highlighting;
-        file = "zsh-syntax-highlighting.zsh";
-      }
-    ];
-    initContent = ''
-      # Ensure suggestions are cleared on paste
-      # This must be defined for zsh-autosuggestions
-      ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-    '';
-  };
-  programs.neovim = {
-    enable = true;
-    
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    
-    withRuby = false;
-    withPython3 = false;
-    
-    plugins = with pkgs.vimPlugins; [
-      
-      {
-        plugin = nvim-lspconfig;
-        config = builtins.readFile ./nvim/plugin/lsp.lua;
-        type = "lua";
-      }
-      
-      {
-        plugin = comment-nvim;
-        config = "require(\"Comment\").setup()";
-        type = "lua";
-      }
-      
-      {
-        plugin = vscode-nvim;
-        config = "colorscheme vscode";
-        type = "viml";
-      }
-
-      neodev-nvim
-
-      nvim-cmp
-      
-      {
-        plugin = nvim-cmp;
-        config = builtins.readFile ./nvim/plugin/cmp.lua;
-        type = "lua";
-      }
-      
-      {
-        plugin = telescope-nvim;
-        config = builtins.readFile ./nvim/plugin/telescope.lua;
-        type = "lua";
-      }
-      
-      telescope-fzf-native-nvim
-      
-      cmp_luasnip
-      cmp-nvim-lsp
-      
-      luasnip
-      friendly-snippets
-      
-      
-      lualine-nvim
-      nvim-web-devicons
-      
-      {
-        plugin = (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-vim
-          p.tree-sitter-bash
-          p.tree-sitter-lua
-          p.tree-sitter-python
-          p.tree-sitter-json
-          p.tree-sitter-c
-          p.tree-sitter-kitty
-          p.tree-sitter-powershell
-          p.tree-sitter-markdown
-          p.tree-sitter-markdown_inline
-        ]));
-        config = builtins.readFile ./nvim/plugin/treesitter.lua;
-        type = "lua";
-      }
-      
-      vim-nix
-      
-    ];
-
-     initLua = ''
-      ${builtins.readFile ./nvim/options.lua}
-    '';
-  };
-
   home.shellAliases = {
     # Most aliases are configured in configuration.nix but these ones are overwriten by zsh so need to be there
     l = "eza -lah";
@@ -199,6 +81,121 @@
     # EDITOR = "emacs";
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true; # Let Home Manager install and manage itself.
+
+      yt-dlp = {
+        enable = true;
+        extraConfig = ''
+          -P home:"/home/vlryz/Downloads/"
+          --audio-format "mp3"
+          --remux-video "mp3>mp3/mp4"
+          --sponsorblock-remove music_offtopic
+          --yes-playlist
+          -o "%(title)s.%(ext)s"
+        '';
+      };
+
+      zsh = {
+      enable = true;
+        oh-my-zsh = {
+          enable = true;
+          theme = "agnoster";
+          extraConfig = ''
+            # Disable magic functions to prevent paste interference
+            DISABLE_MAGIC_FUNCTIONS=true
+          '';
+        };
+        plugins = [
+          {
+            name = "zsh-nix-shell";
+            src = inputs.plugin-zsh-nix-shell;
+            file = "nix-shell.plugin.zsh";
+          }
+          {
+            name = "zsh-autosuggestions";
+            src = inputs.plugin-zsh-autosuggestions;
+            file = "zsh-autosuggestions.zsh";
+          }
+          {
+            name = "zsh-syntax-highlighting";
+            src = inputs.plugin-zsh-syntax-highlighting;
+            file = "zsh-syntax-highlighting.zsh";
+          }
+        ];
+        initContent = ''
+          # Ensure suggestions are cleared on paste
+          # This must be defined for zsh-autosuggestions
+          ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+        '';
+      };
+
+      neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+        vimdiffAlias = true;
+        plugins = with pkgs.vimPlugins; [
+          {
+            plugin = nvim-lspconfig;
+            config = builtins.readFile ./configs/nvim/plugin/lsp.lua;
+            type = "lua";
+          }
+          {
+            plugin = comment-nvim;
+            config = "require(\"Comment\").setup()";
+            type = "lua";
+          }
+          {
+            plugin = vscode-nvim;
+            config = "colorscheme vscode";
+            type = "viml";
+          }
+          neodev-nvim
+          nvim-cmp
+          {
+            plugin = nvim-cmp;
+            config = builtins.readFile ./configs/nvim/plugin/cmp.lua;
+            type = "lua";
+          }
+          {
+            plugin = telescope-nvim;
+            config = builtins.readFile ./configs/nvim/plugin/telescope.lua;
+            type = "lua";
+          }
+          telescope-fzf-native-nvim
+          cmp_luasnip
+          cmp-nvim-lsp
+          luasnip
+          friendly-snippets
+          lualine-nvim
+          nvim-web-devicons
+          vim-nix
+          {
+            plugin = (nvim-treesitter.withPlugins (p: [
+              p.tree-sitter-nix
+              p.tree-sitter-vim
+              p.tree-sitter-bash
+              p.tree-sitter-lua
+              p.tree-sitter-python
+              p.tree-sitter-json
+              p.tree-sitter-c
+              p.tree-sitter-kitty
+              p.tree-sitter-powershell
+              p.tree-sitter-markdown
+              p.tree-sitter-markdown_inline
+            ]));
+            config = builtins.readFile ./configs/nvim/plugin/treesitter.lua;
+            type = "lua";
+          }
+        ];
+         initLua = ''
+          ${builtins.readFile ./configs/nvim/options.lua}
+        '';
+      };
+    };
+  xdg.configFile = {
+    "powershell/Microsoft.PowerShell_profile.ps1".source = ./configs/powershell/Microsoft.PowerShell_profile.ps1;
+    "kitty".source = ./configs/kitty;
+  };
 }
