@@ -197,5 +197,6 @@
   xdg.configFile = {
     "powershell/Microsoft.PowerShell_profile.ps1".source = ./configs/powershell/Microsoft.PowerShell_profile.ps1;
     "kitty".source = ./configs/kitty;
+    "fastfetch".source = ./configs/fastfetch;
   };
 }
