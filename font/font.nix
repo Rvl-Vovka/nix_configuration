@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/share/fonts/truetype
     cp $src $out/share/fonts/truetype/
   '';
-  meta = with lib {
+  meta = with lib; {
     description = "A font that looks like my handwriting";
     platforms = platforms.all;
   };
