@@ -2,7 +2,7 @@
 pkgs.stdenvNoCC.mkDerivation {
   pname = "Handwrite";
   version = "1.0";
-  src = ./handwrite.ttf; 
+  src = ./Handwrite.ttf; 
   installPhase = ''
     mkdir -p $out/share/fonts/truetype
     cp $src $out/share/fonts/truetype/
