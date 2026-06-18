@@ -8,6 +8,7 @@ let
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
+  handwrite = pkgs.callPackage ./font/font.nix { inherit pkgs; };
 in 
 
 {
@@ -35,7 +36,6 @@ in
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.kernelModules = [ "amdgpu" ];
-  # boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.kernel.sysctl = {
     "kernel.yama.ptrace_scope" = 0;
@@ -290,6 +290,7 @@ in
      nerd-fonts.jetbrains-mono 
      ubuntu-sans-mono
      vista-fonts
+     handwrite
     ];
   };
 
