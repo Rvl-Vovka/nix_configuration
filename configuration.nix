@@ -9,6 +9,7 @@ let
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   handwrite = pkgs.callPackage ./font/font.nix {};
+  xxd = pkgs.unixtools.xxd;
 in 
 
 {
@@ -279,6 +280,7 @@ in
     whisper-cpp-cuda
     wl-clipboard
     wpsoffice-cn
+    xxd
     yt-dlp
   ];
 
