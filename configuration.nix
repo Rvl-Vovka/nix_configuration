@@ -321,7 +321,6 @@ in
     rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
     rr = "python ~/.rr.py";
     trid = "python ~/.trid/trid.py";
-    which = "/run/current-system/sw/bin/which"; # Compatability for zsh
   };
 
   # Some programs need SUID wrappers, can be configured further or are
