@@ -250,7 +250,6 @@ in
     fortune
     fzf
     gcc
-    gemini-cli
     git
     imagemagick
     kdePackages.kalgebra
