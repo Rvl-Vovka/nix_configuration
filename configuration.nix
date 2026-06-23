@@ -269,6 +269,7 @@ in
     qbittorrent
     sl
     strawberry
+    tealdeer
     thorium
     toilet
     tree
