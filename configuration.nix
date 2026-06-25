@@ -5,12 +5,12 @@
 { config, pkgs, lib, inputs, ... }:
 
 let
-  thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
-  whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
+  thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
+  #trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
+  whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   xxd = pkgs.unixtools.xxd;
-  trid = pkgs.callPackage ./programs/trid.nix { specialArgs = { inherit inputs; }; };
 in 
 
 {
