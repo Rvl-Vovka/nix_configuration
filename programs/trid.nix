@@ -1,10 +1,11 @@
-{ stdenv, fetchzip }:
+{ stdenv, unzip }@inputs:
 
 stdenv.mkDerivation rec {
   name = "trid";
-  src = fetchzip {
-    url = "https://mark0.net/download/trid.zip";
-  };
+  src = inputs.trid;
+
+  buildInputs = [ unzip ];
+  unpackPhase = "unzip ${src}";
 
   installPhase = ''
     mkdir -p $out/bin
