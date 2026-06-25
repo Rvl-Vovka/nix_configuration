@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "trid";
-  src = pkgs.fetchzip {
+  src = fetchzip {
     url = "https://mark0.net/download/trid.zip";
   };
 
