@@ -8,8 +8,9 @@ let
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
-  handwrite = pkgs.callPackage ./font/font.nix {};
+  handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   xxd = pkgs.unixtools.xxd;
+  trid = pkgs.callPackage ./programs/trid.nix {};
 in 
 
 {
@@ -273,6 +274,7 @@ in
     thorium
     toilet
     tree
+    trid
     unar
     units
     vlc
@@ -339,7 +341,6 @@ in
     paste = "wl-paste";
     rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
     rr = "python ~/.rr.py";
-    trid = "python ~/.trid/trid.py";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
