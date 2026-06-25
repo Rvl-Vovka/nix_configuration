@@ -277,6 +277,7 @@ in
     units
     vlc
     vscode
+    wget
     whisper-cpp-cuda
     wl-clipboard
     wpsoffice-cn
@@ -301,6 +302,22 @@ in
   environment.variables.HISTCONTROL = "erasedups";
   environment.variables.PROMPT_EOL_MARK = "";
   # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
+
+  # Make man pages colorful
+  environment.variables.LESS_TERMCAP_mb = "[1;36m";
+  environment.variables.LESS_TERMCAP_md = "[1;36m";
+  environment.variables.LESS_TERMCAP_me = "[0m";
+  environment.variables.LESS_TERMCAP_se = "[0m";
+  environment.variables.LESS_TERMCAP_so = "[0;1m";
+  environment.variables.LESS_TERMCAP_ue = "[0m";
+  environment.variables.LESS_TERMCAP_us = "[4;1;32m";
+  environment.variables.LESS_TERMCAP_mr = "[7m";
+  environment.variables.LESS_TERMCAP_mh = "[2m";
+  environment.variables.LESS_TERMCAP_ZN = "[74m";
+  environment.variables.LESS_TERMCAP_ZV = "[75m";
+  environment.variables.LESS_TERMCAP_ZO = "[73m";
+  environment.variables.LESS_TERMCAP_ZW = "[75m";
+  environment.variables.GROFF_NO_SGR = 1;
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -337,12 +354,10 @@ in
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
   # Disable prompting for password on boot
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "vlryz";
-
-  #services.asusd.enable = true;
-  #services.asusd.enableUserService = true;
 
   services.power-profiles-daemon.enable = true;
 
@@ -401,7 +416,6 @@ in
     warn-dirty = false;
   };
 
-  documentation.nixos.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
   system.autoUpgrade = {
