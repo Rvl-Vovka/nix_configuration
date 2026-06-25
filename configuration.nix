@@ -274,7 +274,7 @@ in
     thorium
     toilet
     tree
-    trid
+    #trid
     unar
     units
     vlc
