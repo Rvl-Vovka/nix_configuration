@@ -14,7 +14,7 @@
     
     plugin-zsh-nix-shell = { url = "github:chisui/zsh-nix-shell"; flake = false; };
     plugin-zsh-autosuggestions = { url = "github:zsh-users/zsh-autosuggestions"; flake = false; };
-    plugin-zsh-syntax-highlighting = { url = "github:zsh-users/zsh-syntax-highlighting"; flake = false; }
+    plugin-zsh-syntax-highlighting = { url = "github:zsh-users/zsh-syntax-highlighting"; flake = false; };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

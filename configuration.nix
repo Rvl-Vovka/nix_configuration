@@ -10,7 +10,7 @@ let
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   xxd = pkgs.unixtools.xxd;
-  trid = pkgs.callPackage ./programs/trid.nix {};
+  trid = pkgs.callPackage ./programs/trid.nix { specialArgs = { inherit inputs; }; };
 in 
 
 {

@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782415272,
-        "narHash": "sha256-Yt4nE/QSk1KRzOIMBK5/OOa7AH1Y0JbxNbgf5VTxQ6g=",
+        "lastModified": 1782423922,
+        "narHash": "sha256-qPNd6lUohHP5gcJhqQ7rLV87RwIx0xYR2A4Frb9Zjc4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "19d7472aca941c7e3d11e8a91d61be47d70c4ab5",
+        "rev": "5d320ab301cfaaca7d32514f13815d19d109f5f4",
         "type": "github"
       },
       "original": {
@@ -178,7 +178,8 @@
         "plugin-zsh-autosuggestions": "plugin-zsh-autosuggestions",
         "plugin-zsh-nix-shell": "plugin-zsh-nix-shell",
         "plugin-zsh-syntax-highlighting": "plugin-zsh-syntax-highlighting",
-        "thorium": "thorium"
+        "thorium": "thorium",
+        "trid": "trid"
       }
     },
     "thorium": {
@@ -197,6 +198,19 @@
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
         "type": "github"
+      }
+    },
+    "trid": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777812432,
+        "narHash": "sha256-/TogmRR37qHfgRHBwCDwnspZAMtCLr161FJxs5ZHX7Y=",
+        "type": "tarball",
+        "url": "https://mark0.net/download/trid.zip"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://mark0.net/download/trid.zip"
       }
     }
   },
