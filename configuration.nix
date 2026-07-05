@@ -268,6 +268,7 @@ in
     powershell
     python315
     qbittorrent
+    rust-stakeholder
     sl
     strawberry
     tealdeer
