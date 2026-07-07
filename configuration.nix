@@ -240,7 +240,6 @@ in
     cmatrix
     davinci-resolve
     easyeffects
-    eloquent
     evtest
     eza
     fastfetch
@@ -368,38 +367,38 @@ in
   # Enable Flatpak service
   services.flatpak = {
     enable = true;
-    packages = [ 
-      "io.github.Soundux"
+    #packages = [ 
+    #  "io.github.Soundux"
       #"com.usebottles.bottles"
-    ];
-    update.onActivation = true; # Auto-update on rebuild
-    uninstallUnmanaged = true;
+    #];
+    #update.onActivation = true; # Auto-update on rebuild
+    #uninstallUnmanaged = true;
 
-    overrides.settings = {
-      global = {
+    #overrides.settings = {
+      #global = {
         # Force Wayland by default
-        Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+      #  Context.sockets = ["wayland" "!x11" "!fallback-x11"];
 
-        Environment = {
-          # Fix un-themed cursor in some Wayland apps
-          XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+      #  Environment = {
+      #    # Fix un-themed cursor in some Wayland apps
+      #    XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
 
           # Force correct theme for some GTK apps
-          GTK_THEME = "Adwaita:dark";
-        };
-      };
-      "io.github.Soundux".Context = {
-        filesystems = [
-          "home:ro"
-        ];
-      };
+      #    GTK_THEME = "Adwaita:dark";
+      #  };
+      #};
+      #"io.github.Soundux".Context = {
+      #  filesystems = [
+      #    "home:ro"
+      #  ];
+      #};
       #"com.usebottles.bottles".Context = {
       #  filesystems = [
       #    "home"
       #  ];
       #};
 
-    };
+    #};
   };
 
   # Required for Flatpak desktop integration
@@ -420,17 +419,17 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/etc/nixos/flake.nix";
-    flags = [
-      "--print-build-logs"
-      "--commit-lock-file"  # Automatically commits updated flake.lock
-    ];
-    dates = "02:00";
-    randomizedDelaySec = "45min";
-    allowReboot = false;
-  };
+  #system.autoUpgrade = {
+  #  enable = true;
+  #  flake = "/etc/nixos/flake.nix";
+  #  flags = [
+  #    "--print-build-logs"
+  #    "--commit-lock-file"  # Automatically commits updated flake.lock
+  #  ];
+  #  dates = "02:00";
+  #  randomizedDelaySec = "45min";
+  #  allowReboot = false;
+  #};
   nix.gc = {
     automatic = true;
     dates = "weekly";
