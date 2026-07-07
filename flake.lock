@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783222121,
-        "narHash": "sha256-E/ElL373TO8lQ2aMvYyzN+k4xkVaUGoRqoa8AtM71tI=",
+        "lastModified": 1783436070,
+        "narHash": "sha256-F80z1JoiJgZyTT5D+3siLOVzqmCEphLR7t0Ym/I2CLI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1645f40777620c4bd2b6d854b290c2fc354a266",
+        "rev": "f09af49406ffad37acb6538d3207189a1a1e0b7e",
         "type": "github"
       },
       "original": {
@@ -27,11 +27,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1783197693,
-        "narHash": "sha256-qfi8K535nd9BjDhQmXyPSPZOBZLZ1c54wkAwIhLp0iE=",
+        "lastModified": 1783273395,
+        "narHash": "sha256-ZCFyI5uR7pwkoLzLYxFqJWV8mjujVQIgqCqm+KeF+a4=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "ff02ea1ab68e99373575c75e90542884559f9a48",
+        "rev": "3e6443a6ea1a5213adabe0327d3844e1ab432094",
         "type": "github"
       },
       "original": {
@@ -60,11 +60,11 @@
     },
     "nix-flatpak": {
       "locked": {
-        "lastModified": 1780908363,
-        "narHash": "sha256-llGS4y3Qh1eUkli3/Y2VY9FV3GOUKFZR1E2BDftt45Q=",
+        "lastModified": 1783368811,
+        "narHash": "sha256-0H8jDwR4Kegb3heaTrH1ftbgKfZVDT8JE+46uXxDy/Q=",
         "owner": "gmodena",
         "repo": "nix-flatpak",
-        "rev": "1df08625f0f8c7d6e300a0e5df7955bbb877d809",
+        "rev": "20d42f0ee98c9fe9f85e8d1de474f1409ed10d05",
         "type": "github"
       },
       "original": {
@@ -107,11 +107,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1782959384,
-        "narHash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "65179426c83bb3f6bc14898b42ea1c6f01d374b0",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -187,11 +187,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1783241862,
-        "narHash": "sha256-VVAOCTLK7kPKKsBpeWuhiKYn1M9Jscv593UiUHZLTG4=",
+        "lastModified": 1783416631,
+        "narHash": "sha256-jkPvh7vQaoBQd0iErB2uS6FF/iPd55Eqcwoc5iZphiU=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "ddaa0dde3dd3229b63c1b7dc040dfda6dd60b0ef",
+        "rev": "98066282d3847d463843cad0989cee4b0013266d",
         "type": "github"
       },
       "original": {

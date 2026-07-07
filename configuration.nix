@@ -240,7 +240,6 @@ in
     cmatrix
     davinci-resolve
     easyeffects
-    easytag
     eloquent
     evtest
     eza
@@ -256,6 +255,7 @@ in
     kdePackages.kalgebra
     kdePackages.kcalc
     kdotool
+    kid3-kde
     kitty
     lolcat
     mangohud
