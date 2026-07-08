@@ -301,26 +301,28 @@ in
   };
 
   # Change enviromental variables
-  environment.variables.EDITOR = "nvim";
-  environment.variables.HISTCONTROL = "erasedups";
-  environment.variables.PROMPT_EOL_MARK = "";
-  # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
+  environment.variables = {
+    EDITOR = "nvim";
+    HISTCONTROL = "erasedups";
+    PROMPT_EOL_MARK = "";
+    # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
 
-  # Make man pages colorful
-  environment.variables.LESS_TERMCAP_mb = "[1;36m";
-  environment.variables.LESS_TERMCAP_md = "[1;36m";
-  environment.variables.LESS_TERMCAP_me = "[0m";
-  environment.variables.LESS_TERMCAP_se = "[0m";
-  environment.variables.LESS_TERMCAP_so = "[0;1m";
-  environment.variables.LESS_TERMCAP_ue = "[0m";
-  environment.variables.LESS_TERMCAP_us = "[4;1;32m";
-  environment.variables.LESS_TERMCAP_mr = "[7m";
-  environment.variables.LESS_TERMCAP_mh = "[2m";
-  environment.variables.LESS_TERMCAP_ZN = "[74m";
-  environment.variables.LESS_TERMCAP_ZV = "[75m";
-  environment.variables.LESS_TERMCAP_ZO = "[73m";
-  environment.variables.LESS_TERMCAP_ZW = "[75m";
-  environment.variables.GROFF_NO_SGR = 1;
+    # Make man pages colorful
+    LESS_TERMCAP_mb = "[1;36m";   # [0m]] (these comments are needed so nothing
+    LESS_TERMCAP_md = "[1;36m";   # [0m]] breaks from having an unclosed bracket
+    LESS_TERMCAP_me = "[0m";      # [0m]] and so output doesn't get colorized)
+    LESS_TERMCAP_se = "[0m";      # [0m]]
+    LESS_TERMCAP_so = "[0;1m";    # [0m]]
+    LESS_TERMCAP_ue = "[0m";      # [0m]]
+    LESS_TERMCAP_us = "[4;1;32m"; # [0m]]
+    LESS_TERMCAP_mr = "[7m";      # [0m]]
+    LESS_TERMCAP_mh = "[2m";      # [0m]]
+    LESS_TERMCAP_ZN = "[74m";     # [0m]]
+    LESS_TERMCAP_ZV = "[75m";     # [0m]]
+    LESS_TERMCAP_ZO = "[73m";     # [0m]]
+    LESS_TERMCAP_ZW = "[75m";     # [0m]]
+    GROFF_NO_SGR = 1;
+  }
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
@@ -340,7 +342,7 @@ in
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     parrot = "python ~/.parrot.py";
     paste = "wl-paste";
-    rebuild = "~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
+    rebuild = "bash ~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
     rr = "python ~/.rr.py";
   };
 
