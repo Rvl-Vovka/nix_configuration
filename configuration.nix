@@ -322,7 +322,7 @@ in
     LESS_TERMCAP_ZO = "[73m";     # [0m]]
     LESS_TERMCAP_ZW = "[75m";     # [0m]]
     GROFF_NO_SGR = 1;
-  }
+  };
 
   environment.shellAliases = {
     # Format: "aliasName" = "command to run";
