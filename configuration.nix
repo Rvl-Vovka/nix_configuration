@@ -332,13 +332,12 @@ in
     cdl = "cd /home/vlryz/Important/Legendary";
     cdn = "cd /etc/nixos";
     copy = "wl-copy";
-    dt = "date date +'%A, %B %d %Y %H:%M:%S.%N'";
+    dt = "date +'%A, %B %d %Y %H:%M:%S.%N'";
     l = "eza -lah";
     la = "eza -a";
     ll = "eza -la";
     ls = "eza";
     lsa = "eza -lah";
-    n = "nvidia-offload";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     parrot = "python ~/.parrot.py";
     paste = "wl-paste";

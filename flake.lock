@@ -27,11 +27,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1783529149,
-        "narHash": "sha256-co3g5Vt0KT24XpqqYnTiWTgFET/Ka+vaqQXBGVMffX8=",
+        "lastModified": 1783532163,
+        "narHash": "sha256-n+YQKnVt0H1B2z6N1PmaadeVorRHi956q48/g2y8Hnc=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "00df194e6967c24ed45bea10a68891c691f424c0",
+        "rev": "3623ed0ed9f6065ce666cb0276ff0b903fee2355",
         "type": "github"
       },
       "original": {
@@ -163,7 +163,8 @@
         "plugin-zsh-nix-shell": "plugin-zsh-nix-shell",
         "plugin-zsh-syntax-highlighting": "plugin-zsh-syntax-highlighting",
         "thorium": "thorium",
-        "trid": "trid"
+        "trid": "trid",
+        "triddefs": "triddefs"
       }
     },
     "thorium": {
@@ -171,11 +172,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1783416631,
-        "narHash": "sha256-jkPvh7vQaoBQd0iErB2uS6FF/iPd55Eqcwoc5iZphiU=",
+        "lastModified": 1783539180,
+        "narHash": "sha256-wr8DKAgNiIVbtVaTs1nTpJioWswZxkWjYxYK/FWdB+M=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "98066282d3847d463843cad0989cee4b0013266d",
+        "rev": "d8e64dced66f4cb74dc6a28211a615025f4becf2",
         "type": "github"
       },
       "original": {
@@ -195,6 +196,19 @@
       "original": {
         "type": "tarball",
         "url": "https://mark0.net/download/trid.zip"
+      }
+    },
+    "triddefs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783414706,
+        "narHash": "sha256-F/l0EKeAb+jlJAsy68dc30Sr5l23ycApgKqrgNuoIHo=",
+        "type": "tarball",
+        "url": "http://mark0.net/download/triddefs.zip"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "http://mark0.net/download/triddefs.zip"
       }
     }
   },
