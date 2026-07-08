@@ -8,7 +8,7 @@ let
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
-  #trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
+  trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   xxd = pkgs.unixtools.xxd;
 in 
@@ -274,7 +274,7 @@ in
     thorium
     toilet
     tree
-    #trid
+    trid
     unar
     units
     vlc
