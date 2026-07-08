@@ -292,10 +292,11 @@ in
     enableDefaultPackages = true;
     packages = with pkgs; [
      corefonts
+     handwrite
      nerd-fonts.jetbrains-mono 
+     noto-fonts-cjk-serif
      ubuntu-sans-mono
      vista-fonts
-     handwrite
     ];
   };
 
