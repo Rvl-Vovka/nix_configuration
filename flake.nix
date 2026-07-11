@@ -24,9 +24,9 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
-        chaotic.nixosModules.nyx-cache
-        chaotic.nixosModules.nyx-overlay
-        chaotic.nixosModules.nyx-registry
+        inputs.chaotic.nixosModules.nyx-cache
+        inputs.chaotic.nixosModules.nyx-overlay
+        inputs.chaotic.nixosModules.nyx-registry
         #inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
