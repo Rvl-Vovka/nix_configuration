@@ -36,12 +36,7 @@ in
 
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {
-    cachyVars = {
-      "_processor_opt" = "GENERIC_V3";
-      "_cpusched" = "bore";
-    };
-  };
+  boot.kernelPackages = pkgs.cachyosKernels.linux-cachyos-bore-x86_64-v3;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.kernel.sysctl = {
