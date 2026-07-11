@@ -20,13 +20,20 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
         #inputs.nix-flatpak.nixosModules.nix-flatpak
 
-        ( { pkgs }: { nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ]; } )
+        (
+          { pkgs, ... }:
+          {
+            nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+            boot.kernelPackages = pkgs.cachyosKernels.linux-cachyos-bore-x86_64-v3;
+          }
+        )
       ];
     };
   };
