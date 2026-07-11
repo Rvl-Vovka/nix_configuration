@@ -18,11 +18,11 @@
 
   home.shellAliases = {
     # Most aliases are configured in configuration.nix but these ones are overwriten by zsh so need to be there
-    l = "eza -lah";
-    ls = "eza";
-    ll = "eza -la";
-    la = "eza -a";
-    lsa = "eza -lah";
+    l = "eza --icons --group-directories-first -lah";
+    ls = "eza --icons --group-directories-first";
+    ll = "eza --icons --group-directories-first -la";
+    la = "eza --icons --group-directories-first -a";
+    lsa = "eza --icons --group-directories-first -lah";
   };
 
   # The home.packages option allows you to install Nix packages into your

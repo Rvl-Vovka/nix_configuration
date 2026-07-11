@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     #nix-flatpak.url = "github:gmodena/nix-flatpak";
     
     thorium.url = "github:Rishabh5321/custom-packages-flake";
@@ -23,6 +24,9 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
+        chaotic.nixosModules.nyx-cache
+        chaotic.nixosModules.nyx-overlay
+        chaotic.nixosModules.nyx-registry
         #inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
