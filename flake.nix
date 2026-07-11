@@ -26,7 +26,7 @@
         inputs.home-manager.nixosModules.default
         #inputs.nix-flatpak.nixosModules.nix-flatpak
 
-        ( { pkgs }: { nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ]; } )
+        ( { pkgs }: { nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ]; } )
       ];
     };
   };
