@@ -234,7 +234,7 @@ in
     audacity
     bastet
     bat
-    bottles-native
+    #bottles-native
     broot
     btop-cuda
     cbonsai
