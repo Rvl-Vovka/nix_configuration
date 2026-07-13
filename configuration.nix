@@ -331,6 +331,7 @@ in
     cd = "z";
     cdd = "cd /home/vlryz/Downloads";
     cdl = "cd /home/vlryz/Important/Legendary";
+    cp = "cp -i";
     cdn = "cd /etc/nixos";
     copy = "wl-copy";
     dt = "date +'%A, %B %d %Y %H:%M:%S.%N'";
@@ -339,6 +340,7 @@ in
     ll = "eza --icons --group-directories-first -la";
     ls = "eza --icons --group-directories-first";
     lsa = "eza --icons --group-directories-first -lah";
+    mv = "mv -i";
     no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
     parrot = "python ~/.parrot.py";
     paste = "wl-paste";
