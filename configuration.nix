@@ -36,7 +36,7 @@ in
 
 
   # Use latest kernel.
-  #boot.kernelPackages = pkgs.cachyosKernels.linux-cachyos-bore-x86_64-v3;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.kernel.sysctl = {
@@ -222,7 +222,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ inputs.millennium.overlays.default ]; # Required for millenium
+  nixpkgs.overlays = [ inputs.millennium.overlays.default inputs.nix-cachyos-kernel.overlays.pinned ]; # Required for millenium and CachyOS kernel
 
   # List packages installed in system profile.
   environment.defaultPackages = [];
@@ -231,9 +231,10 @@ in
     android-tools
     antigravity-cli
     asusctl
+    audacity
     bastet
     bat
-    #bottles-native
+    bottles-native
     broot
     btop-cuda
     cbonsai

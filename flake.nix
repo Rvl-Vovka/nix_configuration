@@ -26,14 +26,6 @@
         ./configuration.nix
         inputs.home-manager.nixosModules.default
         #inputs.nix-flatpak.nixosModules.nix-flatpak
-
-        (
-          { pkgs, ... }:
-          {
-            nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-            boot.kernelPackages = pkgs.cachyosKernels.linux-cachyos-bore-x86_64-v3;
-          }
-        )
       ];
     };
   };
