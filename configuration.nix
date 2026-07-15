@@ -144,9 +144,9 @@ in
   ];
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  #services.xserver.xkb = {
     # Set multiple layouts separated by commas
-    layout = "us,ru";
+  #  layout = "us,ru";
     
     # Optional: Match variants with layouts, also comma-separated
     # variant = ",typewriter";
@@ -154,7 +154,7 @@ in
     # Set the key combination to switch layouts (e.g., Alt+Shift)
     # options = "grp:ctrl_shift_toggle";
     # options = "grp:ctrl_space_toggle"; # It is broken, breaks a lot of other hotkeys, I have having to use multiple keyboard layouts, currently only systray button works for switching layouts.
-  };
+  #};
   
 
   # Enable CUPS to print documents.
