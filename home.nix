@@ -109,17 +109,22 @@
         plugins = [
           {
             name = "zsh-nix-shell";
-            src = inputs.plugin-zsh-nix-shell;
+            src = pkgs.zsh-nix-shell;
             file = "nix-shell.plugin.zsh";
           }
           {
+            name = "zsh-vi-mode";
+            src = pkgs.zsh-vi-mode;
+            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+          }
+          {
             name = "zsh-autosuggestions";
-            src = inputs.plugin-zsh-autosuggestions;
+            src = pkgs.zsh-autosuggestions;
             file = "zsh-autosuggestions.zsh";
           }
           {
             name = "zsh-syntax-highlighting";
-            src = inputs.plugin-zsh-syntax-highlighting;
+            src = pkgs.zsh-syntax-highlighting;
             file = "zsh-syntax-highlighting.zsh";
           }
         ];
@@ -127,6 +132,13 @@
           # Ensure suggestions are cleared on paste
           # This must be defined for zsh-autosuggestions
           ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+
+          HISTSIZE=1000000 # Set the number of commands to remember in memory
+          SAVEHIST=1000000 # Set the number of commands to save to the history file on disk
+          setopt INC_APPEND_HISTORY # Append to history file immediately instead of only on exit
+          setopt SHARE_HISTORY # Share history across all open terminal sessions
+          setopt HIST_IGNORE_SPACE # Do not record commands that start with a space
+          setopt HIST_IGNORE_DUPS # Remove duplicate entries from the history
         '';
       };
 
