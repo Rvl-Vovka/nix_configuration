@@ -110,7 +110,7 @@
           {
             name = "zsh-nix-shell";
             src = pkgs.zsh-nix-shell;
-            file = "nix-shell.plugin.zsh";
+            file = "share/zsh/plugins/zsh-nix-shell/nix-shell.plugin.zsh";
           }
           {
             name = "zsh-vi-mode";
@@ -120,12 +120,12 @@
           {
             name = "zsh-autosuggestions";
             src = pkgs.zsh-autosuggestions;
-            file = "zsh-autosuggestions.zsh";
+            file = "share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh";
           }
           {
             name = "zsh-syntax-highlighting";
             src = pkgs.zsh-syntax-highlighting;
-            file = "zsh-syntax-highlighting.zsh";
+            file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
           }
         ];
         initContent = ''
