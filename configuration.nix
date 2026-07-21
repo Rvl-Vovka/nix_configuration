@@ -234,6 +234,7 @@ in
     audacity
     bastet
     bat
+    bc
     #bottles-native
     broot
     btop-cuda
