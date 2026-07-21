@@ -130,8 +130,12 @@ in
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
 
+  # Enable the KDE Plasma Login Manager
+  services.displayManager = {
+    plasma-login-manager.enable = true;
+    autoLogin.user = "vlryz"; # Disable prompting for password on boot
+  };
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     qrca
@@ -361,10 +365,6 @@ in
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Disable prompting for password on boot
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "vlryz";
 
   services.power-profiles-daemon.enable = true;
 
