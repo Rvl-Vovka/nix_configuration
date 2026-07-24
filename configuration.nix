@@ -209,7 +209,7 @@ in
     enable = true;
     extraCompatPackages = with pkgs; [ 
       proton-ge-bin
-      inputs.nix-proton-cachyos.packages.${system}.proton-cachyos
+      inputs.nix-proton-cachyos.packages.${stdenv.hostPlatform.system}.proton-cachyos
     ];
     package = pkgs.millennium-steam;
   };
