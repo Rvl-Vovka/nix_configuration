@@ -73,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784877405,
-        "narHash": "sha256-W649GocILahx7Vb/JMx834217+OLKBrq014VmC/8+NM=",
+        "lastModified": 1784913159,
+        "narHash": "sha256-JWq0BfjO4ktpH5USfQNQzdvHpIDT8fSKD5K7LvdMRFs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "32de400b6ac9f43042bca706f4a64f6ad08117e8",
+        "rev": "079a3b5d1aa6a719920a51316253b7d6dd22738d",
         "type": "github"
       },
       "original": {
@@ -246,11 +246,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1784497964,
-        "narHash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU=",
+        "lastModified": 1784796856,
+        "narHash": "sha256-wWFrV5/Qbm+lyt5x20E/bSbfJiGKMo4RCxZV8cl/WZI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "rev": "e2587caef70cea85dd97d7daab492899902dbf5d",
         "type": "github"
       },
       "original": {
@@ -277,11 +277,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1784816240,
-        "narHash": "sha256-nTliWdzQdtpUfnO/2Qv4+YSMip3/dTtuAmxdw/Bb4GI=",
+        "lastModified": 1784901192,
+        "narHash": "sha256-kT+o45sRWiEJ0hDj1ulwpRAwaSioPR4c4AOTEK6nAqI=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "b4f00876f711440682715a04b701428c1a74ca8d",
+        "rev": "52fc4ec13e492f5faec6249f32ab4a95dddc346a",
         "type": "github"
       },
       "original": {
@@ -306,8 +306,8 @@
     "triddefs": {
       "flake": false,
       "locked": {
-        "lastModified": 1784577652,
-        "narHash": "sha256-jQFaQOw/7f5nAfrplnXdnV5W7W76WOgPSoH5yGbxrlA=",
+        "lastModified": 1784890072,
+        "narHash": "sha256-se4Md2ZONXYeEW9hiolgXl7/f3HUbxSNYbYdyrrt3AM=",
         "type": "tarball",
         "url": "http://mark0.net/download/triddefs.zip"
       },

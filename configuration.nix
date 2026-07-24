@@ -425,6 +425,7 @@ in
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.connect-timeout = 0;
   nix.settings.auto-optimise-store = true;
   #system.autoUpgrade = {
   #  enable = true;
