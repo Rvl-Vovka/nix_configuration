@@ -6,7 +6,7 @@
     
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    nix-proton-cachyos.url = "github:Flerpharos/nix-proton-cachyos";
+    nix-proton-cachyos.url = "github:Shochraos/nix-proton-cachyos";
     #nix-flatpak.url = "github:gmodena/nix-flatpak";
     
     thorium.url = "github:Rishabh5321/custom-packages-flake";
