@@ -430,7 +430,7 @@ in
       auto-optimise-store = true;
       connect-timeout = 0;
       experimental-features = [ "nix-command" "flakes" ];
-      stalled-download-timeout = 0
+      stalled-download-timeout = 0;
       warn-dirty = false;
     };
   };
