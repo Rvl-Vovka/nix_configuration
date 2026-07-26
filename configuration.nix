@@ -420,13 +420,21 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  nix.settings = {
-    warn-dirty = false;
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    settings = {
+      auto-optimise-store = true;
+      connect-timeout = 0;
+      experimental-features = [ "nix-command" "flakes" ];
+      stalled-download-timeout = 0
+      warn-dirty = false;
+    };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.connect-timeout = 0;
-  nix.settings.auto-optimise-store = true;
   #system.autoUpgrade = {
   #  enable = true;
   #  flake = "/etc/nixos/flake.nix";
@@ -438,11 +446,6 @@ in
   #  randomizedDelaySec = "45min";
   #  allowReboot = false;
   #};
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
