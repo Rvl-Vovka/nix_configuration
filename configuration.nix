@@ -16,14 +16,14 @@ in
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      #inputs.nix-flatpak.nixosModules.nix-flatpak
+    [ 
+      ./hardware-configuration.nix # Include the results of the hardware scan
+      inputs.home-manager.nixosModules.default # Home-Manager
+      #inputs.nix-flatpak.nixosModules.nix-flatpak # nix-flatpak
     ];
 
   boot = {
-    # Bootloader.
+    # Bootloader
     loader = {
       systemd-boot = {
         enable = true;
@@ -36,8 +36,8 @@ in
       timeout = 0;
     };
 
-    # Use custom cachyos kernel.
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+    # Use custom cachyos kernel
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3; # Can't use lto version because it is compiled with clang instead of gcc and vmware kernel modules are not compatable with clang
     initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [ "amd_pstate=active" ];
     kernel.sysctl = {
@@ -69,23 +69,23 @@ in
     };
 
     nvidia = {
-      # Modesetting is required.
+      # Modesetting is required
       modesetting.enable = true;
 
-      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+      # Nvidia power management. Experimental, and can cause sleep/suspend to fail
       powerManagement.enable = true;
-      # Fine-grained power management. Turns off GPU when not in use.
+      # Fine-grained power management. Turns off GPU when not in use
       powerManagement.finegrained = true;
 
       # Use the NVidia open source kernel module (not to be confused with the
       # nouveau open source driver). Only available on driver 515.43.04+
-      # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing).
+      # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing)
       open = false;
 
-      # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
+      # Enable the Nvidia settings menu, accessible via `nvidia-settings`
       nvidiaSettings = true;
 
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      # Optionally, you may need to select the appropriate driver version for your specific GPU
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       # PRIME settings for Hybrid Graphics
@@ -99,7 +99,7 @@ in
   };
 
   networking = {
-    hostName = "emerald"; # Define your hostname.
+    hostName = "emerald"; # Define your hostname
 
     # Enable DNS
     nameservers = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
@@ -109,14 +109,14 @@ in
     networkmanager.dns = "systemd-resolved";
   };
 
-  # Set your time zone.
+  # Set your time zone
   time.timeZone = "Europe/Minsk";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
   console.useXkbConfig = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account
   users.users.vlryz = {
     isNormalUser = true;
     description = "vlryz";
@@ -324,7 +324,7 @@ in
 
   # List services that you want to enable:
   services = {
-    # Enable the KDE Plasma Desktop Environment.
+    # Enable the KDE Plasma Desktop Environment
     desktopManager.plasma6.enable = true;
 
     # Enable the KDE Plasma Login Manager
@@ -343,7 +343,7 @@ in
       };
     };
 
-    # Enable sound with pipewire.
+    # Enable sound with pipewire
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
@@ -352,8 +352,8 @@ in
       pulse.enable = true;
     };
 
-    # Enable the X11 windowing system.
-    # You can disable this if you're only using the Wayland session.
+    # Enable the X11 windowing system
+    # You can disable this if you're only using the Wayland session
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
@@ -361,7 +361,7 @@ in
       videoDrivers = [ "nvidia" "amdgpu" ];
     };
 
-    # Enable the OpenSSH daemon.
+    # Enable the OpenSSH daemon
     # openssh.enable = true;
 
     # Enables ability to switch between power profiles (power save, balanced, performance)
