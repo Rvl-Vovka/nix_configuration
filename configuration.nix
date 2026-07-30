@@ -251,7 +251,9 @@ in
       EDITOR = "nvim";
       HISTCONTROL = "erasedups";
       PROMPT_EOL_MARK = "";
-      # environment.variables.PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
+      NIX_AUTO_RUN = 1;
+      NIX_AUTO_RUN_INTERACTIVE = 1;
+      # PROMPT_COMMAND = "echo -ne '\\e[A'"; # Fixes bash spacing between lines, currently ins't needed because zsh is the default shell
 
       # Make man pages colorful
       LESS_TERMCAP_mb = "[1;36m";   # [0m]] (these comments are needed so nothing
