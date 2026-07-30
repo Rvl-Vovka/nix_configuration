@@ -24,6 +24,7 @@
         ./configuration.nix
         inputs.home-manager.nixosModules.default
         #inputs.nix-flatpak.nixosModules.nix-flatpak
+        flake-programs-sqlite.nixosModules.programs-sqlite
       ];
     };
   };
