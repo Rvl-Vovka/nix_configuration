@@ -11,7 +11,7 @@ let
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   xxd = pkgs.unixtools.xxd;
-  proton-cachyos = inputs.nix-proton-cachyos.packages.${stdenv.hostPlatform.system}.proton-cachyos;
+  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
 in 
 
 {
