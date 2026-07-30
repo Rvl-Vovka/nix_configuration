@@ -143,18 +143,13 @@ in
       enable = true;
       extraPackages = with pkgs.bat-extras; [
         batdiff
-        batgrep
-        batman
-        batpipe
         batwatch
-        prettybat
       ];
       settings = {
         theme = "Visual Studio Dark+";
         paging = "never";
       };
     };
-    command-not-found.enable = true;
     git.enable = true;
     kdeconnect.enable = true;
     neovim.enable = true;
