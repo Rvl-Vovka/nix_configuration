@@ -132,8 +132,10 @@ in
     };
   };
 
-  # Disable prompting for password when using sudo
-  security.sudo.wheelNeedsPassword = false;
+  security = {
+    sudo.wheelNeedsPassword = false; # Disable prompting for password when using sudo
+    rtkit.enable = true; # Required for pipewire
+  };
 
   # Install programs that need additional configurations
   programs = {
@@ -343,7 +345,6 @@ in
 
     # Enable sound with pipewire.
     pulseaudio.enable = false;
-    rtkit.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
