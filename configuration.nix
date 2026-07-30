@@ -12,7 +12,7 @@ let
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   xxd = pkgs.unixtools.xxd;
   proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
-in 
+in
 
 {
   imports =
@@ -24,7 +24,7 @@ in
 
   boot = {
     # Bootloader.
-    loader = { 
+    loader = {
       systemd-boot = {
         enable = true;
         consoleMode = "max";
@@ -35,7 +35,6 @@ in
       efi.canTouchEfiVariables = true;
       timeout = 0;
     };
-
 
     # Use custom cachyos kernel.
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
@@ -88,7 +87,7 @@ in
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      
+
       # PRIME settings for Hybrid Graphics
       prime = {
         offload.enable = true;
@@ -97,17 +96,11 @@ in
         nvidiaBusId = "PCI:1:0:0";
       };
     };
-
   };
 
-  nerworking = {
-    hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "emerald"; # Define your hostname.
 
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-    
     # Enable DNS
     nameservers = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
 
@@ -116,7 +109,6 @@ in
     networkmanager.dns = "systemd-resolved";
   };
 
-
   # Set your time zone.
   time.timeZone = "Europe/Minsk";
 
@@ -124,28 +116,25 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   console.useXkbConfig = true;
 
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vlryz = {
-      isNormalUser = true;
-      description = "vlryz";
-      extraGroups = [ "networkmanager" "wheel" ];
-      shell = pkgs.zsh;
-      useDefaultShell = true;
+    isNormalUser = true;
+    description = "vlryz";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+    useDefaultShell = true;
   };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "vlryz" = import ./home.nix;
     };
   };
-  
+
   # Disable prompting for password when using sudo
   security.sudo.wheelNeedsPassword = false;
-  
+
   # Install programs that need additional configurations
   programs = {
     bat = {
@@ -176,7 +165,7 @@ in
     };
     steam = {
       enable = true;
-      extraCompatPackages = with pkgs; [ 
+      extraCompatPackages = with pkgs; [
         proton-ge-bin
         proton-cachyos
       ];
@@ -191,7 +180,7 @@ in
     # Allow unfree packages
     config.allowUnfree = true;
     overlays = [
-      inputs.millennium.overlays.default # Required for millenium 
+      inputs.millennium.overlays.default # Required for millenium
       inputs.nix-cachyos-kernel.overlays.pinned # Required for CachyOS kernel
     ];
   };
@@ -324,7 +313,7 @@ in
     packages = with pkgs; [
       corefonts
       handwrite
-      nerd-fonts.jetbrains-mono 
+      nerd-fonts.jetbrains-mono
       noto-fonts-cjk-serif
       ubuntu-sans-mono
       vista-fonts
@@ -371,10 +360,10 @@ in
       videoDrivers = [ "nvidia" "amdgpu" ];
     };
 
-
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
 
+    # Enables ability to switch between power profiles (power save, balanced, performance)
     power-profiles-daemon.enable = true;
 
     # Additional requierements for bluetooth
@@ -383,22 +372,19 @@ in
     # Enable Flatpak service
     flatpak = {
       enable = true;
-      #packages = [ 
+      #packages = [
       #  "io.github.Soundux"
         #"com.usebottles.bottles"
       #];
       #update.onActivation = true; # Auto-update on rebuild
       #uninstallUnmanaged = true;
-
       #overrides.settings = {
         #global = {
           # Force Wayland by default
         #  Context.sockets = ["wayland" "!x11" "!fallback-x11"];
-
         #  Environment = {
         #    # Fix un-themed cursor in some Wayland apps
         #    XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-
             # Force correct theme for some GTK apps
         #    GTK_THEME = "Adwaita:dark";
         #  };
@@ -413,7 +399,6 @@ in
         #    "home"
         #  ];
         #};
-
       #};
     };
   };
@@ -450,7 +435,7 @@ in
   #  randomizedDelaySec = "45min";
   #  allowReboot = false;
   #};
-  
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -458,5 +443,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
