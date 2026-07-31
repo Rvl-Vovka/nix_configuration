@@ -220,9 +220,11 @@ in
       masterpdfeditor4
       mp3gain
       neo-cowsay
+      nmap
       nudoku
       pince
       piper-tts
+      playerctl
       powershell
       python315
       qbittorrent
