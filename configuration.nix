@@ -55,7 +55,6 @@ in
     # Enable bluetooth
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
@@ -82,12 +81,6 @@ in
       # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing)
       open = false;
 
-      # Enable the Nvidia settings menu, accessible via `nvidia-settings`
-      nvidiaSettings = true;
-
-      # Optionally, you may need to select the appropriate driver version for your specific GPU
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-
       # PRIME settings for Hybrid Graphics
       prime = {
         offload.enable = true;
@@ -111,10 +104,6 @@ in
 
   # Set your time zone
   time.timeZone = "Europe/Minsk";
-
-  # Select internationalisation properties
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.useXkbConfig = true;
 
   # Define a user account
   users.users.vlryz = {
@@ -183,8 +172,6 @@ in
   };
 
   environment = {
-    # Not install not needed pacakges
-    defaultPackages = [];
     # Install programs that don't need additional configuration (just binaries)
     systemPackages = with pkgs; [
       alsa-utils
@@ -315,7 +302,6 @@ in
       corefonts
       handwrite
       nerd-fonts.jetbrains-mono
-      noto-fonts-cjk-serif
       ubuntu-sans-mono
       vista-fonts
     ];
@@ -338,12 +324,10 @@ in
       settings.Resolve = {
         DNSOverTLS = "true";
         Domains = [ "~." ];
-        FallbackDNS = [ "1.1.1.1#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com" ];
       };
     };
 
     # Enable sound with pipewire
-    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -368,6 +352,9 @@ in
 
     # Additional requierements for bluetooth
     blueman.enable = true;
+
+    # VPN
+    expressvpn.enable = true;
 
     # Enable Flatpak service
     flatpak = {
@@ -417,10 +404,15 @@ in
     };
     settings = {
       auto-optimise-store = true;
-      connect-timeout = 0;
+      download-attempts = 0;
       experimental-features = [ "nix-command" "flakes" ];
+      max-jobs = "auto";
       stalled-download-timeout = 0;
       warn-dirty = false;
+
+      # Binary cache for cachyos kernel
+      substituters = [ "https://attic.xuyh0120.win/lantian" ];
+      trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
     };
   };
 

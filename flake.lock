@@ -42,11 +42,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1785473109,
-        "narHash": "sha256-eXbBLPlHiZ5S5BOA+W+bZCM22pQ5IoowBOybXNbs0Qc=",
+        "lastModified": 1785684590,
+        "narHash": "sha256-ij3sL3IOLiaMtpl6qB7Ai4gN/VEoXLvUU9vGNJmq7T4=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "6b3b4238981ab1e520abaca61552baf193bbe85b",
+        "rev": "840e12f8a785f4b024df229a9a9e3eb1db8e7a62",
         "type": "github"
       },
       "original": {
@@ -62,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785472055,
-        "narHash": "sha256-xU44Kgp7RPedzBjyRf+z7j97BgZ2R1J4fiqWUl/JNxI=",
+        "lastModified": 1785531816,
+        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2e6715977106c498355a70bcefd2c78a33c94558",
+        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1785437982,
-        "narHash": "sha256-m0mLVZc4RmzlBMjPOFh+rnALT92jMXJqQtLBMP9jo90=",
+        "lastModified": 1785609312,
+        "narHash": "sha256-u2jA6fdtpzPgvw/49NP5P9y2SoopurMGuw0UZgaPkeY=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "8dfc5b3a553819ba50f601d804a3df64360bd5d8",
+        "rev": "c6be74346ad21399708e2f15c403e51a27a4ed13",
         "type": "github"
       },
       "original": {
@@ -185,11 +185,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1785382966,
-        "narHash": "sha256-TzNPxZZV/qnV8U5fEtrvcMF/GppHnlWm16RDHddPOyE=",
+        "lastModified": 1785606026,
+        "narHash": "sha256-Je9LEkXta68OIxKxp5rVaLHBroevAvttX2Rknby+Jx4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ba889d5db7c07eaf5cb8f37835d447d935c51b21",
+        "rev": "94121f787ef407d21d7cbb2885eec3ed8f2f55c2",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1785454630,
-        "narHash": "sha256-LQy14TZp77TwbQf40gg1V3jo8FwJG0jGDkAH+zRHqg8=",
+        "lastModified": 1785571196,
+        "narHash": "sha256-KoTsyMQqnXQZq8deCEnu4QkyldkwH/bpMMhUcfMdGIw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1559d3daa3ecc813a650b79375ea61b6741b8746",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
         "type": "github"
       },
       "original": {
@@ -233,11 +233,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1785318670,
-        "narHash": "sha256-dN6Ou5x/+23FZLEpYP3IffO+NyJFzUlGumt1uu3MMaY=",
+        "lastModified": 1785571196,
+        "narHash": "sha256-KoTsyMQqnXQZq8deCEnu4QkyldkwH/bpMMhUcfMdGIw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0954f7ee2f6bb3dc7d4e3d0d8bcb8fd4bde4cfc5",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
         "type": "github"
       },
       "original": {
@@ -280,11 +280,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1785439934,
-        "narHash": "sha256-k6hsh10xnIKz3x+7qtEnjJQBwqZLbm0vSof2KmYjIOA=",
+        "lastModified": 1785637043,
+        "narHash": "sha256-ixHdNcdLp0uNXXszci8jR/lMuC2N+hAdF/LylZU4L6E=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "c2c9e90cb650e9b1f6497da0324da202e8094862",
+        "rev": "186ad426139c1d783ebafae60a5280beeb6031f4",
         "type": "github"
       },
       "original": {
@@ -309,8 +309,8 @@
     "triddefs": {
       "flake": false,
       "locked": {
-        "lastModified": 1785253088,
-        "narHash": "sha256-09C11nAys6KplnqfauCYTZBzrlDgL4VnFduNjBdKeTQ=",
+        "lastModified": 1785591514,
+        "narHash": "sha256-B4rCFm4TKR5JWIWZVO7KPLDSm1A1zsn7S4pIoeqftL8=",
         "type": "tarball",
         "url": "http://mark0.net/download/triddefs.zip"
       },
