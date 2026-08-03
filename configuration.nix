@@ -353,9 +353,6 @@ in
     # Additional requierements for bluetooth
     blueman.enable = true;
 
-    # VPN
-    expressvpn.enable = true;
-
     # Enable Flatpak service
     flatpak = {
       enable = true;
