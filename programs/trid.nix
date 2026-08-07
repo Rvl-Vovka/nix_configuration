@@ -5,8 +5,8 @@ stdenv.mkDerivation rec {
   src = inputs.trid;
   triddefs = inputs.triddefs;
 
-  nativeBuildInputs = [
-    pkgs.python315
+  buildInputs = [
+    pkgs.python3
   ];
 
   installPhase = ''
