@@ -271,11 +271,10 @@ in
       cdn = "cd /etc/nixos";
       copy = "wl-copy";
       dt = "date +'%A, %B %d %Y %H:%M:%S.%N'";
-      l = "eza --icons --group-directories-first -lah";
-      la = "eza --icons --group-directories-first -a";
+      l = "eza --icons --group-directories-first --short-nix -lh";
+      la = "eza --icons --group-directories-first --short=nix -a";
       ll = "eza --icons --group-directories-first -la";
-      ls = "eza --icons --group-directories-first";
-      lsa = "eza --icons --group-directories-first -lah";
+      ls = "eza --icons --group-directories-first --short-nix";
       mv = "mv -i";
       no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
       parrot = "python ~/.parrot.py";
