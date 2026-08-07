@@ -66,12 +66,21 @@
           # This must be defined for zsh-autosuggestions
           ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
-          man() { LESS_TERMCAP_mb="[1;36m" LESS_TERMCAP_md="[1;36m" LESS_TERMCAP_me="[0m" LESS_TERMCAP_se="[0m" LESS_TERMCAP_so="[0;1m" LESS_TERMCAP_ue="[0m" LESS_TERMCAP_us="[4;1;32m" LESS_TERMCAP_mr="[7m" LESS_TERMCAP_mh="[2m" LESS_TERMCAP_ZN="[74m" LESS_TERMCAP_ZV="[75m" LESS_TERMCAP_ZO="[73m" LESS_TERMCAP_ZW="[75m" GROFF_NO_SGR=1 $(which -p man) $@ } # Make man pages colorful
+          man() { LESS_TERMCAP_mb="[1;36m" LESS_TERMCAP_md="[1;36m" LESS_TERMCAP_me="[0m" LESS_TERMCAP_se="[0m" LESS_TERMCAP_so="[0;1m" LESS_TERMCAP_ue="[0m" LESS_TERMCAP_us="[4;1;32m" LESS_TERMCAP_mr="[7m" LESS_TERMCAP_mh="[2m" LESS_TERMCAP_ZN="[74m" LESS_TERMCAP_ZV="[75m" LESS_TERMCAP_ZO="[73m" LESS_TERMCAP_ZW="[75m" GROFF_NO_SGR=1 $(which -p man) $@ } # [0m Make man pages colorful
 
           zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}" # colorful completion
 
-          bindkey "^[[A" up-line-or-beginning-search
-          bindkey "^[[B" down-line-or-beginning-search
+          # History search when pressing up/down arrows
+          autoload -U up-line-or-beginning-search
+          autoload -U down-line-or-beginning-search
+          zle -N up-line-or-beginning-search
+          zle -N down-line-or-beginning-search
+          bindkey -M emacs "^[[A" up-line-or-beginning-search
+          bindkey -M viins "^[[A" up-line-or-beginning-search
+          bindkey -M vicmd "^[[A" up-line-or-beginning-search
+          bindkey -M emacs "^[[B" down-line-or-beginning-search
+          bindkey -M viins "^[[B" down-line-or-beginning-search
+          bindkey -M vicmd "^[[B" down-line-or-beginning-search
 
           # Format prompt similar to agnoster theme (not using real theme because I only care about this small part)
           PROMPT='%K{black}%(?.. %F{red}✘%f)%(!. ⚡.)%(1j. %F{cyan}⚙%f.) %n@%m %F{black}%K{blue} %~ %F{blue}%k%f '
