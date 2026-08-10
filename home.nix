@@ -69,6 +69,7 @@
           man() { LESS_TERMCAP_mb="[1;36m" LESS_TERMCAP_md="[1;36m" LESS_TERMCAP_me="[0m" LESS_TERMCAP_se="[0m" LESS_TERMCAP_so="[0;1m" LESS_TERMCAP_ue="[0m" LESS_TERMCAP_us="[4;1;32m" LESS_TERMCAP_mr="[7m" LESS_TERMCAP_mh="[2m" LESS_TERMCAP_ZN="[74m" LESS_TERMCAP_ZV="[75m" LESS_TERMCAP_ZO="[73m" LESS_TERMCAP_ZW="[75m" GROFF_NO_SGR=1 $(which -p man) $@ } # [0m Make man pages colorful
 
           zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}" # colorful completion
+          zstyle ':completion:*' menu select # show what is currently selected
 
           # History search when pressing up/down arrows
           autoload -U up-line-or-beginning-search
