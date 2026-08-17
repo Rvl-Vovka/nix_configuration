@@ -258,6 +258,7 @@ in
       cp = "cp -i";
       dt = "date +'%A, %B %d %Y %H:%M:%S.%N'";
       ffmpeg = "ffmpeg -hide_banner";
+      ffprobe = "ffprobe -hide_banner";
       grep = "grep --color=auto";
       l = "eza --icons --group-directories-first --short-nix -lh";
       la = "eza --icons --group-directories-first --short=nix -a";
