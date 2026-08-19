@@ -81,6 +81,9 @@ in
       # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing)
       open = false;
 
+      # Latest driver for more performance
+      branch = "latest";
+
       # PRIME settings for Hybrid Graphics
       prime = {
         offload.enable = true;
