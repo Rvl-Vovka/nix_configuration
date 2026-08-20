@@ -158,7 +158,7 @@ in
         proton-ge-bin
         proton-cachyos
       ];
-      extraPackages = [ pkgs.capitaine-cursors pkgs.kdePackages.breeze ];
+      extraPackages = [ pkgs.kdePackages.breeze ];
       package = pkgs.millennium-steam;
     };
     ydotool.enable = true;
