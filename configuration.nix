@@ -6,12 +6,15 @@
 
 let
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
+  cowsay-more-cows = pkgs.cowsay.overrideAttrs (prev: { src = lib.fileset.toSource { root = ./.; fileset = lib.fileset.unions [ ./configs/cowsay/cows ]; }; installPhase = old.installPhase + "mkdir -p $out/share/cowsay/cows; cp ./cows/*.cow $out/share/cowsay/cows/"; });
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
+  kalgebra = pkgs.kdePackages.kalgebra;
+  kcalc = pkgs.kdePackages.kcalc;
+  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});
   xxd = pkgs.unixtools.xxd;
-  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
 in
 
 {
@@ -190,6 +193,7 @@ in
       btop-cuda
       cbonsai
       cmatrix
+      cowsay-more-cows
       davinci-resolve
       easyeffects
       evtest
@@ -202,15 +206,14 @@ in
       fzf
       gcc
       imagemagick
-      kdePackages.kalgebra
-      kdePackages.kcalc
+      kalgebra
+      kcalc
       kdotool
       kid3-kde
       kitty
       lolcat
       masterpdfeditor4
       mp3gain
-      neo-cowsay
       nmap
       nudoku
       pince
