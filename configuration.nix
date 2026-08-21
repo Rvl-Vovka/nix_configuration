@@ -6,7 +6,7 @@
 
 let
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
-  cowsay-more-cows = pkgs.cowsay.overrideAttrs (prev: { src = lib.fileset.toSource { root = ./.; fileset = lib.fileset.unions [ ./configs/cowsay/cows ]; }; installPhase = old.installPhase + "mkdir -p $out/share/cowsay/cows; cp ./cows/*.cow $out/share/cowsay/cows/"; });
+  cowsay-more-cows = pkgs.cowsay.overrideAttrs (prev: { src = lib.fileset.toSource { root = ./.; fileset = lib.fileset.unions [ ./configs/cowsay/cows ]; }; installPhase = prev.installPhase + "mkdir -p $out/share/cowsay/cows; cp ./cows/*.cow $out/share/cowsay/cows/"; });
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   kalgebra = pkgs.kdePackages.kalgebra;
   kcalc = pkgs.kdePackages.kcalc;
