@@ -243,7 +243,6 @@ in
       wpsoffice-cn
       xxd
       yt-dlp
-      zip
     ];
 
     # Change enviromental variables
