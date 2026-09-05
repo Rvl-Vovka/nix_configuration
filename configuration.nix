@@ -210,6 +210,7 @@ in
       kcalc
       kdotool
       kid3-kde
+      killall
       kitty
       lolcat
       masterpdfeditor4
@@ -220,6 +221,7 @@ in
       piper-tts
       playerctl
       powershell
+      pv
       python315
       qbittorrent
       rust-stakeholder
@@ -227,6 +229,7 @@ in
       strawberry
       tealdeer
       thorium
+      tmux
       toilet
       tree
       trid
@@ -240,6 +243,7 @@ in
       wpsoffice-cn
       xxd
       yt-dlp
+      zip
     ];
 
     # Change enviromental variables
