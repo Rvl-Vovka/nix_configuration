@@ -398,6 +398,7 @@ in
     };
     settings = {
       auto-optimise-store = true;
+      connect-timeout = 0;
       download-attempts = 0;
       experimental-features = [ "nix-command" "flakes" ];
       max-jobs = "auto";
