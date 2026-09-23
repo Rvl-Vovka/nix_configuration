@@ -186,10 +186,8 @@ in
       antigravity-cli
       asusctl
       audacity
-      bastet
       bc
       #bottles-native
-      broot
       btop-cuda
       cbonsai
       cmatrix
@@ -236,7 +234,6 @@ in
       unar
       units
       vlc
-      vscode
       wget
       whisper-cpp-cuda
       wl-clipboard

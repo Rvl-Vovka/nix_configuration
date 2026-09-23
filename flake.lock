@@ -38,15 +38,14 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "utils": "utils"
+        ]
       },
       "locked": {
-        "lastModified": 1789382718,
-        "narHash": "sha256-ANCNTNKODRPw9Uc6X+wQM0Wsb0wi1PXnlohA9v96MAw=",
+        "lastModified": 1790152190,
+        "narHash": "sha256-MrpNJSSjtKFVQEIpuXs2ggnN01A3zcVjNzJjupl/2Ro=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "4cfa07c00aae7c41b4e28d584a3dd12e74342324",
+        "rev": "e1598159cefa73d40e73b53d57748ad0e913fd17",
         "type": "github"
       },
       "original": {
@@ -62,11 +61,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789386765,
-        "narHash": "sha256-4hyLFBhzQC7+qPMELWc7J/sbdA6ckXZxXU9CYRsGhsc=",
+        "lastModified": 1790128814,
+        "narHash": "sha256-6Gm9q+wW3E4Ey4F6wEbJAwaMsEK6hvCYfTW7yY64ZfA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "87c391f49a34660de6010f35bb50fb1bf811be9f",
+        "rev": "0b2f1129177f70c5f0f5d88bb53c49ca47d0bfc0",
         "type": "github"
       },
       "original": {
@@ -217,11 +216,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1789286504,
-        "narHash": "sha256-eiEK7cKZORNEvX0GeF3RtNEF/JXhgf2RqSp3230q13E=",
+        "lastModified": 1790046670,
+        "narHash": "sha256-MYiI+CzL0tuWgRPjGsKCDHqYs2T3OzMlMQWOYWG0qso=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ef34387ddd751e1ab8857adf4676492d32eb24ec",
+        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
         "type": "github"
       },
       "original": {
@@ -233,11 +232,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1789149629,
-        "narHash": "sha256-H6GwaZzZf+4npqv0tph94w9tZddSjFjmQrVsW0z78uk=",
+        "lastModified": 1790046670,
+        "narHash": "sha256-MYiI+CzL0tuWgRPjGsKCDHqYs2T3OzMlMQWOYWG0qso=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
+        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
         "type": "github"
       },
       "original": {
@@ -260,31 +259,16 @@
         "triddefs": "triddefs"
       }
     },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "thorium": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1789363028,
-        "narHash": "sha256-yk/8QOgb24b+fvA3G3+QOKnvbyXfDoHuTlPaXJUoOYo=",
+        "lastModified": 1790135645,
+        "narHash": "sha256-ZPxPo9E5Y0zL+qs9ZljZEXoyD6H5Q5UWTJozk8bdNQs=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "91ea8726ebd6d4d009c61c1c6eb64e6e52ba708e",
+        "rev": "102a72654f02edc89b6f857739e9fcb6b4535f0b",
         "type": "github"
       },
       "original": {
@@ -309,32 +293,14 @@
     "triddefs": {
       "flake": false,
       "locked": {
-        "lastModified": 1789127046,
-        "narHash": "sha256-DxkbJvQ91ti42otL1KNNMXLZ/V8E/tFjpwfyGmiQcE4=",
+        "lastModified": 1790084582,
+        "narHash": "sha256-Va3+6xFrTc1HgJeKcDLQPeSvPEqRiD2XbOcAJuj2Lns=",
         "type": "tarball",
         "url": "http://mark0.net/download/triddefs.zip"
       },
       "original": {
         "type": "tarball",
         "url": "http://mark0.net/download/triddefs.zip"
-      }
-    },
-    "utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
       }
     }
   },
