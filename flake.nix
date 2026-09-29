@@ -25,7 +25,6 @@
         inputs.flake-programs-sqlite.nixosModules.programs-sqlite
       ];
     };
-  };
     nixosConfigurations.ruby = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
