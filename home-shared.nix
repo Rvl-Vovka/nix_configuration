@@ -70,6 +70,7 @@
 
           zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}" # colorful completion
           zstyle ':completion:*' menu select # show what is currently selected
+          zstyle ':completion:*' metcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # makes completion case insensetive, preferring original case
 
           # History search when pressing up/down arrows
           autoload -U up-line-or-beginning-search
@@ -84,7 +85,11 @@
           bindkey -M vicmd "^[[B" down-line-or-beginning-search
 
           # Format prompt similar to agnoster theme (not using real theme because I only care about this small part)
-          PROMPT='%K{black}%(?.. %F{red}✘%f)%(!. ⚡.)%(1j. %F{cyan}⚙%f.) %n@%m %F{black}%K{blue} %~ %F{blue}%k%f '
+          PROMPT='%K{black}%(?.. %F{red}✘%f)%(!. ⚡.)%(1j. %F{cyan}⚙%f.)%(!.%F{yellow}.) %n@%m %F{black}%K{blue} %~ %F{blue}%k%f '
+
+          zmodload zsh/complist
+          bindkey "''${terminfo[kcbt]}" reverse-menu-complete
+          bindkey -M menuselect "''${terminfo[kcbt]}" reverse-menu-complete
         '';
       };
 
