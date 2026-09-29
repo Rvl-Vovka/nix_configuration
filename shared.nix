@@ -10,7 +10,6 @@ let
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   kalgebra = pkgs.kdePackages.kalgebra;
   kcalc = pkgs.kdePackages.kcalc;
-  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;});

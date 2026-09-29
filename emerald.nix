@@ -4,6 +4,10 @@
 
 { config, pkgs, lib, inputs, ... }:
 
+let
+  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
+in
+
 {
   imports =
     [ 
