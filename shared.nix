@@ -150,6 +150,7 @@ in
       evtest
       eza
       fastfetch
+      fd
       ffmpeg-full
       figlet
       floorp-bin
@@ -175,6 +176,7 @@ in
       pv
       python315
       qbittorrent
+      ripgrep
       rust-stakeholder
       sl
       strawberry
