@@ -62,7 +62,7 @@ in
       # Use the NVidia open source kernel module (not to be confused with the
       # nouveau open source driver). Only available on driver 515.43.04+
       # Support is limited to Turing and newer GPUs (GTX 1650 Ti is Turing)
-      open = false;
+      open = true;
 
       # Latest driver for more performance
       branch = "latest";
