@@ -118,6 +118,7 @@ in
         obs-backgroundremoval
       ];
     };
+    tmux.enable = true;
     ydotool.enable = true;
     zoxide.enable = true;
     zsh.enable = true;
@@ -182,7 +183,6 @@ in
       strawberry
       tealdeer
       thorium
-      tmux
       toilet
       tree
       trid
