@@ -127,6 +127,13 @@
 
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
+
+        # Theme settings
+        set -g @tokyo-night-tmux_show_netspeed 1        # network speed
+        set -g @tokyo-night-tmux_show_battery_widget 1  # battery level
+        set -g @tokyo-night-tmux_show_music 1           # now playing
+        set -g @tokyo-night-tmux_show_path 1            # current path
+        set -g @tokyo-night-tmux_show_hostname 1        # machine hostname
       '';
     };
 
