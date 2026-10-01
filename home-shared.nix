@@ -93,7 +93,18 @@
       terminal = "screen-256color";
       plugins = with pkgs.tmuxPlugins; [
         sensible
-        tokyo-night-tmux
+        {
+          plugin = tokyo-night-tmux;
+          extraConfig = ''
+            set -g @tokyo-night-tmux_show_battery_widget 1  # battery level
+            set -g @tokyo-night-tmux_show_music 1           # now playing
+            set -g @tokyo-night-tmux_show_path 1            # current path
+            set -g @tokyo-night-tmux_show_hostname 1        # machine hostname
+            set -g @tokyo-night-tmux_show_datetime 1        # 1 = enabled (default) | 0 = disabled
+            set -g @tokyo-night-tmux_date_format DMY        # Day-Month-Year
+            set -g @tokyo-night-tmux_time_format 24H        # 24-hour
+          '';
+        }
         vim-tmux-navigator
         yank
       ];
@@ -128,12 +139,7 @@
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
 
-        # Theme settings
-        set -g @tokyo-night-tmux_show_netspeed 1        # network speed
-        set -g @tokyo-night-tmux_show_battery_widget 1  # battery level
-        set -g @tokyo-night-tmux_show_music 1           # now playing
-        set -g @tokyo-night-tmux_show_path 1            # current path
-        set -g @tokyo-night-tmux_show_hostname 1        # machine hostname
+        set -g status-interval 0.5 # now playing doesn't look great, updating once every 5 second
       '';
     };
 
