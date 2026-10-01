@@ -96,11 +96,11 @@
         tokyo-night-tmux
         vim-tmux-navigator
         yank
-      ]
+      ];
       extraConfig = ''
         # Vim style pane selection
         bind h select-pane -L
-        bind j select-pane -D 
+        bind j select-pane -D
         bind k select-pane -U
         bind l select-pane -R
 
