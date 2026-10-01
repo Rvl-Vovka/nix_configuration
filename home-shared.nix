@@ -139,7 +139,7 @@
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
 
-        set -g status-interval 0.5 # now playing doesn't look great, updating once every 5 second
+        set -g status-interval 1 # now playing doesn't look great, updating once every 5 second
       '';
     };
 
