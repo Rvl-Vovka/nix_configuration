@@ -168,6 +168,7 @@ in
       lolcat
       masterpdfeditor4
       mp3gain
+      mpv
       nmap
       nudoku
       pince
@@ -188,7 +189,6 @@ in
       trid
       unar
       units
-      vlc
       wget
       whisper-cpp-cuda
       wl-clipboard
