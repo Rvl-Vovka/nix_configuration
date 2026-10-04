@@ -4,10 +4,6 @@
 
 { config, pkgs, lib, inputs, ... }:
 
-let
-  proton-cachyos = inputs.nix-proton-cachyos.packages.${pkgs.stdenv.hostPlatform.system}.proton-cachyos;
-in
-
 {
   imports =
     [ 
@@ -52,21 +48,6 @@ in
   };
 
   networking.hostName = "emerald"; # Define your hostname
-
-  # Install programs that need additional configurations
-  programs.steam = {
-      enable = true;
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-        proton-cachyos
-      ];
-      extraPackages = [ pkgs.kdePackages.breeze ];
-      package = pkgs.millennium-steam;
-  };
-
-  nixpkgs.overlays = [
-      inputs.millennium.overlays.default # Required for millenium
-    ];
 
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
