@@ -141,7 +141,7 @@ in
       asusctl
       audacity
       bc
-      #bottles-native
+      bottles-native
       btop-cuda
       cbonsai
       cmatrix
