@@ -56,8 +56,6 @@ in
 
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail
       powerManagement.enable = true;
-      # Fine-grained power management. Turns off GPU when not in use
-      powerManagement.finegrained = true;
 
       # Use the NVidia open source kernel module (not to be confused with the
       # nouveau open source driver). Only available on driver 515.43.04+

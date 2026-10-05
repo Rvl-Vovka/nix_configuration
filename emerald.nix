@@ -31,12 +31,16 @@
         };
       };
     };
+    nvidia = {
+      # Fine-grained power management. Turns off GPU when not in use
+      powerManagement.finegrained = true;
 
-    nvidia.prime = { # PRIME settings for Hybrid Graphics
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
-      amdgpuBusId = "PCI:5:0:0";
-      nvidiaBusId = "PCI:1:0:0";
+      prime = { # PRIME settings for Hybrid Graphics
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
+        amdgpuBusId = "PCI:5:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
   };
 

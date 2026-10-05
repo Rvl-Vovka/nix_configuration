@@ -4,4 +4,8 @@
   imports = [
     ./home-shared.nix
   ];
+
+  xdg.configFile = {
+    "kitty".source = ./configs/kitty-ruby;
+  };
 }

@@ -4,6 +4,10 @@
 
 { config, pkgs, lib, inputs, ... }:
 
+let
+  skanlite = pkgs.kdePackages.skanlite;
+in
+
 {
   imports =
     [ 
@@ -22,8 +26,21 @@
 
   programs.niri.enable = true;
 
+  environment = {
+    systemPackages = with pkgs; [
+      skanlite
+    ];
+    variables = {
+      SANE_TIMEOUT=90000000;
+    };
+  };
   # List services that you want to enable:
   services = {
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplipWithPlugin ];
+    };
+
     # Enable sddm
     displayManager = {
       sddm.enable = true;
