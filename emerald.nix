@@ -71,7 +71,7 @@
 
     shellAliases = {
       cdl = "cd /home/vlryz/Important/Legendary";
-      confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
+      confsync = "bash ~/Important/Legendary/confsync.sh"; # Script that enshures that local and cloud configurations are same
       parrot = "python ~/.parrot.py";
       rebuild = "bash ~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
       rr = "python ~/.rr.py";
