@@ -15,6 +15,26 @@ in
       ./shared.nix
     ];
 
+  fileSystems = {
+    "/home/vlryz/D" = { 
+      device = "/dev/disk/by-uuid/18F4D20AF4D1EA50";
+      fsType = "ntfs";
+    };
+    "/home/vlryz/E" = { 
+      device = "/dev/disk/by-label/LeoNiD";
+      fsType = "ntfs";
+    };
+    "/home/vlryz/F" = { 
+      device = "/dev/disk/by-label/Foto\\x26mp3";
+      fsType = "ntfs";
+    };
+    "/home/vlryz/G" = { 
+      device = "/dev/disk/by-label/Video";
+      fsType = "ntfs";
+    };
+  };
+
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -29,6 +49,7 @@ in
   environment = {
     systemPackages = with pkgs; [
       skanlite
+      xwayland-satellite
     ];
     variables = {
       SANE_TIMEOUT=90000000;
