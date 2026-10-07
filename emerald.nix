@@ -54,6 +54,11 @@
   networking.hostName = "emerald"; # Define your hostname
 
   environment = {
+    systemPackages = with pkgs; [
+      asusctl
+      kdotool
+      kid3-kde
+    ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       qrca
       elisa
@@ -63,6 +68,14 @@
       konsole
       okular
     ];
+
+    shellAliases = {
+      cdl = "cd /home/vlryz/Important/Legendary";
+      confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
+      parrot = "python ~/.parrot.py";
+      rebuild = "bash ~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
+      rr = "python ~/.rr.py";
+    };
   };
   # List services that you want to enable:
   services = {

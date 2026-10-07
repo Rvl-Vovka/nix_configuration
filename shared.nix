@@ -136,7 +136,6 @@ in
       alsa-utils
       android-tools
       antigravity-cli
-      asusctl
       audacity
       bc
       bottles-native
@@ -159,8 +158,6 @@ in
       imagemagick
       kalgebra
       kcalc
-      kdotool
-      kid3-kde
       killall
       kitty
       lolcat
@@ -210,7 +207,6 @@ in
       cat = "bat";
       cd = "z";
       cdd = "cd /home/vlryz/Downloads";
-      cdl = "cd /home/vlryz/Important/Legendary";
       cdn = "cd /etc/nixos";
       copy = "wl-copy";
       cp = "cp -i";
@@ -224,10 +220,7 @@ in
       ls = "eza --icons --group-directories-first --short-nix";
       mv = "mv -i";
       no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
-      parrot = "python ~/.parrot.py";
       paste = "wl-paste";
-      rebuild = "bash ~/Important/Legendary/rebuild.sh"; # Script that automatically handles configuration backups
-      rr = "python ~/.rr.py";
     };
   };
 

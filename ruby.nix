@@ -48,11 +48,18 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      kid3-qt
       skanlite
       xwayland-satellite
     ];
     variables = {
       SANE_TIMEOUT=90000000;
+    };
+    shellAliases = {
+      confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
+      parrot = "python ~/Important/scripts/parrot.py";
+      rebuild = "bash ~/Important/scripts/rebuild.sh"; # Script that automatically handles configuration backups
+      rr = "python ~/Important/scripts/rr.py";
     };
   };
   # List services that you want to enable:
