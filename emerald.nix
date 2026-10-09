@@ -60,13 +60,17 @@
       kid3-kde
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
-      qrca
-      elisa
+      akonadiconsole
       ark
       discover
+      elisa
       khelpcenter
+      kmail
       konsole
+      kontact
+      merkuro
       okular
+      qrca
     ];
 
     shellAliases = {
