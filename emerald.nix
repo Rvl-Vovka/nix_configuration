@@ -53,6 +53,10 @@
 
   networking.hostName = "emerald"; # Define your hostname
 
+  programs = {
+    kde-pim.enable = false; # Enabled automatically plasma 6 service
+  };
+
   environment = {
     systemPackages = with pkgs; [
       asusctl
@@ -60,17 +64,13 @@
       kid3-kde
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
-      akonadiconsole
       ark
       discover
       elisa
       khelpcenter
-      kmail
       konsole
-      kontact
-      merkuro
+      kwalletmanager
       okular
-      qrca
     ];
 
     shellAliases = {
