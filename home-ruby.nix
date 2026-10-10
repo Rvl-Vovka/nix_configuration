@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -28,22 +28,10 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "qt6ct";
-    # style.name = "kvantum";
-  };
-
-  # xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-  #   [General]
-  #   theme=BreezeDark
-  # '';
-
-  home = {
-    packages = with pkgs; [
-      qt6Packages.qt6ct
-      # qt6Packages.qtstyleplugin-kvantum
-    ];
-    sessionVariables = {
-      # QT_STYLE_OVERRIDE = "kvantum";
+    style.name = "kvantum";
+    # platformTheme.name = "qtct";
+    kvanrum = {
+      enable = true;
     };
   };
 
