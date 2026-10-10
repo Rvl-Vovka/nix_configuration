@@ -5,9 +5,10 @@
 { pkgs, inputs, ... }:
 
 let
-  skanlite = pkgs.kdePackages.skanlite;
+  breeze = pkgs.kdePackages.breeze;
   dolphin = pkgs.kdePackages.dolphin;
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
+  skanlite = pkgs.kdePackages.skanlite;
 in
 
 {
@@ -50,6 +51,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      breeze
       dolphin
       kid3-qt
       qt6ct-kde
