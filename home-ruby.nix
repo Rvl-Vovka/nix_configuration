@@ -47,10 +47,6 @@ in
     };
   };
 
-  home.sessionVariables = {
-    QT_STYLE_OVERRIDE = null;
-  };
-
   xdg.configFile = {
     "kitty".source = ./configs/kitty-ruby;
   };
