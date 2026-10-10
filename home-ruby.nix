@@ -36,7 +36,7 @@
   };
 
   xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".enable = lib.mkForce null;
+    "Kvantum/kvantum.kvconfig".enable = lib.mkForce false;
     "kitty".source = ./configs/kitty-ruby;
   };
 }
