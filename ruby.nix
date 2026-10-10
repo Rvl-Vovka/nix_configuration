@@ -6,6 +6,7 @@
 
 let
   skanlite = pkgs.kdePackages.skanlite;
+  breeze = kdePackages.breeze;
 in
 
 {
@@ -48,8 +49,9 @@ in
 
   environment = {
     systemPackages = with pkgs; [
-      rofi
+      breeze
       kid3-qt
+      rofi
       skanlite
       xwayland-satellite
     ];
