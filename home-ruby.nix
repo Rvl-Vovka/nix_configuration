@@ -30,7 +30,7 @@
     enable = true;
     style.name = "kvantum";
     # platformTheme.name = "qtct";
-    kvanrum = {
+    kvantum = {
       enable = true;
     };
   };
