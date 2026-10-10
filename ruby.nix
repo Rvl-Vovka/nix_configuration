@@ -48,6 +48,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      rofi
       kid3-qt
       skanlite
       xwayland-satellite
