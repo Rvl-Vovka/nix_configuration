@@ -32,7 +32,6 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
     qt6ctSettings = {
       Appearance = {
         color_scheme_path = qt-colorscheme;

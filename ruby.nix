@@ -61,7 +61,8 @@ in
       xwayland-satellite
     ];
     variables = {
-      SANE_TIMEOUT=90000000;
+      SANE_TIMEOUT = 90000000;
+      QT_QPA_PLATFORMTHEME = "qt6ct";
     };
     shellAliases = {
       confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
