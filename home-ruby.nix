@@ -28,15 +28,11 @@
 
   qt = {
     enable = true;
-    style.name = "kvantum";
-    # platformTheme.name = "qtct";
-    kvantum = {
-      enable = true;
-    };
+    style.name = "breeze";
+    platformTheme.name = "qtct";
   };
 
   xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".enable = lib.mkForce false;
     "kitty".source = ./configs/kitty-ruby;
   };
 }

@@ -49,6 +49,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      qt6Packages.qt6ct
       breeze
       kid3-qt
       rofi
