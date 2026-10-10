@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -36,6 +36,7 @@
   };
 
   xdg.configFile = {
+    "Kvantum/kvantum.kvconfig" = lib.mkForce null;
     "kitty".source = ./configs/kitty-ruby;
   };
 }
