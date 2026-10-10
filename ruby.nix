@@ -53,10 +53,12 @@ in
     systemPackages = with pkgs; [
       breeze
       dolphin
+      gwenview
       kid3-qt
       qt6ct-kde
       rofi
       skanlite
+      swaybg
       xwayland-satellite
     ];
     variables = {
