@@ -28,22 +28,21 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "kde";
-    style.name = "kvantum";
+    platformTheme.name = "qt6ct";
+    # style.name = "kvantum";
   };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=BreezeDark
-  '';
+  # xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+  #   [General]
+  #   theme=BreezeDark
+  # '';
 
   home = {
     packages = with pkgs; [
       qt6Packages.qt6ct
-      qt6Packages.qtstyleplugin-kvantum
+      # qt6Packages.qtstyleplugin-kvantum
     ];
     sessionVariables = {
-      QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
       # QT_STYLE_OVERRIDE = "kvantum";
     };
   };
