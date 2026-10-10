@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -43,7 +43,7 @@
       qt6Packages.qtstyleplugin-kvantum
     ];
     sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qt6ct";
+      QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
       # QT_STYLE_OVERRIDE = "kvantum";
     };
   };
