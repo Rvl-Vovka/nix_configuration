@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   qt-colorscheme = "${./configs/themes/qt-colorscheme.conf}";
