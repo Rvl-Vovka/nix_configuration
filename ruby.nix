@@ -7,6 +7,10 @@
 let
   skanlite = pkgs.kdePackages.skanlite;
   breeze = pkgs.kdePackages.breeze;
+  qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: {
+      patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ];
+      name = "qt6ct-kde";
+    }));
 in
 
 {
@@ -49,7 +53,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
-      qt6Packages.qt6ct
+      qt6ct-kde
       breeze
       kid3-qt
       rofi
