@@ -37,10 +37,16 @@
     theme=BreezeDark
   '';
 
-  home.packages = with pkgs; [
-    qt6Packages.qt6ct
-    qt6Packages.qtstyleplugin-kvantum
-  ];
+  home = {
+    packages = with pkgs; [
+      qt6Packages.qt6ct
+      qt6Packages.qtstyleplugin-kvantum
+    ];
+    sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qt6ct";
+      # QT_STYLE_OVERRIDE = "kvantum";
+    };
+  };
 
   xdg.configFile = {
     "kitty".source = ./configs/kitty-ruby;
