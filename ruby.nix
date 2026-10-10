@@ -6,7 +6,7 @@
 
 let
   skanlite = pkgs.kdePackages.skanlite;
-  breeze = kdePackages.breeze;
+  breeze = pkgs.kdePackages.breeze;
 in
 
 {
