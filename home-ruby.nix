@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }:
 
 let
-  qt-colorscheme = "./configs/themes/qt-colorscheme.conf";
+  qt-colorscheme = "${./configs/themes/qt-colorscheme.conf}";
 in 
 
 {
