@@ -1,4 +1,4 @@
-{ inputs, pkgs, stdenv, ... }:
+{ pkgs, stdenv, ... }:
 
 stdenv.mkDerivation rec {
   name = "plymouth-theme";
@@ -8,6 +8,6 @@ stdenv.mkDerivation rec {
     mkdir -p $out/share/plymouth/themes/abstract-ring
     cp * $out/share/plymouth/themes/abstract-ring
 
-    sed -i "s/usr/$out/g" $out/share/plymouth/themes/abstract-ring/abstract_ring.plymouth
+    sed -i "s/\/usr/$(echo $out | sed 's/\//\\\//g')/g" $out/share/plymouth/themes/abstract-ring/abstract_ring.plymouth
   '';
 }

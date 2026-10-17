@@ -10,7 +10,7 @@ let
   dolphin = pkgs.kdePackages.dolphin;
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
-  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix { inherit inputs; };
+  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix {};
 in
 
 {

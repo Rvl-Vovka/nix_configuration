@@ -144,6 +144,7 @@ in
       cmatrix
       cowsay-more-cows
       davinci-resolve
+      drawy
       easyeffects
       evtest
       eza
@@ -176,6 +177,7 @@ in
       ripgrep
       rust-stakeholder
       sl
+      superfile
       strawberry
       tealdeer
       thorium
