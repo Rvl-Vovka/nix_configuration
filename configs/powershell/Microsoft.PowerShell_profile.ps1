@@ -34,7 +34,7 @@ function History {cat (Get-PSReadlineOption).HistorySavePath}
 
 Function Rand { #adds rand command that generates a random string with set length
 param(
-    [Parameter(Position=0)] 
+    [Parameter(Position=0)]
     [int]$count=20
 )
 -join(48..57+65..90+97..122|ForEach-Object{[char]$_}|Get-Random -C $count)

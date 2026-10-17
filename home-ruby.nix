@@ -2,7 +2,7 @@
 
 let
   qt-colorscheme = "${./configs/themes/qt-colorscheme.conf}";
-in 
+in
 
 {
   imports = [

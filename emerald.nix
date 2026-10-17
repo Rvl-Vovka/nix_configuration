@@ -5,11 +5,10 @@
 { pkgs, inputs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-emerald.nix # Include the results of the hardware scan
-      ./shared.nix
-    ];
+  imports = [
+    ./hardware-emerald.nix # Include the results of the hardware scan
+    ./shared.nix
+  ];
 
   boot = {
     initrd.kernelModules = [ "amdgpu" ];

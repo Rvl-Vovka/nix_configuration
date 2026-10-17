@@ -10,34 +10,45 @@ let
   dolphin = pkgs.kdePackages.dolphin;
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
+  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix { inherit inputs; };;
 in
 
 {
-  imports =
-    [ 
-      ./hardware-ruby.nix # Include the results of the hardware scan
-      ./shared.nix
-    ];
+  imports = [
+    ./hardware-ruby.nix # Include the results of the hardware scan
+    ./shared.nix
+  ];
 
-  fileSystems = {
-    "/home/vlryz/D" = { 
-      device = "/dev/disk/by-uuid/18F4D20AF4D1EA50";
-      fsType = "ntfs";
+  # basically nobody cares about this drive
+  # fileSystems = {
+  #   "/home/vlryz/D" = {
+  #     device = "/dev/disk/by-uuid/18F4D20AF4D1EA50";
+  #     fsType = "ntfs";
+  #   };
+  #   "/home/vlryz/E" = {
+  #     device = "/dev/disk/by-label/LeoNiD";
+  #     fsType = "ntfs";
+  #   };
+  #   "/home/vlryz/F" = {
+  #     device = "/dev/disk/by-label/Foto\\x26mp3";
+  #     fsType = "ntfs";
+  #   };
+  #   "/home/vlryz/G" = {
+  #     device = "/dev/disk/by-label/Video";
+  #     fsType = "ntfs";
+  #   };
+  # };
+
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "abstract_ring";
+      themePackages = [ plymouthTheme ];
     };
-    "/home/vlryz/E" = { 
-      device = "/dev/disk/by-label/LeoNiD";
-      fsType = "ntfs";
-    };
-    "/home/vlryz/F" = { 
-      device = "/dev/disk/by-label/Foto\\x26mp3";
-      fsType = "ntfs";
-    };
-    "/home/vlryz/G" = { 
-      device = "/dev/disk/by-label/Video";
-      fsType = "ntfs";
-    };
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [ "quiet" "rd.udev.log_level=3" "rd.systemd.show_status=auto" ];
   };
-
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

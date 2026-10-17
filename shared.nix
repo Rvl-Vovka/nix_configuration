@@ -18,10 +18,9 @@ let
 in
 
 {
-  imports =
-    [ 
-      inputs.home-manager.nixosModules.default # Home-Manager
-    ];
+  imports = [
+    inputs.home-manager.nixosModules.default # Home-Manager
+  ];
 
   boot = {
     # Bootloader

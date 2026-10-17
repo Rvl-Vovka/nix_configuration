@@ -3,7 +3,7 @@
 stdenvNoCC.mkDerivation {
   pname = "Handwrite";
   version = "1.0";
-  src = ./Handwrite.ttf; 
+  src = ./Handwrite.ttf;
   meta = with lib; {
     description = "A font that looks like my handwriting";
     platforms = platforms.all;
