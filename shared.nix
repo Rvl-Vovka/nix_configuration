@@ -123,7 +123,7 @@ in
   };
 
   # Allow unfree packages for stable and regular nixpkgs
-  inputs.nixpkgs_stable.config.allowUnfree = true;
+  nixpkgs_stable.config.allowUnfree = true;
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
