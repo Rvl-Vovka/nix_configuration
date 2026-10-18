@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, pkgs_stable, inputs, ... }:
 
 let
   floorp-private = pkgs.writeShellScriptBin "floorp-private" "exec ${pkgs.floorp-bin}/bin/floorp --private-window \"$@\"";
@@ -13,7 +13,7 @@ let
   kcalc = pkgs.kdePackages.kcalc;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
-  whisper-cpp-cuda = (inputs.nixpkgs_stable.legacyPackages."x86_64-linux".whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and should not be updated as often
+  whisper-cpp-cuda = (pkgs_stable.whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and should not be updated as often
   xxd = pkgs.unixtools.xxd;
 in
 
@@ -122,9 +122,8 @@ in
     zsh.enable = true;
   };
 
-  # Allow unfree packages for stable and regular nixpkgs
-  nixpkgs_stable.config.allowUnfree = true;
   nixpkgs = {
+    # Allow unfree packages
     config.allowUnfree = true;
     overlays = [
       inputs.nix-cachyos-kernel.overlays.pinned # Required for CachyOS kernel

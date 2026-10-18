@@ -17,7 +17,13 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.emerald = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs;
+        pkgs_stable = import nixpkgs_stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
       modules = [
         ./emerald.nix
         inputs.home-manager.nixosModules.default
@@ -26,7 +32,13 @@
     };
     nixosConfigurations.ruby = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs;
+        pkgs_stable = import nixpkgs_stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
       modules = [
         ./ruby.nix
         inputs.home-manager.nixosModules.default
