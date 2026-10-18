@@ -6,11 +6,12 @@
 
 let
   breeze = pkgs.kdePackages.breeze;
-  gwenview = pkgs.kdePackages.gwenview;
   dolphin = pkgs.kdePackages.dolphin;
+  gwenview = pkgs.kdePackages.gwenview;
+  pixie-sddm = inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm;
+  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix {};
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
-  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix {};
 in
 
 {
@@ -67,6 +68,7 @@ in
       dolphin
       gwenview
       kid3-qt
+      pixie-sddm
       qt6ct-kde
       rofi
       skanlite
@@ -94,7 +96,7 @@ in
 
     # Enable sddm
     displayManager = {
-      sddm = { 
+      sddm = {
         enable = true;
         theme = "pixie";
         wayland.enable = true;
