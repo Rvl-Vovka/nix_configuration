@@ -14,7 +14,7 @@
     triddefs = { url = "http://mark0.net/download/triddefs.zip"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs_stable, ... }@inputs: {
     nixosConfigurations.emerald = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
