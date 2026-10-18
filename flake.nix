@@ -20,7 +20,7 @@
       specialArgs = {
         inherit inputs;
         pkgs_stable = import nixpkgs_stable {
-          inherit system;
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
       };
@@ -35,7 +35,7 @@
       specialArgs = {
         inherit inputs;
         pkgs_stable = import nixpkgs_stable {
-          inherit system;
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
       };
