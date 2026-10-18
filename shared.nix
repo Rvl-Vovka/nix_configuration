@@ -13,7 +13,7 @@ let
   kcalc = pkgs.kdePackages.kcalc;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
-  whisper-cpp-cuda = (inputs.nixpkgs_stable.legacyPackages.${system}.whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and updates are not so important so will be on stable nixpkgs
+  whisper-cpp-cuda = (inputs.nixpkgs_stable.legacyPackages."x86_64-linux".whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and updates are not so important so will be on stable nixpkgs
   xxd = pkgs.unixtools.xxd;
 in
 
