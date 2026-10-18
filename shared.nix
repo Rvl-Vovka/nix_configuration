@@ -187,6 +187,7 @@ in
       trid
       unar
       units
+      unzip
       wget
       whisper-cpp-cuda
       wl-clipboard
