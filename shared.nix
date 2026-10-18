@@ -310,7 +310,10 @@ in
       warn-dirty = false;
 
       # Binary cache for cachyos kernel
-      substituters = [ "https://attic.xuyh0120.win/lantian" ];
+      substituters = [
+        "https://cache.nixos.org?priority=10&connect-timeout=10&stalled-download-timeout=30&max-retries=3"
+        "https://attic.xuyh0120.win/lantian?priority=100&connect-timeout=3&stalled-download-timeout=10&max-retries=1&on-timeout=skip"
+      ];
       trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
     };
   };
