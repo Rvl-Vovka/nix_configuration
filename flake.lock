@@ -158,7 +158,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_stabe": {
+    "nixpkgs_stable": {
       "locked": {
         "lastModified": 1792030654,
         "narHash": "sha256-OaQwAtPMTjQiY2sT/2/62UbSPhzP/0aDnWzMm/NCiUw=",
@@ -180,7 +180,7 @@
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs_stabe": "nixpkgs_stabe",
+        "nixpkgs_stable": "nixpkgs_stable",
         "thorium": "thorium",
         "trid": "trid",
         "triddefs": "triddefs"
