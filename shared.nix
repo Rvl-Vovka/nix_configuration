@@ -13,7 +13,7 @@ let
   kcalc = pkgs.kdePackages.kcalc;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
-  whisper-cpp-cuda = (inputs.nixpkgs_stable.legacyPackages."x86_64-linux".whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and updates are not so important so will be on stable nixpkgs
+  whisper-cpp-cuda = (inputs.nixpkgs_stable.legacyPackages."x86_64-linux".whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and should not be updated as often
   xxd = pkgs.unixtools.xxd;
 in
 
@@ -122,8 +122,9 @@ in
     zsh.enable = true;
   };
 
+  # Allow unfree packages for stable and regular nixpkgs
+  inputs.nixpkgs_stable.config.allowUnfree = true;
   nixpkgs = {
-    # Allow unfree packages
     config.allowUnfree = true;
     overlays = [
       inputs.nix-cachyos-kernel.overlays.pinned # Required for CachyOS kernel
