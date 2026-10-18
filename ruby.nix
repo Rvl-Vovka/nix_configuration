@@ -71,6 +71,7 @@ in
       rofi
       skanlite
       swaybg
+      waybar
       xwayland-satellite
     ];
     variables = {
