@@ -94,7 +94,17 @@ in
 
     # Enable sddm
     displayManager = {
-      sddm.enable = true;
+      sddm = { 
+        enable = true;
+        theme = "pixie";
+        wayland.enable = true;
+        package = pkgs.kdePackages.sddm;
+        extraPackages = with pkgs.kdePackages; [
+          qtsvg
+          qtdeclarative
+          qt5compat
+        ];
+      };
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
     # Enable the X11 windowing system

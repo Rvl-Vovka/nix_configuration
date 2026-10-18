@@ -12,6 +12,7 @@
     thorium.url = "github:Rishabh5321/custom-packages-flake";
     trid = { url = "https://mark0.net/download/trid.zip"; flake = false; };
     triddefs = { url = "http://mark0.net/download/triddefs.zip"; flake = false; };
+    pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
   };
 
   outputs = { self, nixpkgs, nixpkgs_stable, ... }@inputs: {

@@ -169,6 +169,7 @@ in
       nudoku
       pince
       piper-tts
+      pipes-rs
       playerctl
       powershell
       pv
@@ -223,6 +224,7 @@ in
       ll = "eza --icons --group-directories-first -la";
       ls = "eza --icons --group-directories-first --short-nix";
       mv = "mv -i";
+      yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
       no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
       paste = "wl-paste";
     };
