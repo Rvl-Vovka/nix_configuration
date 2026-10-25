@@ -183,7 +183,6 @@ in
       tealdeer
       thorium
       toilet
-      tree
       trid
       unar
       units
