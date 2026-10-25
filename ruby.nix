@@ -43,12 +43,11 @@ in
   boot = {
     plymouth = {
       enable = true;
-      theme = "abstract_ring";
-      themePackages = [ plymouthTheme ];
+      theme = "breeze";
+      # themePackages = [ plymouthTheme ];
     };
     consoleLogLevel = 3;
-    initrd.verbose = false;
-    kernelParams = [ "quiet" "rd.udev.log_level=3" "rd.systemd.show_status=auto" ];
+    # kernelParams = [ "quiet" ];
   };
 
   home-manager = {
