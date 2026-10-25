@@ -219,9 +219,9 @@ in
       ffmpeg = "ffmpeg -hide_banner";
       ffprobe = "ffprobe -hide_banner";
       grep = "grep --color=auto";
-      l = "eza --icons --group-directories-first --short-nix -lh";
-      la = "eza --icons --group-directories-first --short-nix -a";
-      ll = "eza --icons --group-directories-first -la";
+      l = "eza --icons --group-directories-first --short-nix -lhb";
+      la = "eza --icons --group-directories-first --short-nix -ab";
+      ll = "eza --icons --group-directories-first -lab";
       ls = "eza --icons --group-directories-first --short-nix";
       mv = "mv -i";
       yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
@@ -312,8 +312,8 @@ in
       warn-dirty = false;
 
       # Binary cache for cachyos kernel
-      substituters = [ "https://attic.xuyh0120.win/lantian" ];
-      trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+      substituters = [ "https://cache.lantian.pub/lantian" ];
+      trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
     };
   };
 
