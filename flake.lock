@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792942289,
-        "narHash": "sha256-udKaDUeLRaj7nTx8RknIAyojUh76GE+Zb8+s4wFqc1o=",
+        "lastModified": 1793023803,
+        "narHash": "sha256-+ujm+T/hYwyZC3PyTLg4t/vx+nQlsX6y7ecbbwFv9LQ=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "55ebc257d0fb0de3ebaebb5f604f9d755ee4549a",
+        "rev": "35d10b98f21c57369e15de8910e605431a8ca4d6",
         "type": "github"
       },
       "original": {
@@ -192,22 +192,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_stable": {
-      "locked": {
-        "lastModified": 1792898606,
-        "narHash": "sha256-Mg3rRjsbMqhSMxop5PYMXos8SwAjejrxSgVThTvP9eg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1f607aa79b6356ed45d3cd3c8079c196e79efa2c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-26.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pixie-sddm": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -233,7 +217,6 @@
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs_stable": "nixpkgs_stable",
         "pixie-sddm": "pixie-sddm",
         "thorium": "thorium",
         "trid": "trid",
@@ -260,11 +243,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1792939949,
-        "narHash": "sha256-FjnQUZUvJgmbVtskLVJRr6tIu8ExMXcfWDmiFB8YIWw=",
+        "lastModified": 1793026674,
+        "narHash": "sha256-0Wj2DVrv/7p0xCvnfJq4Ks9816S/hiLquTLP+Nx8VH0=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "f0d179d4cd1c1fef0075e48ba4ad03c8acefeb61",
+        "rev": "4d18d49a4928539fe93d52250217ee14361f2f9b",
         "type": "github"
       },
       "original": {

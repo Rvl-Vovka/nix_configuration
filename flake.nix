@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    # nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -15,15 +15,15 @@
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
   };
 
-  outputs = { self, nixpkgs, nixpkgs_stable, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.emerald = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
-        pkgs_stable = import nixpkgs_stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
+        # pkgs_stable = import inputs.nixpkgs_stable {
+        #   system = "x86_64-linux";
+        #   config.allowUnfree = true;
+        # };
       };
       modules = [
         ./emerald.nix
@@ -35,10 +35,10 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
-        pkgs_stable = import nixpkgs_stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
+        # pkgs_stable = import nixpkgs_stable {
+        #   system = "x86_64-linux";
+        #   config.allowUnfree = true;
+        # };
       };
       modules = [
         ./ruby.nix
