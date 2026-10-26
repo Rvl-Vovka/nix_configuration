@@ -294,7 +294,7 @@ in
   };
 
   # Install vmware
-  virtualisation.vmware.host.enable = true;
+  # virtualisation.vmware.host.enable = true;
 
   nix = {
     gc = {
