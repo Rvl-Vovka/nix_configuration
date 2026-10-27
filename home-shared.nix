@@ -62,17 +62,20 @@
         vim-nix
         {
           plugin = (nvim-treesitter.withPlugins (p: [
-            p.tree-sitter-nix
-            p.tree-sitter-vim
             p.tree-sitter-bash
-            p.tree-sitter-lua
-            p.tree-sitter-python
-            p.tree-sitter-json
             p.tree-sitter-c
+            p.tree-sitter-css
+            p.tree-sitter-html
+            p.tree-sitter-javascript
+            p.tree-sitter-json
             p.tree-sitter-kitty
-            p.tree-sitter-powershell
+            p.tree-sitter-lua
             p.tree-sitter-markdown
             p.tree-sitter-markdown_inline
+            p.tree-sitter-nix
+            p.tree-sitter-powershell
+            p.tree-sitter-python
+            p.tree-sitter-vim
           ]));
           config = builtins.readFile ./configs/nvim/plugin/treesitter.lua;
           type = "lua";
