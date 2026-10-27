@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793023803,
-        "narHash": "sha256-+ujm+T/hYwyZC3PyTLg4t/vx+nQlsX6y7ecbbwFv9LQ=",
+        "lastModified": 1793111289,
+        "narHash": "sha256-qf6vAjVBx9aqB6HDvhY1ZQPxNQaQwDWuXuq+J30ewz0=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "35d10b98f21c57369e15de8910e605431a8ca4d6",
+        "rev": "4173298a755117e9ce8ac39ebffe84cc6941f3bc",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793033486,
-        "narHash": "sha256-fXVURa0+CSCgaxLt8tmPNJq2U+fGYOwbk5j2YUe7kSc=",
+        "lastModified": 1793124281,
+        "narHash": "sha256-KdGTOgYXgMDA/ymTV10yLMt9tOjz9EmTgnTvaD+bhe4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7db163b2aee7e410e396b48aed02f646d742b9b8",
+        "rev": "1e3ebeb683d055d1675d3f64e6d2b186cb2ee504",
         "type": "github"
       },
       "original": {
@@ -192,6 +192,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_stable": {
+      "locked": {
+        "lastModified": 1793015021,
+        "narHash": "sha256-Ee5BWo8sh3pGt70QUdRajnaginqFmWvrtdBc4gJzhks=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "718f670e845328e9c2cecdd832835712b2cbd065",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pixie-sddm": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -217,6 +233,7 @@
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs_stable": "nixpkgs_stable",
         "pixie-sddm": "pixie-sddm",
         "thorium": "thorium",
         "trid": "trid",
@@ -243,11 +260,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1793026674,
-        "narHash": "sha256-0Wj2DVrv/7p0xCvnfJq4Ks9816S/hiLquTLP+Nx8VH0=",
+        "lastModified": 1793101753,
+        "narHash": "sha256-DqLGw/nn19RxujbCESCcYyM0J31hvWIik9NIlfxyfB8=",
         "owner": "Rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "4d18d49a4928539fe93d52250217ee14361f2f9b",
+        "rev": "d346678c1814df4ef791b36b5892590b036539e3",
         "type": "github"
       },
       "original": {
