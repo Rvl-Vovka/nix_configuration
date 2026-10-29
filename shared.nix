@@ -167,7 +167,7 @@ in
       mpv
       nmap
       nudoku
-      pince
+      # pince
       piper-tts
       pipes-rs
       playerctl
