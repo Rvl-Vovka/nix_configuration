@@ -5,12 +5,13 @@
 { pkgs, inputs, ... }:
 
 let
-  floorp-private = pkgs.writeShellScriptBin "floorp-private" "exec ${pkgs.floorp-bin}/bin/floorp --private-window \"$@\"";
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   cowsay-more-cows = pkgs.cowsay.overrideAttrs (prev: { cows = ./configs/cowsay/cows; postInstall = prev.postInstall + "mkdir -p $out/share/cowsay/cows; cp $cows/* $out/share/cowsay/cows/"; });
+  floorp-private = pkgs.writeShellScriptBin "floorp-private" "exec ${pkgs.floorp-bin}/bin/floorp --private-window \"$@\"";
   handwrite = pkgs.callPackage ./fonts/fonts.nix {};
   kalgebra = pkgs.kdePackages.kalgebra;
   kcalc = pkgs.kdePackages.kcalc;
+  kolourpaint = pkgs.kdePackages.kolourpaint;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
   whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and should not be updated as often
@@ -161,6 +162,7 @@ in
       kcalc
       killall
       kitty
+      kolourpaint
       lolcat
       masterpdfeditor4
       mp3gain
