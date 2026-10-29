@@ -192,22 +192,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_stable": {
-      "locked": {
-        "lastModified": 1793183032,
-        "narHash": "sha256-56mFMf8heLNfYhcgbrh4GpN5x+G9JOfTFXZC3n6w0qM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "08d3a97586f6b6343b3b5e799980773629432610",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-26.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pixie-sddm": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -233,7 +217,6 @@
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs_stable": "nixpkgs_stable",
         "pixie-sddm": "pixie-sddm",
         "thorium": "thorium",
         "trid": "trid",

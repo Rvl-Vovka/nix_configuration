@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -18,13 +17,7 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.emerald = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        pkgs_stable = import inputs.nixpkgs_stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
+      specialArgs = { inherit inputs; };
       modules = [
         ./emerald.nix
         inputs.home-manager.nixosModules.default
@@ -33,13 +26,7 @@
     };
     nixosConfigurations.ruby = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        pkgs_stable = import inputs.nixpkgs_stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
+      specialArgs = { inherit inputs; };
       modules = [
         ./ruby.nix
         inputs.home-manager.nixosModules.default
