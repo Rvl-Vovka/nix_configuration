@@ -193,12 +193,14 @@
         # This must be defined for zsh-autosuggestions
         ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
+        autoload -Uz compinit
+        compinit
+
         man() { LESS_TERMCAP_mb="[1;36m" LESS_TERMCAP_md="[1;36m" LESS_TERMCAP_me="[0m" LESS_TERMCAP_se="[0m" LESS_TERMCAP_so="[0;1m" LESS_TERMCAP_ue="[0m" LESS_TERMCAP_us="[4;1;32m" LESS_TERMCAP_mr="[7m" LESS_TERMCAP_mh="[2m" LESS_TERMCAP_ZN="[74m" LESS_TERMCAP_ZV="[75m" LESS_TERMCAP_ZO="[73m" LESS_TERMCAP_ZW="[75m" GROFF_NO_SGR=1 $(which -p man) $@ } # [0m Make man pages colorful
 
         zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}" # colorful completion
         zstyle ':completion:*' menu select # show what is currently selected
         zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # makes completion case insensetive, preferring original case
-        zstyle ':completion:*:z:*' file-patterns '*(-/):directories' '*::dirs'
         zmodload zsh/complist
         bindkey "''${terminfo[kcbt]}" reverse-menu-complete
         bindkey -M menuselect "''${terminfo[kcbt]}" reverse-menu-complete
