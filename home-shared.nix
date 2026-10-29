@@ -198,6 +198,7 @@
         zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}" # colorful completion
         zstyle ':completion:*' menu select # show what is currently selected
         zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # makes completion case insensetive, preferring original case
+        zstyle ':completion:*:z:*' file-patterns '*(-/):directories' '*::dirs'
         zmodload zsh/complist
         bindkey "''${terminfo[kcbt]}" reverse-menu-complete
         bindkey -M menuselect "''${terminfo[kcbt]}" reverse-menu-complete
