@@ -46,8 +46,8 @@ in
       theme = "breeze";
       # themePackages = [ plymouthTheme ];
     };
-    consoleLogLevel = 3;
-    # kernelParams = [ "quiet" ];
+    # consoleLogLevel = 3;
+    kernelParams = [ "quiet" ];
   };
 
   home-manager = {
