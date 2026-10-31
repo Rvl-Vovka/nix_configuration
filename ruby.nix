@@ -68,14 +68,13 @@ in
       pixie-sddm
       qt6ct-kde
       rofi
-      skanlite
+      simple-scan
       swaybg
       waybar
       xwayland-satellite
     ];
     variables = {
       QT_QPA_PLATFORMTHEME = "qt6ct";
-      SANE_TIMEOUT = 90000000;
     };
     shellAliases = {
       confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
