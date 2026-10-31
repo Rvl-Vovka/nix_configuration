@@ -9,7 +9,6 @@ let
   dolphin = pkgs.kdePackages.dolphin;
   gwenview = pkgs.kdePackages.gwenview;
   pixie-sddm = inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm;
-  plymouthTheme = pkgs.callPackage ./programs/plymouth-theme.nix {};
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
 in
@@ -44,10 +43,9 @@ in
     plymouth = {
       enable = true;
       theme = "breeze";
-      # themePackages = [ plymouthTheme ];
     };
     consoleLogLevel = 3;
-    kernelParams = [ "quiet" ];
+    kernelParams = [ "quiet" "rd.systemd.show_status=auto" ];
   };
 
   home-manager = {
