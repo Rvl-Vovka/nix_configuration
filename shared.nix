@@ -212,23 +212,29 @@ in
     shellAliases = {
       # Format: "aliasName" = "command to run";
       cat = "bat";
+      ccd = "cd \"\${_%/*}\"";
       cd = "z";
       cdd = "cd /home/vlryz/Downloads";
       cdn = "cd /etc/nixos";
+      commas = "sed -e :a -e 's/\\(.*[0-9]\\)\\([0-9]\\{3\\}\\)/\\1,\\2/;ta'";
       copy = "wl-copy";
       cp = "cp -i";
+      diff = "diff --color=auto";
       dt = "date +'%A, %B %d %Y %H:%M:%S.%N'";
       ffmpeg = "ffmpeg -hide_banner";
       ffprobe = "ffprobe -hide_banner";
       grep = "grep --color=auto";
+      hl = "rg --passthru";
       l = "eza --icons --group-directories-first --short-nix -lhb";
       la = "eza --icons --group-directories-first --short-nix -ab";
       ll = "eza --icons --group-directories-first -lab";
       ls = "eza --icons --group-directories-first --short-nix";
       mv = "mv -i";
-      yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
       no = "curl -s https://naas.isalman.dev/no | cut -c 12- | rev | cut -c 3- | rev";
+      open = "xdg-open";
       paste = "wl-paste";
+      start = "xdg-open";
+      yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
     };
   };
 
