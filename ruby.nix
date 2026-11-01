@@ -72,13 +72,14 @@ in
       qt6ct-kde
       rofi
       simple-scan
-      udisks
       waybar
       xwayland-satellite
     ];
+
     variables = {
       QT_QPA_PLATFORMTHEME = "qt6ct";
     };
+
     shellAliases = {
       confsync = "bash ~/Important/scripts/confsync.sh"; # Script that enshures that local and cloud configurations are same
       parrot = "python ~/Important/scripts/parrot.py";
@@ -108,6 +109,9 @@ in
       };
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
+
+    udisks2.enable = true;
+
     # Enable the X11 windowing system
     # You can disable this if you're only using the Wayland session
     xserver.videoDrivers = [ "nvidia" ]; # Load nvidia driver for Xorg and Wayland
