@@ -68,7 +68,6 @@ in
       gwenview
       kid3-qt
       kio-admin
-      ntfs3g
       pixie-sddm
       qt6ct-kde
       rofi
@@ -117,6 +116,17 @@ in
     # You can disable this if you're only using the Wayland session
     xserver.videoDrivers = [ "nvidia" ]; # Load nvidia driver for Xorg and Wayland
   };
+
+  security.polkit = {
+    enable = true;
+    extraConfig = ''
+      polkit.addRule(function(action, subject) {
+        if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system" || action.id == "org.freedesktop.udisks2.filesystem-mount") && subject.isInGroup("wheel")) {
+          return polkit.Result.YES;
+        }
+      });
+    '';
+  }
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
