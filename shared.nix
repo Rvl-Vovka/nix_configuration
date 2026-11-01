@@ -180,8 +180,8 @@ in
       ripgrep
       rust-stakeholder
       sl
-      superfile
       strawberry
+      superfile
       tealdeer
       thorium
       toilet
@@ -189,6 +189,7 @@ in
       unar
       units
       unzip
+      upscayl
       wget
       whisper-cpp-cuda
       wl-clipboard
