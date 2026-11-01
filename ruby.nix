@@ -68,6 +68,7 @@ in
       gwenview
       kid3-qt
       kio-admin
+      ntfs3g
       pixie-sddm
       qt6ct-kde
       rofi
