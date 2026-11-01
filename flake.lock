@@ -272,8 +272,8 @@
     "triddefs": {
       "flake": false,
       "locked": {
-        "lastModified": 1793356378,
-        "narHash": "sha256-LbU/9uCjwe4hGhHlp9jGsSsIqiqkBpw7aat/aPV7/0A=",
+        "lastModified": 1793545894,
+        "narHash": "sha256-vjjKKAVRVwL6nHAak+S8N53MqLHPFhXNIJ3PqcQ1tgM=",
         "type": "tarball",
         "url": "http://mark0.net/download/triddefs.zip"
       },

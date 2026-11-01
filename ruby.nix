@@ -72,6 +72,7 @@ in
       qt6ct-kde
       rofi
       simple-scan
+      udisks
       waybar
       xwayland-satellite
     ];
