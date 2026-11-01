@@ -61,6 +61,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      awww
       breeze
       dolphin
       gwenview
@@ -69,7 +70,6 @@ in
       qt6ct-kde
       rofi
       simple-scan
-      swaybg
       waybar
       xwayland-satellite
     ];
