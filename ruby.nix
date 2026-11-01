@@ -8,6 +8,7 @@ let
   breeze = pkgs.kdePackages.breeze;
   dolphin = pkgs.kdePackages.dolphin;
   gwenview = pkgs.kdePackages.gwenview;
+  kio-admin = pkgs.kdePackages.kio-admin;
   pixie-sddm = inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm;
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
@@ -66,6 +67,7 @@ in
       dolphin
       gwenview
       kid3-qt
+      kio-admin
       pixie-sddm
       qt6ct-kde
       rofi
