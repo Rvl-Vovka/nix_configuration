@@ -121,7 +121,12 @@ in
     enable = true;
     extraConfig = ''
       polkit.addRule(function(action, subject) {
-        if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system" || action.id == "org.freedesktop.udisks2.filesystem-mount") && subject.isInGroup("wheel")) {
+        if (subject.isInGroup("wheel") && ["org.freedesktop.udisks2.filesystem-mount-system","org.freedesktop.udisks2.filesystem-mount"].indexOf(action.id) !== -1) {
+          return polkit.Result.YES;
+        }
+      });
+      polkit.addRule(function(action, subject) {
+        if (subject.isInGroup("wheel") && ["org.freedesktop.login1.reboot","org.freedesktop.login1.power-off"].indexOf(action.id) !== -1) {
           return polkit.Result.YES;
         }
       });
