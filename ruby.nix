@@ -45,7 +45,7 @@ in
       enable = true;
       theme = "breeze";
     };
-    consoleLogLevel = 3;
+    consoleLogLevel = 2;
     kernelParams = [ "quiet" ];
   };
 
