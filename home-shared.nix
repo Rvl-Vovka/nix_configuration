@@ -14,6 +14,13 @@
     # release notes.
     stateVersion = "26.05"; # Please read the comment before changing.
     enableNixpkgsReleaseCheck = false;
+
+    file = {
+      ".config/powershell/Microsoft.PowerShell_profile.ps1".source = ./configs/powershell/Microsoft.PowerShell_profile.ps1;
+      ".config/fastfetch".source = ./configs/fastfetch;
+      ".config/bc/bcrc".source = ./configs/bcrc;
+      ".wgetrc".source = ./configs/wgetrc;
+    };
   };
 
   programs = {
@@ -247,11 +254,4 @@
       '';
       };
     };
-
-  xdg.configFile = {
-    "powershell/Microsoft.PowerShell_profile.ps1".source = ./configs/powershell/Microsoft.PowerShell_profile.ps1;
-    "fastfetch".source = ./configs/fastfetch;
-    "bc/bcrc".source = ./configs/bcrc;
-    "wget/wget2rc".source = ./configs/wgetrc;
-  };
 }

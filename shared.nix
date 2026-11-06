@@ -190,7 +190,7 @@ in
       units
       unzip
       upscayl
-      wget2
+      wget
       whisper-cpp-cuda
       wl-clipboard
       wpsoffice-cn
@@ -236,7 +236,6 @@ in
       open = "xdg-open";
       paste = "wl-paste";
       start = "xdg-open";
-      wget = "wget2";
       yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
     };
   };
