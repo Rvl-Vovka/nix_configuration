@@ -190,7 +190,7 @@ in
       units
       unzip
       upscayl
-      wget
+      wget2
       whisper-cpp-cuda
       wl-clipboard
       wpsoffice-cn
@@ -212,6 +212,7 @@ in
 
     shellAliases = {
       # Format: "aliasName" = "command to run";
+      bc = "bc ~/.config/bc/bcrc -l";
       cat = "bat";
       ccd = "cd \"\${_%/*}\"";
       cd = "z";
@@ -235,6 +236,7 @@ in
       open = "xdg-open";
       paste = "wl-paste";
       start = "xdg-open";
+      wget = "wget2";
       yt-dlp = "noglob yt-dlp"; # disables expanding ? in urls
     };
   };

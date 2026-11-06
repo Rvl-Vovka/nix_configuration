@@ -251,5 +251,7 @@
   xdg.configFile = {
     "powershell/Microsoft.PowerShell_profile.ps1".source = ./configs/powershell/Microsoft.PowerShell_profile.ps1;
     "fastfetch".source = ./configs/fastfetch;
+    "bc/bcrc".source = ./configs/bcrc;
+    "wget/wget2rc".source = ./configs/wgetrc;
   };
 }
