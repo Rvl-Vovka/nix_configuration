@@ -18,22 +18,32 @@ vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
 
+vim.o.undofile = true
+
+vim.o.wrap = false
+
+vim.o.scrolloff = 4
+
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         vim.opt.formatoptions:remove({ "c", "r", "o" })
     end,
 })
 
-vim.keymap.set("n", "<Up>", "gk", { noremap = true, silent = true })
-vim.keymap.set("n", "<Down>", "gj", { noremap = true, silent = true })
-vim.keymap.set("v", "<Up>", "gk", { noremap = true, silent = true })
-vim.keymap.set("v", "<Down>", "gj", { noremap = true, silent = true })
-vim.keymap.set("i", "<Up>", "<C-o>gk", { noremap = true, silent = true })
-vim.keymap.set("i", "<Down>", "<C-o>gj", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<Up>", "gk", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<Down>", "gj", { noremap = true, silent = true })
+-- vim.keymap.set("v", "<Up>", "gk", { noremap = true, silent = true })
+-- vim.keymap.set("v", "<Down>", "gj", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<Up>", "<C-o>gk", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<Down>", "<C-o>gj", { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
-vim.opt.undofile = true
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    desc = 'remove trailing spaces',
+    command = '%s/\\v( +)$//e | norm! ``'
+})

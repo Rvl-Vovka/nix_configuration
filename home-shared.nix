@@ -239,6 +239,11 @@
         # Format prompt similar to agnoster theme (not using real theme because I only care about this small part)
         PROMPT='%K{black}%(?.. %F{red}✘%f)%(!. ⚡.)%(1j. %F{cyan}⚙%f.)%(!.%F{yellow}.) %n@%m %F{black}%K{blue} %~ %F{blue}%k%f '
 
+        _precmd_title(){print -Pn "\e]0;[zsh] %n@%m: %~\a"}
+        _preexec_title(){print -Pn "\e]0;[zsh] %n@%m: %~ — $2\a"}
+
+        add-zsh-hook precmd _precmd_title
+        add-zsh-hook preexec _preexec_title
       '';
       };
     };
