@@ -309,7 +309,7 @@ in
   virtualisation = {
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
-  }
+  };
 
   nix = {
     gc = {
