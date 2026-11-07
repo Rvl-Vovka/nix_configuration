@@ -38,7 +38,8 @@ in
     };
 
     # Use custom cachyos kernel
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3; # Can't use lto version because it is compiled with clang instead of gcc and vmware kernel modules are not compatable with clang
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+    kernelModules = [ "kvm-amd" "kvm-intel" ];
     kernel.sysctl = {
       "kernel.yama.ptrace_scope" = 0; # Needed for PINCE
     };
@@ -190,6 +191,7 @@ in
       units
       unzip
       upscayl
+      virt-manager
       wget
       whisper-cpp-cuda
       wl-clipboard
@@ -303,8 +305,8 @@ in
     };
   };
 
-  # Install vmware
-  # virtualisation.vmware.host.enable = true;
+  # Install kvm
+  virtualisation.libvirtd.enable = true;
 
   nix = {
     gc = {
