@@ -119,6 +119,7 @@ in
       ];
     };
     tmux.enable = true;
+    virt-manager.enable = true;
     ydotool.enable = true;
     zoxide.enable = true;
     zsh.enable = true;
@@ -191,7 +192,6 @@ in
       units
       unzip
       upscayl
-      virt-manager
       wget
       whisper-cpp-cuda
       wl-clipboard
