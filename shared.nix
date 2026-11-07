@@ -38,14 +38,11 @@ in
     };
 
     # Use custom cachyos kernel
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3; # Can't use lto version because it is compiled with clang instead of gcc and vmware kernel modules are not compatable with clang
+    kernelPackages = pkgs.linuxPackages;
+    # kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3; # Can't use lto version because it is compiled with clang instead of gcc and vmware kernel modules are not compatable with clang
     kernel.sysctl = {
       "kernel.yama.ptrace_scope" = 0; # Needed for PINCE
     };
-    blacklistedKernelModules = [
-      "vmmon"
-      "vmnet"
-    ];
   };
 
   hardware = {
