@@ -169,7 +169,7 @@ in
       mpv
       nmap
       nudoku
-      # pince
+      pince
       piper-tts
       pipes-rs
       playerctl
@@ -304,7 +304,7 @@ in
   };
 
   # Install vmware
-  virtualisation.vmware.host.enable = true;
+  # virtualisation.vmware.host.enable = true;
 
   nix = {
     gc = {
