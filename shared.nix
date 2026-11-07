@@ -42,6 +42,10 @@ in
     kernel.sysctl = {
       "kernel.yama.ptrace_scope" = 0; # Needed for PINCE
     };
+    blacklistedKernelModules = [
+      "vmmon"
+      "vmnet"
+    ];
   };
 
   hardware = {
