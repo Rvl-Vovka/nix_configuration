@@ -45,5 +45,5 @@ vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = '*',
     desc = 'remove trailing spaces',
-    command = '%s/\\v( +)$//e | norm! ``'
+    command = '%s/\\v( +)$//e'
 })
