@@ -4,6 +4,10 @@
 
 { pkgs, inputs, ... }:
 
+let
+  krfb = pkgs.kdePackages.krfb;
+in
+
 {
   imports = [
     ./hardware-emerald.nix # Include the results of the hardware scan
@@ -61,6 +65,7 @@
       asusctl
       kdotool
       kid3-kde
+      krfb
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       ark
