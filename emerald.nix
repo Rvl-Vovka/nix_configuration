@@ -4,6 +4,10 @@
 
 { pkgs, inputs, ... }:
 
+let
+  uscreen = pkgs.callPackage ./programs/uscreen.nix { inherit inputs; };
+in
+
 {
   imports = [
     ./hardware-emerald.nix # Include the results of the hardware scan
@@ -59,6 +63,7 @@
   environment = {
     systemPackages = with pkgs; [
       asusctl
+      uscreen
       kdotool
       kid3-kde
     ];
@@ -80,6 +85,7 @@
       rr = "python ~/.rr.py";
     };
   };
+
   # List services that you want to enable:
   services = {
     # Enable the KDE Plasma Desktop Environment
@@ -90,8 +96,9 @@
       plasma-login-manager.enable = true;
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
-    # Enable the X11 windowing system
-    # You can disable this if you're only using the Wayland session
+
+    displaylink.enable = true;
+
     xserver.videoDrivers = [ "nvidia" "amdgpu" ]; # Load nvidia driver for Xorg and Wayland
   };
 

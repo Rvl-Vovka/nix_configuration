@@ -112,8 +112,6 @@ in
 
     udisks2.enable = true;
 
-    # Enable the X11 windowing system
-    # You can disable this if you're only using the Wayland session
     xserver.videoDrivers = [ "nvidia" ]; # Load nvidia driver for Xorg and Wayland
   };
 

@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus' -- enable system clipboard integration
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -22,7 +22,9 @@ vim.o.undofile = true
 
 vim.o.wrap = false
 
-vim.o.scrolloff = 4
+vim.o.scrolloff = 4     -- 4 lines of text before/after cursor when scrolling
+vim.o.sidescrolloff = 8 -- 8 collumns of text to the left/right of cursor when scrolling
+vim.o.sidescroll = 1
 
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
