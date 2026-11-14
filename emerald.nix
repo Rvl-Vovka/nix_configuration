@@ -97,8 +97,6 @@ in
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
 
-    displaylink.enable = true;
-
     xserver.videoDrivers = [ "nvidia" "amdgpu" ]; # Load nvidia driver for Xorg and Wayland
   };
 
