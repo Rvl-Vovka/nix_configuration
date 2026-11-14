@@ -92,7 +92,10 @@
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
 
-    sunshine.enable = true;
+    sunshine = {
+      enable = true;
+      openFirewall = true;
+    };
 
     xserver.videoDrivers = [ "nvidia" "amdgpu" ]; # Load nvidia driver for Xorg and Wayland
   };
