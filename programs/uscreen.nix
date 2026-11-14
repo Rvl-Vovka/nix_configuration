@@ -11,7 +11,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = with pkgs; [
     android-tools
-    displaylink
     ffmpeg
   ];
 

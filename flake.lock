@@ -286,7 +286,7 @@
     "uscreen": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-sNtQD2JvO69DKacXEWRm9U219viKll5FrE1GxqOxzLw=",
+        "narHash": "sha256-Z/CtsdDEwe2MgDBSo1NgR44plvrincH2YTw4EhPs6uU=",
         "type": "file",
         "url": "https://github.com/majmichu1/UScreen"
       },
