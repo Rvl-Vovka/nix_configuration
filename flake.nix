@@ -11,7 +11,7 @@
     thorium.url = "github:Rishabh5321/custom-packages-flake";
     trid = { url = "https://mark0.net/download/trid.zip"; flake = false; };
     triddefs = { url = "http://mark0.net/download/triddefs.zip"; flake = false; };
-    uscreen = { url = "https://github.com/majmichu1/UScreen"; flake = false; };
+    uscreen = { url = "github:majmichu1/UScreen"; flake = false; };
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
   };
 

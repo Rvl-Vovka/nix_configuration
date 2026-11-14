@@ -286,13 +286,17 @@
     "uscreen": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Z/CtsdDEwe2MgDBSo1NgR44plvrincH2YTw4EhPs6uU=",
-        "type": "file",
-        "url": "https://github.com/majmichu1/UScreen"
+        "lastModified": 1794602264,
+        "narHash": "sha256-BQhPc46PntmpzKtortWpmlfQSqfdLIlaG1zcb0UuJ7Q=",
+        "owner": "majmichu1",
+        "repo": "UScreen",
+        "rev": "73e4083aedc63caf7becb280fc76023af573d1f8",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "https://github.com/majmichu1/UScreen"
+        "owner": "majmichu1",
+        "repo": "UScreen",
+        "type": "github"
       }
     }
   },
