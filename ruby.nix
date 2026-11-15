@@ -110,7 +110,7 @@ in
       autoLogin.user = "vlryz"; # Disable prompting for password on boot
     };
 
-    services.keyd.enable = true;
+    keyd.enable = true;
 
     udisks2.enable = true;
 

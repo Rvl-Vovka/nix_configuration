@@ -100,6 +100,7 @@ in
     sunshine = {
       enable = true;
       openFirewall = true;
+      autoStart = false;
     };
 
     xserver.videoDrivers = [ "nvidia" "amdgpu" ]; # Load nvidia driver for Xorg and Wayland
