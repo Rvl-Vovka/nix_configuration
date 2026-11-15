@@ -66,6 +66,7 @@ in
       kdotool
       kid3-kde
       krfb
+      python315
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       ark

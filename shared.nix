@@ -177,7 +177,6 @@ in
       playerctl
       powershell
       pv
-      python315
       qbittorrent
       ripgrep
       rust-stakeholder
