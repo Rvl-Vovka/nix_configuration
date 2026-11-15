@@ -6,10 +6,12 @@
 
 let
   breeze = pkgs.kdePackages.breeze;
+  dbus-python = pkgs.python314Packages.dbus-python;
   dolphin = pkgs.kdePackages.dolphin;
   gwenview = pkgs.kdePackages.gwenview;
-  kio-admin = pkgs.kdePackages.kio-admin;
+  # kio-admin = pkgs.kdePackages.kio-admin;
   pixie-sddm = inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm;
+  pygobject3 = pkgs.python314Packages.pygobject3;
   qt6ct-kde = (pkgs.kdePackages.qt6ct.overrideAttrs (oldAttrs: { patches = (oldAttrs.patches or [ ]) ++ [ ./programs/qt6ct-kde/qt6ct-kde.patch ]; name = "qt6ct-kde";}));
   skanlite = pkgs.kdePackages.skanlite;
 in
@@ -64,11 +66,15 @@ in
     systemPackages = with pkgs; [
       awww
       breeze
+      cliphist
+      dbus-python
       dolphin
+      eww
       gwenview
       kid3-qt
-      kio-admin
+      # kio-admin
       pixie-sddm
+      pygobject3
       qt6ct-kde
       rofi
       simple-scan
