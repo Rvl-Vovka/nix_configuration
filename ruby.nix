@@ -73,6 +73,7 @@ in
       gwenview
       kid3-qt
       pixie-sddm
+      python
       qt6ct-kde
       rofi
       simple-scan
