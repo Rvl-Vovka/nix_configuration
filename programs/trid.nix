@@ -24,5 +24,7 @@ stdenv.mkDerivation rec {
 
     # files in bin folder are in system PATH, data folder is needed to store definitions and cache so they don't appear in my system PATH
     ln -s $out/data/trid.py $out/bin/trid
+
+    chmod 555 $out/data/trid.py
   '';
 }
