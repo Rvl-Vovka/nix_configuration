@@ -20,6 +20,8 @@ vim.o.mouse = 'a'
 
 vim.o.undofile = true
 
+vim.o.wrap = false
+
 vim.o.scrolloff = 4     -- 4 lines of text before/after cursor when scrolling
 vim.o.sidescrolloff = 8 -- 8 collumns of text to the left/right of cursor when scrolling
 vim.o.sidescroll = 1
