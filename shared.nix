@@ -155,6 +155,7 @@ in
       fd
       ffmpeg-full
       figlet
+      firecrawl-mcp
       floorp-bin
       fortune
       fzf

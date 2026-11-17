@@ -20,8 +20,6 @@ vim.o.mouse = 'a'
 
 vim.o.undofile = true
 
-vim.o.wrap = false
-
 vim.o.scrolloff = 4     -- 4 lines of text before/after cursor when scrolling
 vim.o.sidescrolloff = 8 -- 8 collumns of text to the left/right of cursor when scrolling
 vim.o.sidescroll = 1
@@ -32,12 +30,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
--- vim.keymap.set("n", "<Up>", "gk", { noremap = true, silent = true })
--- vim.keymap.set("n", "<Down>", "gj", { noremap = true, silent = true })
--- vim.keymap.set("v", "<Up>", "gk", { noremap = true, silent = true })
--- vim.keymap.set("v", "<Down>", "gj", { noremap = true, silent = true })
--- vim.keymap.set("i", "<Up>", "<C-o>gk", { noremap = true, silent = true })
--- vim.keymap.set("i", "<Down>", "<C-o>gj", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Down>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("v", "<S-Down>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("i", "<S-Down>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Up>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set("v", "<S-Up>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set("i", "<S-Up>", "<Up>", { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})

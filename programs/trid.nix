@@ -10,8 +10,7 @@ stdenv.mkDerivation rec {
   ];
 
   installPhase = ''
-    mkdir -p $out/bin
-    mkdir -p $out/data
+    mkdir -p $out/{bin,data}
 
     cp $src/trid.py $out/data/trid.py
     cp $triddefs/triddefs.trd $out/data/triddefs.trd
