@@ -86,7 +86,9 @@
             p.tree-sitter-powershell
             p.tree-sitter-python
             p.tree-sitter-regex
+            p.tree-sitter-scss
             p.tree-sitter-vim
+            p.tree-sitter-yuck
           ]));
           config = builtins.readFile ./configs/nvim/plugin/treesitter.lua;
           type = "lua";
