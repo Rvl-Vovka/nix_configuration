@@ -5,6 +5,7 @@
 { pkgs, inputs, ... }:
 
 let
+  # whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build, will install when I need to
   bottles-native = (pkgs.bottles.override{removeWarningPopup = true;});
   cowsay-more-cows = pkgs.cowsay.overrideAttrs (prev: { cows = ./configs/cowsay/cows; postInstall = prev.postInstall + "mkdir -p $out/share/cowsay/cows; cp $cows/* $out/share/cowsay/cows/"; });
   floorp-private = pkgs.writeShellScriptBin "floorp-private" "exec ${pkgs.floorp-bin}/bin/floorp --private-window \"$@\"";
@@ -14,7 +15,6 @@ let
   kolourpaint = pkgs.kdePackages.kolourpaint;
   thorium = inputs.thorium.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2;
   trid = pkgs.callPackage ./programs/trid.nix { inherit inputs; };
-  whisper-cpp-cuda = (pkgs.whisper-cpp.override{cudaSupport = true;}); # takes ~2 hours to build and should not be updated as often
   xxd = pkgs.unixtools.xxd;
 in
 
@@ -136,6 +136,8 @@ in
   environment = {
     # Install programs that don't need additional configuration (just binaries)
     systemPackages = with pkgs; [
+      # ollama-cuda
+      # whisper-cpp-cuda
       alsa-utils
       android-tools
       antigravity-cli
@@ -178,6 +180,7 @@ in
       powershell
       pv
       qbittorrent
+      qwen-code
       ripgrep
       rust-stakeholder
       sl
@@ -190,9 +193,7 @@ in
       unar
       units
       unzip
-      upscayl
       wget
-      whisper-cpp-cuda
       wl-clipboard
       wpsoffice-cn
       xxd
